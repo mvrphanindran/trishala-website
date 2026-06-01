@@ -6,9 +6,6 @@ import { useState } from "react";
 import AboutUsDropdown, {
   AboutUsMobileAccordion,
 } from "@/sections/home/AboutUsDropdown";
-import QualityDropdown, {
-  QualityMobileAccordion,
-} from "@/sections/home/QualityDropdown";
 import InfrastructureDropdown, {
   InfrastructureMobileAccordion,
 } from "@/sections/home/InfrastructureDropdown";
@@ -23,7 +20,10 @@ import { v1 } from "@/lib/v1-tokens";
 const PACKAGING_SOLUTIONS_LABEL = "Packaging Solutions";
 const INDUSTRIES_LABEL = "Industries";
 
-const navigation = [{ label: "Contact", href: "/contact" }] as const;
+const navigation = [
+  { label: "Quality", href: "/quality" },
+  { label: "Contact", href: "/contact" },
+] as const;
 
 export default function HomeNavbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -39,13 +39,13 @@ export default function HomeNavbar() {
       <div className="mx-auto grid h-[72px] max-w-[1600px] grid-cols-[minmax(140px,1fr)_auto_minmax(140px,1fr)] items-center gap-4 px-6 lg:h-[80px] lg:px-10">
         <Link
           href="/"
-          className="relative block h-10 w-36 justify-self-start lg:h-11 lg:w-40"
+          className="relative block h-[52px] w-[11.75rem] justify-self-start lg:h-14 lg:w-[13.25rem]"
         >
           <Image
             src="/images/logo/trishala-logo-v2.png"
             alt="Trishala Laminates"
             fill
-            sizes="160px"
+            sizes="(max-width: 1024px) 188px, 212px"
             className="object-contain object-left"
             priority
           />
@@ -59,7 +59,6 @@ export default function HomeNavbar() {
           <IndustriesMegaMenu />
           <InfrastructureDropdown />
           <AboutUsDropdown />
-          <QualityDropdown />
           {navigation.map((item) => (
             <Link
               key={item.label}
@@ -144,9 +143,6 @@ export default function HomeNavbar() {
             </li>
             <li>
               <AboutUsMobileAccordion />
-            </li>
-            <li>
-              <QualityMobileAccordion />
             </li>
             {navigation.map((item) => (
               <li key={item.label}>

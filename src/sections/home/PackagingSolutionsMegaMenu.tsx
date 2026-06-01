@@ -226,15 +226,6 @@ export default function PackagingSolutionsMegaMenu() {
           <div className="mx-auto max-w-[1600px]">
             <CatalogueColumns />
           </div>
-
-          <div className="mx-auto max-w-[1600px] px-12 py-5 lg:px-16">
-            <p
-              className="text-[11px] font-bold uppercase tracking-[0.28em]"
-              style={{ color: v1.ink.muted }}
-            >
-              Flexible Packaging Expertise
-            </p>
-          </div>
         </div>
       </div>
     </div>

@@ -12,33 +12,40 @@ const links = [
 
 export default function SiteFooter() {
   return (
-    <footer className="px-5 py-20 md:px-8 md:py-28" style={{ background: v1.ivory.deep }}>
+    <footer className="px-5 py-10 md:px-8 md:py-12" style={{ background: v1.ivory.deep }}>
       <div className="mx-auto max-w-[1380px]">
         <div
-          className="mb-16 h-px w-full"
+          className="mb-6 h-px w-full md:mb-8"
           style={{ background: v1.silver.gradient, opacity: 0.55 }}
         />
 
-        <div className="flex flex-col justify-between gap-12 md:flex-row md:items-end">
-          <div>
-            <Link href="/" className="relative block h-10 w-36 md:h-11 md:w-40">
+        <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between lg:gap-8">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-8 lg:gap-10">
+            <Link
+              href="/"
+              className="relative block h-[52px] w-[11.75rem] shrink-0 md:h-14 md:w-[13.25rem]"
+            >
               <Image
                 src="/images/logo/trishala-logo-v2.png"
                 alt="Trishala Laminates"
                 fill
-                sizes="160px"
+                sizes="(max-width: 768px) 188px, 212px"
                 className="object-contain object-left"
               />
             </Link>
+
             <p
-              className="mt-4 max-w-sm text-sm leading-relaxed"
+              className="max-w-xs text-sm leading-snug"
               style={{ color: v1.ink.muted }}
             >
               Premium flexible packaging partner.
             </p>
           </div>
 
-          <nav className="flex flex-wrap gap-x-10 gap-y-3" aria-label="Footer">
+          <nav
+            className="flex flex-wrap items-center gap-x-8 gap-y-2"
+            aria-label="Footer"
+          >
             {links.map((link) => (
               <Link
                 key={link.href}
@@ -50,12 +57,10 @@ export default function SiteFooter() {
               </Link>
             ))}
           </nav>
-        </div>
 
-        <div className="mt-16 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
           <Link
             href="/contact"
-            className="inline-flex w-fit rounded-full px-8 py-3.5 text-sm font-bold text-white"
+            className="inline-flex w-fit shrink-0 rounded-full px-7 py-2.5 text-sm font-bold text-white"
             style={{
               background: v1.green.primary,
               boxShadow: "0 8px 22px rgba(0, 177, 64, 0.16)",
@@ -63,10 +68,14 @@ export default function SiteFooter() {
           >
             Request Packaging Consultation
           </Link>
-          <p className="text-xs" style={{ color: v1.ink.muted }}>
-            © {new Date().getFullYear()} Trishala Laminates
-          </p>
         </div>
+
+        <p
+          className="mt-6 border-t pt-5 text-xs md:mt-7 md:pt-6"
+          style={{ color: v1.ink.muted, borderColor: v1.silver.hairline }}
+        >
+          © {new Date().getFullYear()} Trishala Laminates
+        </p>
       </div>
     </footer>
   );

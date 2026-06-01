@@ -1,25 +1,25 @@
 "use client";
 
+import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
-import MenuPreviewItem from "@/sections/home/MenuPreviewItem";
+import { aboutHref, aboutUsNavigation } from "@/lib/about-navigation";
 import { v1 } from "@/lib/v1-tokens";
-
-export const aboutUsNavigation = [
-  "About Trishala",
-  "Our Journey",
-  "Promoters",
-  "Brochure",
-  "Gallery",
-  "Our Esteemed Clients",
-  "Careers",
-] as const;
 
 const panelTransition =
   "transition-[max-height,opacity,transform] duration-[350ms] ease-[cubic-bezier(0.22,1,0.36,1)]";
 
 const CLOSE_DELAY_MS = 300;
 
-function AboutList({ compact = false }: { compact?: boolean }) {
+const linkRowClass =
+  "block w-full text-left transition-colors hover:text-[#00B140] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2";
+
+function AboutList({
+  compact = false,
+  onNavigate,
+}: {
+  compact?: boolean;
+  onNavigate?: () => void;
+}) {
   return (
     <ul role="list" className={compact ? "space-y-0" : "py-1"}>
       {aboutUsNavigation.map((item, index) => {
@@ -27,7 +27,7 @@ function AboutList({ compact = false }: { compact?: boolean }) {
 
         return (
           <li
-            key={item}
+            key={item.href}
             style={{
               borderBottom:
                 index < aboutUsNavigation.length - 1
@@ -35,16 +35,18 @@ function AboutList({ compact = false }: { compact?: boolean }) {
                   : undefined,
             }}
           >
-            <MenuPreviewItem
-              muted={!isLead}
-              className={
+            <Link
+              href={item.href}
+              className={`${linkRowClass} ${
                 compact
                   ? `py-2.5 text-sm ${isLead ? "font-semibold" : "font-medium"}`
                   : `px-5 py-3.5 text-[14px] hover:bg-[#F5F1EA] ${isLead ? "font-semibold" : "font-medium"}`
-              }
+              }`}
+              style={{ color: isLead ? v1.ink.navy : v1.ink.body, outlineColor: v1.green.primary }}
+              onClick={onNavigate}
             >
-              {item}
-            </MenuPreviewItem>
+              {item.label}
+            </Link>
           </li>
         );
       })}
@@ -55,32 +57,46 @@ function AboutList({ compact = false }: { compact?: boolean }) {
 export function AboutUsMobileAccordion() {
   const [expanded, setExpanded] = useState(false);
 
+  const closeAll = useCallback(() => {
+    setExpanded(false);
+  }, []);
+
   return (
     <div className="mb-2">
-      <button
-        type="button"
-        className="flex w-full cursor-pointer items-center justify-between py-2.5 text-left text-[15px] font-medium transition-colors hover:text-[#00B140]"
-        style={{ color: expanded ? v1.green.primary : v1.ink.navy }}
-        aria-expanded={expanded}
-        onClick={() => setExpanded((value) => !value)}
-      >
-        About Us
-        <svg
-          width="10"
-          height="10"
-          viewBox="0 0 12 12"
-          fill="none"
-          className={`transition-transform duration-300 ${expanded ? "rotate-180" : ""}`}
-          aria-hidden
+      <div className="flex items-center justify-between gap-2">
+        <Link
+          href={aboutHref}
+          className="py-2.5 text-[15px] font-medium transition-colors hover:text-[#00B140]"
+          style={{ color: v1.ink.navy }}
+          onClick={closeAll}
         >
-          <path
-            d="M2.5 4.5L6 8l3.5-3.5"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-          />
-        </svg>
-      </button>
+          About Us
+        </Link>
+        <button
+          type="button"
+          className="flex h-10 w-10 shrink-0 items-center justify-center"
+          style={{ color: expanded ? v1.green.primary : v1.ink.navy }}
+          aria-expanded={expanded}
+          aria-label={expanded ? "Collapse About Us menu" : "Expand About Us menu"}
+          onClick={() => setExpanded((value) => !value)}
+        >
+          <svg
+            width="10"
+            height="10"
+            viewBox="0 0 12 12"
+            fill="none"
+            className={`transition-transform duration-300 ${expanded ? "rotate-180" : ""}`}
+            aria-hidden
+          >
+            <path
+              d="M2.5 4.5L6 8l3.5-3.5"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+            />
+          </svg>
+        </button>
+      </div>
 
       <div
         className={`overflow-hidden ${panelTransition}`}
@@ -94,7 +110,7 @@ export function AboutUsMobileAccordion() {
           className="ml-3 mt-1 border-l pl-3"
           style={{ borderColor: v1.silver.hairline }}
         >
-          <AboutList compact />
+          <AboutList compact onNavigate={closeAll} />
         </div>
       </div>
     </div>
@@ -189,31 +205,41 @@ export default function AboutUsDropdown() {
       onMouseEnter={handlePointerEnter}
       onMouseLeave={handlePointerLeave}
     >
-      <button
-        type="button"
-        className="flex items-center gap-1.5 py-2 text-[15px] font-medium tracking-tight transition-colors hover:text-[#00B140]"
-        style={{ color: open ? v1.green.primary : v1.ink.navy }}
-        aria-expanded={open}
-        aria-haspopup="true"
-        onClick={handleTriggerClick}
-      >
-        About Us
-        <svg
-          width="10"
-          height="10"
-          viewBox="0 0 12 12"
-          fill="none"
-          className={`mt-px transition-transform duration-300 ${open ? "rotate-180" : ""}`}
-          aria-hidden
+      <div className="flex items-center gap-1">
+        <Link
+          href={aboutHref}
+          className="py-2 text-[15px] font-medium tracking-tight transition-colors hover:text-[#00B140]"
+          style={{ color: open ? v1.green.primary : v1.ink.navy }}
+          onClick={close}
         >
-          <path
-            d="M2.5 4.5L6 8l3.5-3.5"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-          />
-        </svg>
-      </button>
+          About Us
+        </Link>
+        <button
+          type="button"
+          className="flex items-center gap-0.5 py-2 transition-colors hover:text-[#00B140]"
+          style={{ color: open ? v1.green.primary : v1.ink.navy }}
+          aria-expanded={open}
+          aria-haspopup="true"
+          aria-label="Toggle About Us menu"
+          onClick={handleTriggerClick}
+        >
+          <svg
+            width="10"
+            height="10"
+            viewBox="0 0 12 12"
+            fill="none"
+            className={`mt-px transition-transform duration-300 ${open ? "rotate-180" : ""}`}
+            aria-hidden
+          >
+            <path
+              d="M2.5 4.5L6 8l3.5-3.5"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+            />
+          </svg>
+        </button>
+      </div>
 
       <div
         className="absolute left-1/2 top-full z-50 w-[min(100vw-2rem,22rem)] -translate-x-1/2 pt-2"
@@ -237,7 +263,7 @@ export default function AboutUsDropdown() {
             className="h-px w-full"
             style={{ background: v1.silver.gradient, opacity: 0.55 }}
           />
-          <AboutList />
+          <AboutList onNavigate={close} />
         </div>
       </div>
     </div>

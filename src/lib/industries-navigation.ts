@@ -27,13 +27,12 @@ export const industriesNavigation: readonly IndustryCategory[] = [
     slug: "fmcg",
     segments: [
       segment("Food & Beverages"),
-      segment("Dairy Products"),
-      segment("Beverages"),
-      segment("Cooking Essentials"),
+      segment("Personal Care"),
+      segment("Household & Cleaning Products"),
     ],
   },
   {
-    label: "Agriculture",
+    label: "Agriculture Products",
     slug: "agriculture",
     segments: [
       segment("Fertilizers"),
@@ -54,6 +53,7 @@ export const industriesNavigation: readonly IndustryCategory[] = [
       segment("Popcorn"),
       segment("Corn Puffs"),
       segment("Trail Mixes"),
+      segment("Roasted Snacks"),
     ],
   },
   {
@@ -66,6 +66,7 @@ export const industriesNavigation: readonly IndustryCategory[] = [
       segment("Cumin Powder"),
       segment("Garam Masala"),
       segment("Pepper"),
+      segment("Mixed Seasonings"),
     ],
   },
   {
@@ -93,19 +94,25 @@ export const industriesNavigation: readonly IndustryCategory[] = [
   {
     label: "Personal Care",
     slug: "personal-care",
-    segments: [
-      segment("Hair Care"),
-      segment("Skin & Body Care"),
-    ],
+    segments: [segment("Hair Care"), segment("Skin & Body Care")],
   },
   {
-    label: "Household & Cleaning",
+    label: "Household & Cleaning Products",
     slug: "household-and-cleaning",
     segments: [
       segment("Laundry Care"),
       segment("Dishwashing"),
-      segment("Cleaning Products"),
+      segment("Surface Cleaning"),
       segment("Disinfectants"),
+    ],
+  },
+  {
+    label: "Pet Food",
+    slug: "pet-food",
+    segments: [
+      segment("Dry Pet Food"),
+      segment("Wet Pet Food"),
+      segment("Pet Treats"),
     ],
   },
 ] as const;

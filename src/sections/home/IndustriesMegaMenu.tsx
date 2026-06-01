@@ -287,18 +287,6 @@ export default function IndustriesMegaMenu() {
               onActiveChange={setActiveSlug}
             />
           </div>
-
-          <div
-            className="mx-auto max-w-[960px] border-t px-6 py-4 lg:px-8"
-            style={{ borderColor: v1.silver.hairline }}
-          >
-            <p
-              className="text-[11px] font-bold uppercase tracking-[0.24em]"
-              style={{ color: v1.ink.muted }}
-            >
-              Industries we serve — portfolio preview
-            </p>
-          </div>
         </div>
       </div>
     </div>

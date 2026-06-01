@@ -36,5 +36,3 @@ export const industries = [
   "Agriculture",
   "Pet Food",
 ] as const;
-
-export { qualitySections as qualityPillars } from "@/lib/site-images";

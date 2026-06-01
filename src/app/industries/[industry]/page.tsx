@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import IndustryVisual from "@/components/industries/IndustryVisual";
 import PageIntro from "@/components/site/PageIntro";
 import PageShell from "@/components/site/PageShell";
+import { getIndustryImage } from "@/lib/industry-images";
 import {
   getIndustryBySlug,
   industriesNavigation,
@@ -25,6 +27,8 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
     notFound();
   }
 
+  const imageSrc = getIndustryImage(industry.slug);
+
   return (
     <PageShell warm>
       <PageIntro
@@ -34,6 +38,16 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
       />
 
       <section className="mx-auto max-w-[1380px] px-5 pb-32 md:px-8 md:pb-40">
+        {imageSrc ? (
+          <IndustryVisual
+            slug={industry.slug}
+            alt={industry.label}
+            sizes="(max-width: 1024px) 100vw, 66vw"
+            aspectClassName="aspect-[16/9] max-h-[min(52vh,480px)]"
+            className="mb-10 md:mb-12"
+          />
+        ) : null}
+
         <ul className="grid grid-cols-1 gap-px sm:grid-cols-2 lg:grid-cols-3">
           {industry.segments.map((segment) => (
             <li key={segment.slug}>
