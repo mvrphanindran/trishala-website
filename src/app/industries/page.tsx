@@ -1,6 +1,7 @@
+import Link from "next/link";
 import PageIntro from "@/components/site/PageIntro";
 import PageShell from "@/components/site/PageShell";
-import { industries } from "@/lib/catalog";
+import { industriesNavigation, industryHref } from "@/lib/industries-navigation";
 import { v1 } from "@/lib/v1-tokens";
 
 export default function IndustriesPage() {
@@ -8,37 +9,28 @@ export default function IndustriesPage() {
     <PageShell warm>
       <PageIntro
         label="Industries"
-        title="Markets We Serve"
-        description="Flexible packaging across high-demand consumer categories."
+        title="Industries We Serve"
+        description="Explore packaging applications by market."
       />
 
       <section className="mx-auto max-w-[1380px] px-5 pb-32 md:px-8 md:pb-40">
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {industries.map((name, index) => (
-            <article
-              key={name}
-              className="flex min-h-[200px] flex-col justify-end p-10 md:min-h-[240px]"
-              style={{
-                background:
-                  index % 2 === 0 ? v1.ivory.rich : v1.ivory.base,
-                border: `1px solid ${v1.silver.hairline}`,
-              }}
-            >
-              <span
-                className="mb-4 text-[11px] font-bold uppercase tracking-[0.28em]"
-                style={{ color: v1.green.primary }}
+        <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {industriesNavigation.map((industry) => (
+            <li key={industry.slug}>
+              <Link
+                href={industryHref(industry.slug)}
+                className="flex min-h-[140px] items-end p-8 text-lg font-extrabold tracking-tight transition-colors hover:text-[#00B140]"
+                style={{
+                  color: v1.ink.navy,
+                  background: v1.ivory.rich,
+                  border: `1px solid ${v1.silver.hairline}`,
+                }}
               >
-                {String(index + 1).padStart(2, "0")}
-              </span>
-              <h2
-                className="text-xl font-extrabold tracking-tight md:text-2xl"
-                style={{ color: v1.ink.navy }}
-              >
-                {name}
-              </h2>
-            </article>
+                {industry.label}
+              </Link>
+            </li>
           ))}
-        </div>
+        </ul>
       </section>
     </PageShell>
   );
