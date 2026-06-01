@@ -1,3 +1,4 @@
+import Image from "next/image";
 import PageIntro from "@/components/site/PageIntro";
 import PageShell from "@/components/site/PageShell";
 import { qualityPillars } from "@/lib/catalog";
@@ -23,6 +24,15 @@ export default function QualityPage() {
                 border: `1px solid ${v1.silver.hairline}`,
               }}
             >
+              <div className="relative mb-8 min-h-[180px] w-full md:min-h-[200px]">
+                <Image
+                  src={pillar.image}
+                  alt={pillar.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover"
+                />
+              </div>
               <span
                 className="text-[11px] font-bold uppercase tracking-[0.28em]"
                 style={{ color: v1.green.primary }}

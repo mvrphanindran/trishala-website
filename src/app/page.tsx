@@ -1,8 +1,7 @@
 import SiteFooter from "@/components/site/SiteFooter";
-import EnvironmentalResponsibility from "@/sections/home/EnvironmentalResponsibility";
 import Hero from "@/sections/home/Hero";
 import HomeNavbar from "@/sections/home/HomeNavbar";
-import ProductShowcase from "@/sections/home/ProductShowcase";
+import MaterialDiscipline from "@/sections/home/MaterialDiscipline";
 import { siteFont, v1 } from "@/lib/v1-tokens";
 
 export default function HomePage() {
@@ -18,8 +17,7 @@ export default function HomePage() {
       <HomeNavbar />
       <main className="pt-[72px] lg:pt-[80px]">
         <Hero />
-        <EnvironmentalResponsibility />
-        <ProductShowcase />
+        <MaterialDiscipline />
       </main>
       <SiteFooter />
     </div>

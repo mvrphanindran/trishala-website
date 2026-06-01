@@ -14,6 +14,11 @@ export const coreProducts = [
     plural: "Printed Laminate Rolls",
     image: "/images/products/laminate-roll.png",
   },
+  {
+    title: "Center Seal Pouch",
+    plural: "Center Seal Pouches",
+    image: "/images/products/center-seal.png",
+  },
 ] as const;
 
 export const laminateStructures = [
@@ -32,21 +37,4 @@ export const industries = [
   "Pet Food",
 ] as const;
 
-export const qualityPillars = [
-  {
-    title: "Quality Assurance",
-    detail: "Documented standards across every production batch.",
-  },
-  {
-    title: "Quality Control",
-    detail: "In-line monitoring for consistency and compliance.",
-  },
-  {
-    title: "Inspection",
-    detail: "Multi-stage visual and dimensional verification.",
-  },
-  {
-    title: "Testing",
-    detail: "Barrier, seal, and mechanical performance validation.",
-  },
-] as const;
+export { qualitySections as qualityPillars } from "@/lib/site-images";

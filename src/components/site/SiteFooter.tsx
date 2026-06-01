@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { v1 } from "@/lib/v1-tokens";
 
@@ -20,12 +21,15 @@ export default function SiteFooter() {
 
         <div className="flex flex-col justify-between gap-12 md:flex-row md:items-end">
           <div>
-            <p
-              className="text-[11px] font-bold uppercase tracking-[0.32em]"
-              style={{ color: v1.silver.dark }}
-            >
-              Trishala Laminates
-            </p>
+            <Link href="/" className="relative block h-10 w-36 md:h-11 md:w-40">
+              <Image
+                src="/images/logo/trishala-logo-v2.png"
+                alt="Trishala Laminates"
+                fill
+                sizes="160px"
+                className="object-contain object-left"
+              />
+            </Link>
             <p
               className="mt-4 max-w-sm text-sm leading-relaxed"
               style={{ color: v1.ink.muted }}

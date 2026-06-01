@@ -1,22 +1,8 @@
 import Image from "next/image";
 import PageIntro from "@/components/site/PageIntro";
 import PageShell from "@/components/site/PageShell";
+import { infrastructureItems } from "@/lib/site-images";
 import { v1 } from "@/lib/v1-tokens";
-
-const infrastructure = [
-  {
-    title: "Rotogravure Printing",
-    image: "/images/hero/printing-machine.png",
-  },
-  {
-    title: "Extrusion Line",
-    image: "/images/hero/extrusion-machine.png",
-  },
-  {
-    title: "Blown Film Line",
-    image: "/images/hero/blownfilm-line.png",
-  },
-] as const;
 
 const metrics = [
   { value: "10+", label: "Years" },
@@ -71,7 +57,7 @@ export default function AboutPage() {
           </p>
 
           <div className="flex flex-col gap-12 md:gap-16">
-            {infrastructure.map((item, index) => (
+            {infrastructureItems.map((item, index) => (
               <article
                 key={item.title}
                 className={`grid items-stretch gap-0 overflow-hidden lg:grid-cols-2 ${
@@ -80,13 +66,30 @@ export default function AboutPage() {
                 style={{ border: `1px solid ${v1.silver.hairline}` }}
               >
                 <div className="relative min-h-[280px] md:min-h-[400px]">
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    className="object-cover"
-                  />
+                  {"gallery" in item && item.gallery ? (
+                    <div className="absolute inset-0 grid grid-cols-3 gap-px">
+                      {[item.image, ...item.gallery].map((src, imageIndex) => (
+                        <div key={src} className="relative">
+                          <Image
+                            src={src}
+                            alt={imageIndex === 0 ? item.title : ""}
+                            fill
+                            sizes="(max-width: 1024px) 33vw, 17vw"
+                            className="object-cover"
+                            aria-hidden={imageIndex > 0}
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      className="object-cover"
+                    />
+                  )}
                 </div>
                 <div
                   className="flex flex-col justify-center px-8 py-12 md:px-14"

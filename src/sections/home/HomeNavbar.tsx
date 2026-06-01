@@ -6,6 +6,9 @@ import { useState } from "react";
 import AboutUsDropdown, {
   AboutUsMobileAccordion,
 } from "@/sections/home/AboutUsDropdown";
+import QualityDropdown, {
+  QualityMobileAccordion,
+} from "@/sections/home/QualityDropdown";
 import InfrastructureDropdown, {
   InfrastructureMobileAccordion,
 } from "@/sections/home/InfrastructureDropdown";
@@ -20,10 +23,7 @@ import { v1 } from "@/lib/v1-tokens";
 const PACKAGING_SOLUTIONS_LABEL = "Packaging Solutions";
 const INDUSTRIES_LABEL = "Industries";
 
-const navigation = [
-  { label: "Quality", href: "/quality" },
-  { label: "Contact", href: "/contact" },
-] as const;
+const navigation = [{ label: "Contact", href: "/contact" }] as const;
 
 export default function HomeNavbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -59,6 +59,7 @@ export default function HomeNavbar() {
           <IndustriesMegaMenu />
           <InfrastructureDropdown />
           <AboutUsDropdown />
+          <QualityDropdown />
           {navigation.map((item) => (
             <Link
               key={item.label}
@@ -143,6 +144,9 @@ export default function HomeNavbar() {
             </li>
             <li>
               <AboutUsMobileAccordion />
+            </li>
+            <li>
+              <QualityMobileAccordion />
             </li>
             {navigation.map((item) => (
               <li key={item.label}>
