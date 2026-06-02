@@ -21,14 +21,12 @@ import InfrastructureDropdown, {
 } from "@/sections/home/InfrastructureDropdown";
 
 import IndustriesMegaMenu, {
-
-  IndustriesMobileCatalogue,
-
+  IndustriesMobileAccordion,
 } from "@/sections/home/IndustriesMegaMenu";
 
 import PackagingSolutionsMegaMenu, {
 
-  PackagingSolutionsMobileCatalogue,
+  PackagingSolutionsMobileAccordion,
 
 } from "@/sections/home/PackagingSolutionsMegaMenu";
 
@@ -251,7 +249,7 @@ export default function HomeNavbar() {
 
               </Link>
 
-              <PackagingSolutionsMobileCatalogue />
+              <PackagingSolutionsMobileAccordion />
 
             </li>
 
@@ -273,7 +271,7 @@ export default function HomeNavbar() {
 
               </Link>
 
-              <IndustriesMobileCatalogue />
+              <IndustriesMobileAccordion />
 
             </li>
 

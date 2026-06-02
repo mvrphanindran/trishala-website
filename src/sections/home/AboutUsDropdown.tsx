@@ -141,14 +141,12 @@ export default function AboutUsDropdown() {
   }, [clearCloseTimer]);
 
   const handlePointerEnter = useCallback(() => {
-    if (!isDesktop) return;
     openMenu();
-  }, [isDesktop, openMenu]);
+  }, [openMenu]);
 
   const handlePointerLeave = useCallback(() => {
-    if (!isDesktop) return;
     scheduleClose();
-  }, [isDesktop, scheduleClose]);
+  }, [scheduleClose]);
 
   const handleTriggerClick = useCallback(() => {
     setOpen((value) => !value);

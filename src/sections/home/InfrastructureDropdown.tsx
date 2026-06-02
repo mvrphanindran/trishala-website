@@ -4,14 +4,13 @@ import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { v1 } from "@/lib/v1-tokens";
 
-export const infrastructureCapabilities = [
-  "Rotogravure Printing",
-  "Adhesive Lamination",
-  "Solvent Based Lamination",
-  "Solvent Less Lamination",
-  "Extrusion Lamination",
-  "Polyethylene Film Extrusion",
-  "Pouching",
+const infrastructureNavigation = [
+  { label: "Rotogravure Printing", href: "/infrastructure#rotogravure" },
+  { label: "Solvent Based Lamination", href: "/infrastructure#solvent-lamination" },
+  { label: "Solvent Less Lamination", href: "/infrastructure#solventless-lamination" },
+  { label: "Slitting", href: "/infrastructure#slitting" },
+  { label: "Pouching", href: "/infrastructure#pouching" },
+  { label: "Quality Inspection", href: "/quality#continuous-inspection" },
 ] as const;
 
 export const infrastructureHref = "/infrastructure" as const;
@@ -33,10 +32,10 @@ function CapabilityList({
 }) {
   return (
     <ul role="list" className={compact ? "space-y-0" : "py-1"}>
-      {infrastructureCapabilities.map((capability, index) => (
-        <li key={capability}>
+      {infrastructureNavigation.map((entry) => (
+        <li key={entry.href}>
           <Link
-            href={infrastructureHref}
+            href={entry.href}
             className={`${linkRowClass} ${
               compact
                 ? "py-2.5 text-sm font-medium"
@@ -45,7 +44,7 @@ function CapabilityList({
             style={{ color: v1.ink.body, outlineColor: v1.green.primary }}
             onClick={onNavigate}
           >
-            {capability}
+            {entry.label}
           </Link>
         </li>
       ))}
@@ -148,14 +147,12 @@ export default function InfrastructureDropdown() {
   }, [clearCloseTimer]);
 
   const handlePointerEnter = useCallback(() => {
-    if (!isDesktop) return;
     openMenu();
-  }, [isDesktop, openMenu]);
+  }, [openMenu]);
 
   const handlePointerLeave = useCallback(() => {
-    if (!isDesktop) return;
     scheduleClose();
-  }, [isDesktop, scheduleClose]);
+  }, [scheduleClose]);
 
   const handleTriggerClick = useCallback(() => {
     setOpen((value) => !value);

@@ -109,10 +109,8 @@ export default function InfrastructureCapabilitySection({
   return (
     <article className="py-14 md:py-16 lg:py-20">
       <div
-        className={`grid items-start gap-10 lg:gap-12 xl:gap-14 ${
-          hasGallery
-            ? "lg:grid-cols-[45%_55%]"
-            : `lg:grid-cols-2 ${imageFirst ? "" : "lg:[&>div:first-child]:order-2"}`
+        className={`grid items-start gap-10 lg:grid-cols-2 lg:gap-12 xl:gap-14 ${
+          imageFirst ? "" : "lg:[&>div:first-child]:order-2"
         }`}
       >
         {hasGallery ? (
@@ -131,7 +129,17 @@ export default function InfrastructureCapabilitySection({
               priority={index < 2}
             />
           </div>
-        ) : null}
+        ) : (
+          <div
+            className="min-h-[280px] rounded-3xl md:min-h-[380px] lg:min-h-[440px]"
+            style={{
+              background: v1.canvas,
+              border: `1px solid ${v1.silver.hairline}`,
+              boxShadow: v1.shadow.soft,
+            }}
+            aria-hidden
+          />
+        )}
 
         <div>
           <SectionHeader capability={capability} index={index} />

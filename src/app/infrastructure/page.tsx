@@ -1,5 +1,4 @@
 import InfrastructureCapabilitySection from "@/components/infrastructure/InfrastructureCapabilitySection";
-import ManufacturingWorkflow from "@/components/infrastructure/ManufacturingWorkflow";
 import PageShell from "@/components/site/PageShell";
 import TextureBackdrop from "@/components/site/TextureBackdrop";
 import {
@@ -56,8 +55,6 @@ export default function InfrastructurePage() {
           </div>
         ))}
       </div>
-
-      <ManufacturingWorkflow />
     </PageShell>
   );
 }

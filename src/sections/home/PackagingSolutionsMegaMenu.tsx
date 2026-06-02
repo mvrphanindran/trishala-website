@@ -12,28 +12,84 @@ import { v1 } from "@/lib/v1-tokens";
 const panelTransition =
   "transition-[opacity,transform] duration-[400ms] ease-[cubic-bezier(0.22,1,0.36,1)]";
 
-export function PackagingSolutionsMobileCatalogue() {
+export function PackagingSolutionsMobileAccordion() {
+  const [expanded, setExpanded] = useState(false);
+  const close = useCallback(() => setExpanded(false), []);
+
   return (
-    <div className="mb-3 ml-3 space-y-6 py-2 pl-2">
-      {packagingSolutionsNavigation.map((group) => (
-        <div key={group.label}>
-          <p
-            className="text-[10px] font-bold uppercase tracking-[0.22em]"
-            style={{ color: v1.green.primary }}
+    <div className="mb-2">
+      <div className="flex items-center justify-between gap-2">
+        <Link
+          href={packagingSolutionsHref}
+          className="py-2.5 text-[15px] font-medium transition-colors hover:text-[#00B140]"
+          style={{ color: v1.ink.navy }}
+          onClick={close}
+        >
+          Packaging Solutions
+        </Link>
+        <button
+          type="button"
+          className="flex h-10 w-10 shrink-0 items-center justify-center"
+          style={{ color: expanded ? v1.green.primary : v1.ink.navy }}
+          aria-expanded={expanded}
+          aria-label={expanded ? "Collapse Packaging Solutions menu" : "Expand Packaging Solutions menu"}
+          onClick={() => setExpanded((value) => !value)}
+        >
+          <svg
+            width="10"
+            height="10"
+            viewBox="0 0 12 12"
+            fill="none"
+            className={`transition-transform duration-300 ${expanded ? "rotate-180" : ""}`}
+            aria-hidden
           >
-            {group.label}
-          </p>
-          <ul className="mt-2 space-y-1">
-            {group.items.map((item) => (
-              <li key={item.href}>
-                <MenuPreviewItem href={item.href} className="py-2 text-sm font-medium">
-                  {item.label}
-                </MenuPreviewItem>
-              </li>
-            ))}
-          </ul>
+            <path
+              d="M2.5 4.5L6 8l3.5-3.5"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <div
+        className={`overflow-hidden ${panelTransition}`}
+        style={{
+          maxHeight: expanded ? "520px" : "0px",
+          opacity: expanded ? 1 : 0,
+        }}
+        aria-hidden={!expanded}
+      >
+        <div
+          className="ml-3 mt-1 border-l pl-3"
+          style={{ borderColor: v1.silver.hairline }}
+        >
+          {packagingSolutionsNavigation.map((group) => (
+            <div key={group.label} className="mb-4 last:mb-0">
+              <p
+                className="text-[10px] font-bold uppercase tracking-[0.22em]"
+                style={{ color: v1.green.primary }}
+              >
+                {group.label}
+              </p>
+              <ul className="mt-2 space-y-1">
+                {group.items.map((item) => (
+                  <li key={item.href}>
+                    <MenuPreviewItem
+                      href={item.href}
+                      className="py-2 text-sm font-medium"
+                      onClick={close}
+                    >
+                      {item.label}
+                    </MenuPreviewItem>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
-      ))}
+      </div>
     </div>
   );
 }

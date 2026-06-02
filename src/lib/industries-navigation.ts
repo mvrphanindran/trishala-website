@@ -97,7 +97,7 @@ export const industriesNavigation: readonly IndustryCategory[] = [
     segments: [segment("Hair Care"), segment("Skin & Body Care")],
   },
   {
-    label: "Household & Cleaning Products",
+    label: "Household & Cleaning",
     slug: "household-and-cleaning",
     segments: [
       segment("Laundry Care"),
