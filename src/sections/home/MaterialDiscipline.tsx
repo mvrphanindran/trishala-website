@@ -4,15 +4,7 @@ import { v1 } from "@/lib/v1-tokens";
 
 export default function MaterialDiscipline() {
   return (
-    <section
-      className="relative pb-12 pt-8 md:pb-16 md:pt-10 lg:pb-20 lg:pt-12"
-      style={{ background: v1.ivory.rich }}
-    >
-      <div
-        className="absolute inset-x-0 top-0 h-px"
-        style={{ background: v1.silver.gradient, opacity: 0.5 }}
-      />
-
+    <section className="relative pb-12 pt-8 md:pb-16 md:pt-10 lg:pb-20 lg:pt-12">
       <div className="mx-auto max-w-[1380px] px-5 md:px-8">
         <div className="grid grid-cols-1 gap-5 md:gap-6 lg:grid-cols-[2fr_3fr] lg:items-center lg:gap-10">
           <div className="flex flex-col justify-center">
@@ -38,13 +30,7 @@ export default function MaterialDiscipline() {
             </p>
           </div>
 
-          <div
-            className="flex min-h-0 w-full items-center justify-center px-4 py-5 sm:px-5 sm:py-6 lg:px-6 lg:py-6"
-            style={{
-              border: `1px solid ${v1.silver.hairline}`,
-              background: v1.ivory.panel,
-            }}
-          >
+          <div className="flex min-h-0 w-full items-center justify-center px-2 py-4 sm:px-3 sm:py-5 lg:px-4 lg:py-6">
             <Image
               src={HOME_IMAGES.materialDiscipline}
               alt="Flexible packaging formats"

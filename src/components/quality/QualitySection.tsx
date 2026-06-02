@@ -1,6 +1,6 @@
 import Image from "next/image";
 import type { QualitySectionContent } from "@/lib/quality-content";
-import { v1 } from "@/lib/v1-tokens";
+import { v1, v1Image } from "@/lib/v1-tokens";
 
 type QualitySectionProps = {
   section: QualitySectionContent;
@@ -49,17 +49,14 @@ function ImagePanel({ src, alt }: { src: string; alt: string }) {
   return (
     <div
       className="relative min-h-[280px] overflow-hidden md:min-h-[380px] lg:min-h-[440px]"
-      style={{
-        border: `1px solid ${v1.silver.hairline}`,
-        background: v1.ivory.panel,
-      }}
+      style={v1Image.containerOpen}
     >
       <Image
         src={src}
         alt={alt}
         fill
         sizes="(max-width: 1024px) 100vw, 45vw"
-        className="object-contain p-4 md:p-6 lg:p-8"
+        className="object-contain p-2 md:p-4 lg:p-5"
       />
     </div>
   );
@@ -76,17 +73,14 @@ function ImageStack({
         <div
           key={item.src}
           className="relative min-h-[200px] w-full overflow-hidden md:min-h-[220px] lg:min-h-[240px]"
-          style={{
-            border: `1px solid ${v1.silver.hairline}`,
-            background: v1.ivory.panel,
-          }}
+          style={v1Image.containerOpen}
         >
           <Image
             src={item.src}
             alt={item.alt}
             fill
             sizes="(max-width: 1024px) 100vw, 42vw"
-            className="object-contain p-3 md:p-4 lg:p-5"
+            className="object-contain p-2 md:p-3 lg:p-4"
             priority={imageIndex === 0}
           />
         </div>
@@ -106,7 +100,7 @@ export default function QualitySection({ section, index }: QualitySectionProps) 
   ) : null;
 
   return (
-    <article className="py-16 md:py-20 lg:py-24">
+    <article className="py-14 md:py-16 lg:py-20">
       <div
         className={`grid items-start gap-10 lg:gap-12 xl:gap-14 ${
           hasGallery

@@ -8,12 +8,20 @@ export type InfrastructureGalleryImage = {
   caption: string;
 };
 
+export type InfrastructureSpec = {
+  application: string;
+  processType: string;
+  output: string;
+  capability: string;
+};
+
 export type InfrastructureCapability = {
   id: string;
   title: string;
   image?: string;
   gallery?: readonly InfrastructureGalleryImage[];
   summary: string;
+  spec: InfrastructureSpec;
   cards: readonly InfrastructureInfoCard[];
 };
 
@@ -39,6 +47,12 @@ export const infrastructureCapabilities: readonly InfrastructureCapability[] = [
     ],
     summary:
       "High-speed rotogravure printing technology delivering consistent print quality, accurate colour reproduction and superior packaging aesthetics across flexible packaging substrates.",
+    spec: {
+      application: "Flexible Packaging Printing",
+      processType: "Rotogravure",
+      output: "High-Speed Multi-Colour Printing",
+      capability: "9 Colour Printing",
+    },
     cards: [
       {
         title: "Applications",
@@ -79,6 +93,12 @@ export const infrastructureCapabilities: readonly InfrastructureCapability[] = [
     image: "/images/capabilities/combi-lamination.png",
     summary:
       "Combination lamination unites multiple substrates into engineered structures that protect print, enhance barrier performance, and improve seal integrity for demanding pack formats.",
+    spec: {
+      application: "Multi-Layer Lamination",
+      processType: "Adhesive / Combination",
+      output: "Laminated Roll Stock",
+      capability: "Up to 300 m/min",
+    },
     cards: [
       {
         title: "Applications",
@@ -116,6 +136,12 @@ export const infrastructureCapabilities: readonly InfrastructureCapability[] = [
     image: "/images/capabilities/solvent-lamination.jpg",
     summary:
       "Solvent-based adhesive lamination builds robust bonds for complex, high-performance laminate structures where strength and reliability are critical for industrial and specialty packaging.",
+    spec: {
+      application: "High-Performance Laminates",
+      processType: "Solvent Based Lamination",
+      output: "Bonded Multi-Layer Webs",
+      capability: "Up to 120 m/min",
+    },
     cards: [
       {
         title: "Applications",
@@ -152,6 +178,12 @@ export const infrastructureCapabilities: readonly InfrastructureCapability[] = [
     image: "/images/capabilities/solvent-less.jpg",
     summary:
       "Solventless lamination supports environment-conscious manufacturing with efficient bonding, no residual solvent concerns, and high productivity for modern flexible packaging lines.",
+    spec: {
+      application: "Food-Safe & General Laminates",
+      processType: "Solventless Lamination",
+      output: "Solvent-Free Laminated Rolls",
+      capability: "Up to 400 m/min",
+    },
     cards: [
       {
         title: "Applications",
@@ -188,6 +220,12 @@ export const infrastructureCapabilities: readonly InfrastructureCapability[] = [
     image: "/images/capabilities/extrusion-lamination.jpg",
     summary:
       "Extrusion lamination coats and bonds molten polymer onto substrates to create high-barrier laminates for liquid, industrial, and heavy-duty packaging applications.",
+    spec: {
+      application: "Barrier & Industrial Packaging",
+      processType: "Extrusion Lamination",
+      output: "Extrusion-Laminated Composite Film",
+      capability: "Up to 300 m/min",
+    },
     cards: [
       {
         title: "Applications",
@@ -224,6 +262,12 @@ export const infrastructureCapabilities: readonly InfrastructureCapability[] = [
     image: "/images/capabilities/blown-film.jpg",
     summary:
       "Blown film extrusion produces polyethylene film with excellent clarity, uniform gauge control, and strength for lamination, printing, and conversion across flexible packaging lines.",
+    spec: {
+      application: "Polyethylene Film Production",
+      processType: "Blown Film Extrusion",
+      output: "PE Roll Stock for Downstream Processing",
+      capability: "Up to 250 kg/hr",
+    },
     cards: [
       {
         title: "Applications",
@@ -260,6 +304,12 @@ export const infrastructureCapabilities: readonly InfrastructureCapability[] = [
     image: "/images/capabilities/slitting.png",
     summary:
       "Precision slitting and rewinding prepares laminated webs to exact widths with tight dimensional control, supporting efficient pouching lines and customer-ready roll formats.",
+    spec: {
+      application: "Roll Preparation & Finishing",
+      processType: "Slitting & Rewinding",
+      output: "Customer-Specified Slit Rolls",
+      capability: "Multi-Station Precision Slitting",
+    },
     cards: [
       {
         title: "Applications",
@@ -299,6 +349,12 @@ export const infrastructureCapabilities: readonly InfrastructureCapability[] = [
     image: "/images/capabilities/pouching.jpg",
     summary:
       "High-speed pouch conversion transforms laminated film into finished pack formats including stand-up, centre seal, three-side seal, and spout pouches with precise dimensional control.",
+    spec: {
+      application: "Flexible Pouch Conversion",
+      processType: "High-Speed Pouching",
+      output: "Finished Retail-Ready Pouches",
+      capability: "Up to 300 bags/min",
+    },
     cards: [
       {
         title: "Applications",

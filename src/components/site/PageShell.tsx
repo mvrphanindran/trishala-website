@@ -12,7 +12,7 @@ export default function PageShell({ children, warm = false }: PageShellProps) {
     <div
       className="min-h-screen antialiased"
       style={{
-        background: warm ? v1.ivory.warm : v1.ivory.base,
+        background: warm ? v1.gradient.coolWash : v1.canvas,
         color: v1.ink.navy,
         fontFamily: siteFont,
       }}

@@ -1,4 +1,5 @@
 import QualitySection from "@/components/quality/QualitySection";
+import QualityWorkflow from "@/components/quality/QualityWorkflow";
 import PageShell from "@/components/site/PageShell";
 import TextureBackdrop from "@/components/site/TextureBackdrop";
 import {
@@ -10,13 +11,7 @@ import { v1 } from "@/lib/v1-tokens";
 export default function QualityPage() {
   return (
     <PageShell warm>
-      <section
-        className="relative overflow-hidden border-b"
-        style={{
-          borderColor: v1.silver.hairline,
-          background: v1.ivory.base,
-        }}
-      >
+      <section className="relative overflow-hidden">
         <TextureBackdrop variant="hero" />
 
         <div
@@ -53,17 +48,12 @@ export default function QualityPage() {
           <div key={section.id}>
             <QualitySection section={section} index={index} />
             {index < qualitySections.length - 1 ? (
-              <div
-                className="h-px w-full"
-                style={{
-                  background: v1.silver.gradient,
-                  opacity: 0.55,
-                }}
-                aria-hidden
-              />
+              <div className="h-8 md:h-10" aria-hidden />
             ) : null}
           </div>
         ))}
+
+        <QualityWorkflow />
       </div>
     </PageShell>
   );

@@ -115,3 +115,12 @@ export const qualitySections: readonly QualitySectionContent[] = [
     image: "/images/quality/reliability.jpg",
   },
 ] as const;
+
+export const qualityWorkflowSteps = [
+  "Raw Material Inspection",
+  "Production Monitoring",
+  "Registration Verification",
+  "Lamination Inspection",
+  "Final QC Approval",
+  "Dispatch",
+] as const;

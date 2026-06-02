@@ -34,21 +34,13 @@ function CapabilityList({
   return (
     <ul role="list" className={compact ? "space-y-0" : "py-1"}>
       {infrastructureCapabilities.map((capability, index) => (
-        <li
-          key={capability}
-          style={{
-            borderBottom:
-              index < infrastructureCapabilities.length - 1
-                ? `1px solid ${v1.silver.hairline}`
-                : undefined,
-          }}
-        >
+        <li key={capability}>
           <Link
             href={infrastructureHref}
             className={`${linkRowClass} ${
               compact
                 ? "py-2.5 text-sm font-medium"
-                : "px-5 py-3.5 text-[14px] font-medium hover:bg-[#F5F1EA]"
+                : "px-4 py-2.5 text-[14px] font-medium hover:bg-[#F5F1EA]"
             }`}
             style={{ color: v1.ink.body, outlineColor: v1.green.primary }}
             onClick={onNavigate}
@@ -249,7 +241,7 @@ export default function InfrastructureDropdown() {
       </div>
 
       <div
-        className="absolute left-1/2 top-full z-50 w-[min(100vw-2rem,22rem)] -translate-x-1/2 pt-2"
+        className="absolute left-1/2 top-full z-50 w-[min(100vw-2rem,19rem)] -translate-x-1/2 pt-1.5"
         style={{
           pointerEvents: open ? "auto" : "none",
         }}
@@ -257,19 +249,15 @@ export default function InfrastructureDropdown() {
         onMouseLeave={handlePointerLeave}
       >
         <div
-          className={`overflow-hidden border shadow-[0_20px_50px_rgba(11,27,77,0.08)] ${panelTransition}`}
+          className={`overflow-hidden ${panelTransition}`}
           style={{
             maxHeight: open ? "520px" : "0px",
             opacity: open ? 1 : 0,
             transform: open ? "translateY(0)" : "translateY(-6px)",
-            background: v1.ivory.base,
-            borderColor: v1.silver.hairline,
+            background: v1.canvas,
+            boxShadow: v1.shadow.nav,
           }}
         >
-          <div
-            className="h-px w-full"
-            style={{ background: v1.silver.gradient, opacity: 0.55 }}
-          />
           <CapabilityList onNavigate={close} />
         </div>
       </div>

@@ -17,9 +17,9 @@ function StructureVisual({ layers }: { layers: readonly string[] }) {
             style={{
               background:
                 index === 0
-                  ? v1.ivory.panel
+                  ? v1.silver.light
                   : index === layers.length - 1
-                    ? v1.ivory.deep
+                    ? v1.silver.light
                     : "#E2E6EC",
               borderColor: v1.silver.mid,
             }}

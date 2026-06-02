@@ -27,7 +27,7 @@ export default function HomeImageSlot({
     <div
       className={`relative h-full w-full ${className}`}
       style={{
-        background: visible ? "transparent" : v1.ivory.panel,
+        background: "transparent",
       }}
     >
       {visible ? (

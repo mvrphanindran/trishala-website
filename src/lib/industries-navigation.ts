@@ -121,6 +121,10 @@ export function industryHref(slug: string): string {
   return `/industries/${slug}`;
 }
 
+export function industrySectionHref(slug: string): string {
+  return `/industries#${slug}`;
+}
+
 export function segmentHref(industrySlug: string, segmentSlug: string): string {
   return `/industries/${industrySlug}/${segmentSlug}`;
 }

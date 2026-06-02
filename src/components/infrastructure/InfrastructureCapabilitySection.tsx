@@ -1,6 +1,7 @@
 import Image from "next/image";
+import InfrastructureSpecStrip from "@/components/infrastructure/InfrastructureSpecStrip";
 import type { InfrastructureCapability } from "@/lib/infrastructure-content";
-import { v1 } from "@/lib/v1-tokens";
+import { v1, v1Image } from "@/lib/v1-tokens";
 
 type InfrastructureCapabilitySectionProps = {
   capability: InfrastructureCapability;
@@ -9,14 +10,14 @@ type InfrastructureCapabilitySectionProps = {
 
 function InfoCards({ capability }: { capability: InfrastructureCapability }) {
   return (
-    <div className="grid grid-cols-1 gap-px sm:grid-cols-2">
+    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5">
       {capability.cards.map((card) => (
         <div
           key={card.title}
           className="p-5 md:p-6"
           style={{
-            background: v1.ivory.rich,
-            border: `1px solid ${v1.silver.hairline}`,
+            background: v1.canvas,
+            boxShadow: v1.shadow.soft,
           }}
         >
           <h3
@@ -82,17 +83,14 @@ function ImageStack({ capability }: { capability: InfrastructureCapability }) {
         <div
           key={item.src}
           className="relative min-h-[200px] w-full overflow-hidden md:min-h-[220px] lg:min-h-[240px]"
-          style={{
-            border: `1px solid ${v1.silver.hairline}`,
-            background: v1.ivory.panel,
-          }}
+          style={v1Image.containerOpen}
         >
           <Image
             src={item.src}
             alt={item.caption}
             fill
             sizes="(max-width: 1024px) 100vw, 42vw"
-            className="object-contain p-3 md:p-4 lg:p-5"
+            className="object-contain p-2 md:p-3 lg:p-4"
             priority={imageIndex === 0}
           />
         </div>
@@ -109,7 +107,7 @@ export default function InfrastructureCapabilitySection({
   const imageFirst = index % 2 === 0;
 
   return (
-    <article className="py-16 md:py-20 lg:py-24">
+    <article className="py-14 md:py-16 lg:py-20">
       <div
         className={`grid items-start gap-10 lg:gap-12 xl:gap-14 ${
           hasGallery
@@ -122,17 +120,14 @@ export default function InfrastructureCapabilitySection({
         ) : capability.image ? (
           <div
             className="relative min-h-[280px] overflow-hidden md:min-h-[380px] lg:min-h-[440px]"
-            style={{
-              border: `1px solid ${v1.silver.hairline}`,
-              background: v1.ivory.panel,
-            }}
+            style={v1Image.containerOpen}
           >
             <Image
               src={capability.image}
               alt={capability.title}
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-contain p-4 md:p-6 lg:p-8"
+              className="object-contain p-2 md:p-4 lg:p-5"
               priority={index < 2}
             />
           </div>
@@ -140,6 +135,7 @@ export default function InfrastructureCapabilitySection({
 
         <div>
           <SectionHeader capability={capability} index={index} />
+          <InfrastructureSpecStrip spec={capability.spec} />
           <div className="mt-8">
             <InfoCards capability={capability} />
           </div>

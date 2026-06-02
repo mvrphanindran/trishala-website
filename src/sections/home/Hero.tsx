@@ -1,23 +1,41 @@
+import Image from "next/image";
 import Link from "next/link";
-import TextureBackdrop from "@/components/site/TextureBackdrop";
+import { brochureHref } from "@/lib/site-navigation";
+import { packagingSolutionsHref } from "@/lib/packaging-solutions-navigation";
 import { v1 } from "@/lib/v1-tokens";
+
+const HERO_BG = "/images/hero/hero-background.png";
 
 export default function Hero() {
   return (
-    <section
-      className="relative overflow-hidden"
-      style={{ background: v1.ivory.base }}
-    >
-      <TextureBackdrop variant="hero" />
+    <section className="relative min-h-[min(92vh,880px)] overflow-hidden">
+      <Image
+        src={HERO_BG}
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover object-center"
+        aria-hidden
+      />
 
       <div
         className="pointer-events-none absolute inset-0"
         style={{
-          background: `radial-gradient(ellipse 50% 45% at 50% 20%, ${v1.green.soft}, transparent 62%)`,
+          background: `linear-gradient(180deg, rgba(255,255,255,0.88) 0%, rgba(255,255,255,0.72) 35%, rgba(255,255,255,0.92) 100%)`,
         }}
+        aria-hidden
       />
 
-      <div className="relative mx-auto max-w-[1380px] px-5 py-12 text-center md:px-8 md:py-16 lg:py-20">
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background: `radial-gradient(ellipse 70% 55% at 50% 40%, rgba(255,255,255,0.5) 0%, transparent 70%)`,
+        }}
+        aria-hidden
+      />
+
+      <div className="relative mx-auto flex min-h-[min(92vh,880px)] max-w-[1380px] flex-col items-center justify-center px-5 py-20 text-center md:px-8 md:py-24 lg:py-28">
         <h1
           className="mx-auto max-w-4xl text-[clamp(2.25rem,5vw,4.75rem)] font-extrabold leading-[0.98] tracking-[-0.04em]"
           style={{ color: v1.ink.navy }}
@@ -26,37 +44,39 @@ export default function Hero() {
           <br />
           Judge A Book
           <br />
-          <span style={{ color: v1.green.primary }}>By Its Cover.</span>
+          <span style={{ color: v1.green.primary }}>By Its Cover</span>
         </h1>
 
         <p
           className="mx-auto mt-6 max-w-2xl text-base leading-relaxed md:mt-8 md:text-lg"
           style={{ color: v1.ink.body }}
         >
-          Premium flexible packaging solutions engineered for performance,
-          consistency and reliability.
+          Packaging is the first conversation between your brand and your
+          customer. We engineer flexible packaging solutions that create
+          impact, protect products and build trust.
         </p>
 
         <div className="mt-8 flex flex-wrap items-center justify-center gap-4 md:mt-10">
           <Link
-            href="/contact"
-            className="inline-flex rounded-full px-7 py-3 text-sm font-bold text-white transition-opacity hover:opacity-90"
+            href={brochureHref}
+            className="inline-flex rounded-full px-7 py-3 text-sm font-bold text-white transition-all hover:opacity-90 hover:shadow-lg"
             style={{
               background: v1.green.primary,
-              boxShadow: "0 10px 28px rgba(0, 177, 64, 0.2)",
+              boxShadow: v1.shadow.card,
             }}
           >
-            Get Quote
+            Download Brochure
           </Link>
           <Link
-            href="/industries"
-            className="inline-flex rounded-full border px-7 py-3 text-sm font-bold transition-colors hover:text-[#00B140]"
+            href={packagingSolutionsHref}
+            className="inline-flex rounded-full px-7 py-3 text-sm font-bold transition-all hover:shadow-md"
             style={{
               color: v1.ink.navy,
-              borderColor: v1.silver.hairline,
+              background: "rgba(255,255,255,0.85)",
+              boxShadow: v1.shadow.soft,
             }}
           >
-            Explore Industries
+            Explore Solutions
           </Link>
         </div>
       </div>
