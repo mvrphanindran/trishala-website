@@ -4,7 +4,7 @@ import { v1 } from "@/lib/v1-tokens";
 
 export default function MaterialDiscipline() {
   return (
-    <section className="relative pb-12 pt-8 md:pb-16 md:pt-10 lg:pb-20 lg:pt-12">
+    <section className="relative py-6 md:py-8 lg:py-10">
       <div className="mx-auto max-w-[1380px] px-5 md:px-8">
         <div className="grid grid-cols-1 gap-5 md:gap-6 lg:grid-cols-[2fr_3fr] lg:items-center lg:gap-10">
           <div className="flex flex-col justify-center">

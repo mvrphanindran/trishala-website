@@ -6,8 +6,8 @@ export default function IndustriesPage() {
   return (
     <PageShell warm>
       <AnchorHashScroll />
-      <div className="pt-28 md:pt-32 lg:pt-36">
-        <IndustriesShowcase layout="grid" showLabels={false} useAnchors />
+      <div className="pt-20 md:pt-24 lg:pt-28">
+        <IndustriesShowcase layout="grid" showLabels={false} />
       </div>
     </PageShell>
   );

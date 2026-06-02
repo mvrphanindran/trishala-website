@@ -17,7 +17,7 @@ export default function PageIntro({
 
   return (
     <header
-      className={`mx-auto max-w-[1380px] px-5 pb-14 pt-32 md:px-8 md:pb-16 md:pt-36 ${
+      className={`mx-auto max-w-[1380px] px-5 pb-8 pt-24 md:px-8 md:pb-10 md:pt-28 ${
         centered ? "text-center" : ""
       }`}
     >

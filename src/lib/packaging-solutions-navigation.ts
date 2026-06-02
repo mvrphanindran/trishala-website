@@ -19,8 +19,12 @@ export const packagingSolutionsNavigation: readonly PackagingNavGroup[] = [
     label: "Rolls",
     items: [
       {
-        label: "Printed and Laminated Rolls",
-        href: anchor("printed-laminated-rolls"),
+        label: "Printed Rolls",
+        href: anchor("printed-rolls"),
+      },
+      {
+        label: "Laminated Rolls",
+        href: anchor("laminated-rolls"),
       },
     ],
   },

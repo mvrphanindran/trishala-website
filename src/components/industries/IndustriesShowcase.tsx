@@ -14,19 +14,21 @@ type IndustriesShowcaseProps = {
   layout?: "rail" | "grid";
   showLabels?: boolean;
   useAnchors?: boolean;
+  railRef?: React.RefObject<HTMLDivElement | null>;
 };
 
 export default function IndustriesShowcase({
   layout = "rail",
   showLabels = true,
   useAnchors = false,
+  railRef,
 }: IndustriesShowcaseProps) {
   const hrefFor = (slug: string) =>
     useAnchors ? industrySectionHref(slug) : industryHref(slug);
 
   if (layout === "grid") {
     return (
-      <ul className="mx-auto grid max-w-[1380px] grid-cols-2 gap-8 px-5 pb-28 sm:grid-cols-3 md:gap-10 md:px-8 md:pb-36 lg:grid-cols-3">
+      <ul className="mx-auto grid max-w-[1380px] grid-cols-2 gap-6 px-5 pb-10 sm:grid-cols-3 md:gap-8 md:px-8 md:pb-14 lg:grid-cols-3">
         {industriesCatalogue.map((industry) => {
           const imageSrc = getIndustryImage(industry.slug);
           if (!imageSrc) return null;
@@ -61,6 +63,7 @@ export default function IndustriesShowcase({
 
   return (
     <div
+      ref={railRef}
       className="flex gap-6 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] md:gap-8 [&::-webkit-scrollbar]:hidden"
       style={{ scrollSnapType: "x mandatory" }}
     >

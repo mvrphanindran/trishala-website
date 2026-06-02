@@ -32,8 +32,6 @@ import PackagingSolutionsMegaMenu, {
 
 } from "@/sections/home/PackagingSolutionsMegaMenu";
 
-import { brochureHref } from "@/lib/site-navigation";
-
 import {
 
   contactHref,
@@ -155,29 +153,6 @@ export default function HomeNavbar() {
 
 
         <div className="flex items-center justify-self-end gap-3">
-
-          <Link
-
-            href={brochureHref}
-
-            className="hidden rounded-full px-5 py-2.5 text-sm font-bold text-white transition-all hover:opacity-90 lg:inline-flex xl:px-6"
-
-            style={{
-
-              background: v1.green.primary,
-
-              boxShadow: v1.shadow.card,
-
-            }}
-
-          >
-
-            Download Brochure
-
-          </Link>
-
-
-
           <button
 
             type="button"
@@ -349,23 +324,9 @@ export default function HomeNavbar() {
             </li>
 
             <li className="pt-2">
-
-              <Link
-
-                href={brochureHref}
-
-                className="inline-flex rounded-full px-6 py-2.5 text-sm font-bold text-white"
-
-                style={{ background: v1.green.primary }}
-
-                onClick={() => setMobileOpen(false)}
-
-              >
-
-                Download Brochure
-
-              </Link>
-
+              <span className="block py-2 text-xs" style={{ color: v1.ink.muted }}>
+                Trishala Laminates
+              </span>
             </li>
 
           </ul>

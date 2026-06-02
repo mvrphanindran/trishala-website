@@ -24,7 +24,7 @@ const cards = [
 
 export default function OurPurpose() {
   return (
-    <section className="py-16 md:py-20 lg:py-24">
+    <section className="py-8 md:py-10 lg:py-12">
       <div className="mx-auto max-w-[1380px] px-5 md:px-8">
         <h2
           className="text-center text-[clamp(1.5rem,3vw,2.25rem)] font-extrabold tracking-[-0.03em]"
@@ -33,7 +33,7 @@ export default function OurPurpose() {
           Our Purpose
         </h2>
 
-        <ul className="mt-12 grid grid-cols-1 gap-6 md:mt-14 md:grid-cols-3 md:gap-8">
+        <ul className="mt-8 grid grid-cols-1 gap-6 md:mt-10 md:grid-cols-3 md:gap-8">
           {cards.map((card) => (
             <li
               key={card.title}

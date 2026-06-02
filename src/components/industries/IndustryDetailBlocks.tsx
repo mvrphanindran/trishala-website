@@ -6,16 +6,18 @@ type IndustryDetailBlocksProps = {
 };
 
 const blocks = [
+  { key: "packagingRequirements", title: "Packaging Requirements" },
+  { key: "recommendedPackagingFormats", title: "Recommended Packaging Formats" },
+  { key: "typicalMaterialStructures", title: "Typical Material Structures" },
+  { key: "benefits", title: "Benefits" },
   { key: "applications", title: "Applications" },
-  { key: "packagingFormats", title: "Packaging Formats Used" },
-  { key: "materialStructures", title: "Material Structures" },
 ] as const;
 
 export default function IndustryDetailBlocks({
   detail,
 }: IndustryDetailBlocksProps) {
   return (
-    <div className="mb-12 grid grid-cols-1 gap-5 md:mb-14 md:grid-cols-3 md:gap-6">
+    <div className="mb-8 grid grid-cols-1 gap-4 md:mb-10 md:grid-cols-2 lg:grid-cols-3">
       {blocks.map((block) => {
         const items = detail[block.key];
 

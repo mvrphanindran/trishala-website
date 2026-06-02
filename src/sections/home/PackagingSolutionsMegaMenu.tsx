@@ -38,31 +38,53 @@ export function PackagingSolutionsMobileCatalogue() {
   );
 }
 
-function CatalogueColumns() {
+function CompactSolutionsList() {
+  const rolls = packagingSolutionsNavigation.find((group) => group.label === "Rolls");
+  const pouches = packagingSolutionsNavigation.find(
+    (group) => group.label === "Pouches",
+  );
+
   return (
-    <div className="grid grid-cols-1 gap-10 px-8 py-8 md:grid-cols-2 lg:gap-12 lg:px-12 lg:py-10">
-      {packagingSolutionsNavigation.map((group) => (
-        <div key={group.label}>
+    <div className="w-[340px] rounded-xl p-4" style={{ background: v1.canvas, boxShadow: v1.shadow.nav }}>
+      {rolls ? (
+        <div>
           <p
-            className="text-[11px] font-bold uppercase tracking-[0.28em]"
+            className="text-[11px] font-bold uppercase tracking-[0.22em]"
             style={{ color: v1.green.primary }}
           >
-            {group.label}
+            Rolls
           </p>
-          <ul className="mt-5 space-y-1">
-            {group.items.map((item) => (
+          <ul className="mt-2 space-y-1">
+            {rolls.items.map((item) => (
               <li key={item.href}>
-                <MenuPreviewItem
-                  href={item.href}
-                  className="py-2.5 text-[15px] font-medium"
-                >
+                <MenuPreviewItem href={item.href} className="py-2 text-sm font-medium">
                   {item.label}
                 </MenuPreviewItem>
               </li>
             ))}
           </ul>
         </div>
-      ))}
+      ) : null}
+
+      {pouches ? (
+        <div className="mt-4">
+          <p
+            className="text-[11px] font-bold uppercase tracking-[0.22em]"
+            style={{ color: v1.green.primary }}
+          >
+            Pouches
+          </p>
+          <ul className="mt-2 space-y-1">
+            {pouches.items.map((item) => (
+              <li key={item.href}>
+                <MenuPreviewItem href={item.href} className="py-2 text-sm font-medium">
+                  {item.label}
+                </MenuPreviewItem>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : null}
     </div>
   );
 }
@@ -138,25 +160,15 @@ export default function PackagingSolutionsMegaMenu() {
       </div>
 
       <div
-        className={`fixed inset-x-0 z-40 ${panelTransition}`}
+        className={`absolute left-0 top-full z-40 pt-2 ${panelTransition}`}
         style={{
-          top: "80px",
           pointerEvents: open ? "auto" : "none",
           opacity: open ? 1 : 0,
           transform: open ? "translateY(0)" : "translateY(-10px)",
         }}
         aria-hidden={!open}
       >
-        <div
-          style={{
-            background: v1.canvas,
-            boxShadow: v1.shadow.nav,
-          }}
-        >
-          <div className="mx-auto max-w-[960px]">
-            <CatalogueColumns />
-          </div>
-        </div>
+        <CompactSolutionsList />
       </div>
     </div>
   );
