@@ -10,8 +10,8 @@ export type PackagingSolutionSection = {
 export const packagingSolutionSections: readonly PackagingSolutionSection[] = [
   {
     id: "printed-laminated-rolls",
-    title: "Printed and Laminated Rolls",
-    image: "/images/capabilities/rotogravure-2.png",
+    title: "Rolls",
+    image: "/images/products/printed-laminate-roll.png",
     group: "rolls",
     description:
       "High-quality printed and laminated flexible packaging rolls engineered for automated packing systems and consistent shelf presentation.",
@@ -25,7 +25,7 @@ export const packagingSolutionSections: readonly PackagingSolutionSection[] = [
   {
     id: "center-seal",
     title: "Center Seal Pouch",
-    image: "/images/capabilities/solvent-lamination.jpg",
+    image: "/images/products/center-seal-pouch.png",
     group: "pouches",
     description:
       "Versatile center-seal format designed for reliable sealing performance and efficient high-volume packing.",
@@ -34,7 +34,7 @@ export const packagingSolutionSections: readonly PackagingSolutionSection[] = [
   {
     id: "three-side-seal",
     title: "Three Side Seal Pouch",
-    image: "/images/capabilities/slitting.png",
+    image: "/images/products/three-side-seal-pouch.png",
     group: "pouches",
     description:
       "Compact pouch format suited for single-serve and controlled-portion products requiring strong seal integrity.",
@@ -43,7 +43,7 @@ export const packagingSolutionSections: readonly PackagingSolutionSection[] = [
   {
     id: "zipper",
     title: "Zipper Pouch",
-    image: "/images/capabilities/combi-lamination.png",
+    image: "/images/products/zipper-pouch.png",
     group: "pouches",
     description:
       "Re-closable pouch solution for premium products requiring freshness retention after first use.",
@@ -52,7 +52,7 @@ export const packagingSolutionSections: readonly PackagingSolutionSection[] = [
   {
     id: "standup-pouch",
     title: "Stand Up Pouch",
-    image: "/images/capabilities/rotogravure-3.png",
+    image: "/images/products/stand-up-pouch.png",
     group: "pouches",
     description:
       "Shelf-forward format with strong visual impact and structural stability for modern retail channels.",
@@ -61,25 +61,25 @@ export const packagingSolutionSections: readonly PackagingSolutionSection[] = [
   {
     id: "gusset",
     title: "Gusset Pouch",
-    image: "/images/capabilities/doctoring-machine.png",
+    image: "/images/products/Gusset-Pouch.png",
     group: "pouches",
     description:
       "High-capacity format with expanded volume and dependable load-bearing structure for bulk packs.",
     applications: ["Rice", "Pet food", "Pulse and grain packs", "Agri products"],
   },
   {
-    id: "reusable",
-    title: "Reusable Pouch",
-    image: "/images/capabilities/solvent-less.jpg",
+    id: "spouted-pouch",
+    title: "Spouted Pouch",
+    image: "/images/products/spout-pouch.png",
     group: "pouches",
     description:
-      "Durable pouch design engineered for repeated open-close cycles and extended product usability.",
+      "Convenient spouted pouch format designed for controlled pouring, product convenience, and strong shelf presence.",
     applications: ["Household products", "Personal care refills", "Pet nutrition", "Dry ingredients"],
   },
   {
     id: "handled",
     title: "Handled Pouch",
-    image: "/images/capabilities/rotogravure-2.png",
+    image: "/images/products/handled-pouch.png",
     group: "pouches",
     description:
       "Convenient carry-friendly pouch for larger pack sizes where handling comfort and shelf appearance both matter.",
@@ -88,7 +88,7 @@ export const packagingSolutionSections: readonly PackagingSolutionSection[] = [
   {
     id: "3d-pouch",
     title: "3D Pouch",
-    image: "/images/capabilities/combi-lamination.png",
+    image: "/images/products/3d-pouch.png",
     group: "pouches",
     description:
       "Distinctive shaped pouch format that supports strong brand differentiation and premium shelf presence.",

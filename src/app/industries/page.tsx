@@ -7,7 +7,7 @@ export default function IndustriesPage() {
     <PageShell warm>
       <AnchorHashScroll />
       <div className="pt-20 md:pt-24 lg:pt-28">
-        <IndustriesShowcase layout="grid" showLabels={false} />
+        <IndustriesShowcase layout="grid" showLabels />
       </div>
     </PageShell>
   );

@@ -24,11 +24,14 @@ function AboutList({
     <ul role="list" className={compact ? "space-y-0" : "py-1"}>
       {aboutUsNavigation.map((item, index) => {
         const isLead = index === 0;
+        const opensPdf = item.href.endsWith(".pdf");
 
         return (
           <li key={item.href}>
             <Link
               href={item.href}
+              target={opensPdf ? "_blank" : undefined}
+              rel={opensPdf ? "noopener noreferrer" : undefined}
               className={`${linkRowClass} ${
                 compact
                   ? `py-2.5 text-sm ${isLead ? "font-semibold" : "font-medium"}`

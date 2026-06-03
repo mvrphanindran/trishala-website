@@ -19,11 +19,7 @@ export const packagingSolutionsNavigation: readonly PackagingNavGroup[] = [
     label: "Rolls",
     items: [
       {
-        label: "Printed Rolls",
-        href: anchor("printed-rolls"),
-      },
-      {
-        label: "Laminated Rolls",
+        label: "Rolls",
         href: anchor("laminated-rolls"),
       },
     ],
@@ -36,7 +32,7 @@ export const packagingSolutionsNavigation: readonly PackagingNavGroup[] = [
       { label: "Zipper Pouch", href: anchor("zipper") },
       { label: "Stand Up Pouch", href: anchor("standup-pouch") },
       { label: "Gusset Pouch", href: anchor("gusset") },
-      { label: "Reusable Pouch", href: anchor("reusable") },
+      { label: "Spouted Pouch", href: anchor("spouted-pouch") },
       { label: "Handled Pouch", href: anchor("handled") },
       { label: "3D Pouch", href: anchor("3d-pouch") },
     ],

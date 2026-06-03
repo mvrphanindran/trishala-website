@@ -1,5 +1,4 @@
 import QualitySection from "@/components/quality/QualitySection";
-import QualityWorkflow from "@/components/quality/QualityWorkflow";
 import PageShell from "@/components/site/PageShell";
 import TextureBackdrop from "@/components/site/TextureBackdrop";
 import {
@@ -52,8 +51,6 @@ export default function QualityPage() {
             ) : null}
           </div>
         ))}
-
-        <QualityWorkflow />
       </div>
     </PageShell>
   );

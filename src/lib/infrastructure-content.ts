@@ -60,7 +60,6 @@ export const infrastructureCapabilities: readonly InfrastructureCapability[] = [
           "Number of machines: 3",
           "Machine configuration: 9 Ink, 9 Ink, 8 Ink",
           "Printing capacity: up to 450 mtr/min",
-          "Web width: —",
         ],
       },
     ],
@@ -70,19 +69,14 @@ export const infrastructureCapabilities: readonly InfrastructureCapability[] = [
     title: "Combi Lamination",
     image: "/images/capabilities/combi-lamination.png",
     summary:
-      "Eco-friendly lamination with high bond strength and no residual solvents for reliable multi-layer packaging structures.",
+      "A versatile industrial system designed to perform multiple types of lamination typically solventless and solvent-based.",
     spec: {
       application: "Multi-Layer Lamination",
       processType: "Combi Lamination",
       output: "Laminated roll stock",
       capability: "Up to 300 mtrs/min",
     },
-    cards: [
-      {
-        title: "Capacity",
-        items: ["Up to 300 mtrs/min"],
-      },
-    ],
+    cards: [],
   },
   {
     id: "solvent-lamination",
@@ -96,12 +90,7 @@ export const infrastructureCapabilities: readonly InfrastructureCapability[] = [
       output: "Bonded multi-layer webs",
       capability: "Up to 120 mtrs/min",
     },
-    cards: [
-      {
-        title: "Capacity",
-        items: ["Up to 120 mtrs/min"],
-      },
-    ],
+    cards: [],
   },
   {
     id: "solventless-lamination",
@@ -115,36 +104,28 @@ export const infrastructureCapabilities: readonly InfrastructureCapability[] = [
       output: "Solvent-free laminated rolls",
       capability: "Up to 400 mtrs/min",
     },
-    cards: [
-      {
-        title: "Capacity",
-        items: ["Up to 400 mtrs/min"],
-      },
-    ],
+    cards: [],
   },
   {
     id: "extrusion-lamination",
     title: "Extrusion Lamination",
     summary:
       "Superior barrier and high-performance packaging with polymer lamination engineered for strength, consistency and protection.",
+    image: "/images/capabilities/extrusion-lamination.jpg",
     spec: {
       application: "Barrier & Industrial Packaging",
       processType: "Extrusion Lamination",
       output: "Extrusion laminated structures",
       capability: "Up to 300 mtrs/min",
     },
-    cards: [
-      {
-        title: "Capacity",
-        items: ["Up to 300 mtrs/min"],
-      },
-    ],
+    cards: [],
   },
   {
     id: "pouching",
     title: "Pouching",
     summary:
       "Advanced pouching technology for precision, performance, and consistent sealing across flexible packaging formats.",
+    image: "/images/capabilities/pouching.jpg",
     spec: {
       application: "Flexible Pouch Conversion",
       processType: "Pouching",
@@ -167,6 +148,7 @@ export const infrastructureCapabilities: readonly InfrastructureCapability[] = [
     title: "Polyethylene Blown Film Extrusion",
     summary:
       "Precision blown film line delivering high quality films with excellent strength, consistency and clarity.",
+    image: "/images/capabilities/blown-film.jpg",
     spec: {
       application: "Extrusion Film",
       processType: "Blown Film Extrusion",
@@ -177,39 +159,6 @@ export const infrastructureCapabilities: readonly InfrastructureCapability[] = [
       {
         title: "Capacity",
         items: ["Blown film line: up to 250 kg/hr"],
-      },
-    ],
-  },
-  {
-    id: "qa-qc-lab",
-    title: "QA / QC Lab",
-    summary:
-      "Equipped with advanced testing instruments and quality assurance systems to verify laminate performance, seal integrity, dimensional accuracy and packaging reliability.",
-    spec: {
-      application: "Quality Control",
-      processType: "Inspection & Testing",
-      output: "Verified & validated production",
-      capability: "End-to-end quality checks",
-    },
-    cards: [
-      {
-        title: "Advantages",
-        items: [
-          "Registration control",
-          "Defect reduction",
-          "Batch consistency",
-          "Continuous process monitoring",
-          "Reliable packaging performance",
-        ],
-      },
-      {
-        title: "Output",
-        items: [
-          "Quality Testing",
-          "Seal Testing",
-          "Material Inspection",
-          "Process Validation",
-        ],
       },
     ],
   },

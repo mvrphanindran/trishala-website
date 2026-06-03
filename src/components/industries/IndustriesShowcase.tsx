@@ -28,7 +28,7 @@ export default function IndustriesShowcase({
 
   if (layout === "grid") {
     return (
-      <ul className="mx-auto grid max-w-[1380px] grid-cols-2 gap-6 px-5 pb-10 sm:grid-cols-3 md:gap-8 md:px-8 md:pb-14 lg:grid-cols-3">
+      <ul className="mx-auto flex max-w-[1180px] flex-col gap-12 px-5 pb-14 md:gap-16 md:px-8 md:pb-20">
         {industriesCatalogue.map((industry) => {
           const imageSrc = getIndustryImage(industry.slug);
           if (!imageSrc) return null;
@@ -36,18 +36,25 @@ export default function IndustriesShowcase({
           return (
             <li key={industry.slug} id={industry.slug} className="scroll-mt-[88px]">
               <Link href={hrefFor(industry.slug)} className="group flex flex-col">
-                <div className="relative aspect-[4/5] w-full overflow-hidden">
+                <div
+                  className="relative aspect-[16/9] w-full overflow-hidden"
+                  style={{
+                    background: v1.canvas,
+                    border: `1px solid ${v1.silver.hairline}`,
+                    boxShadow: v1.shadow.soft,
+                  }}
+                >
                   <Image
                     src={imageSrc}
                     alt={industry.label}
                     fill
-                    sizes="(max-width: 640px) 50vw, 33vw"
-                    className="object-contain p-3 transition-transform duration-300 group-hover:scale-[1.02]"
+                    sizes="(max-width: 1024px) 100vw, 1180px"
+                    className="object-contain p-4 transition-transform duration-500 group-hover:scale-[1.015] md:p-6"
                   />
                 </div>
                 {showLabels ? (
                   <h2
-                    className="mt-4 text-center text-base font-extrabold tracking-tight transition-colors group-hover:text-[#00B140] md:text-lg"
+                    className="mt-5 text-center text-xl font-extrabold tracking-tight transition-colors group-hover:text-[#00B140] md:mt-6 md:text-2xl"
                     style={{ color: v1.ink.navy }}
                   >
                     {industry.label}

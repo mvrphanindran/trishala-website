@@ -9,4 +9,4 @@ export const aboutHref = "/about" as const;
 export const qualityHref = "/quality" as const;
 export const contactHref = "/contact" as const;
 
-export const brochureHref = "/about#brochure" as const;
+export const brochureHref = "/brochure/trishala-master-brochure.pdf" as const;

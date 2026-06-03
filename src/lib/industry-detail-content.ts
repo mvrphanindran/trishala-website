@@ -207,7 +207,7 @@ export const industryDetailContent: Record<string, IndustryDetail> = {
     recommendedPackagingFormats: [
       "Three Side Seal",
       "Stand Up Pouch",
-      "Reusable Pouch",
+      "Spouted Pouch",
       "Printed Rolls",
     ],
     typicalMaterialStructures: ["PET/PE", "PET/MET PET/PE"],

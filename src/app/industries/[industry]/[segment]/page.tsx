@@ -42,7 +42,7 @@ export default async function SegmentPage({ params }: SegmentPageProps) {
       <PageIntro
         label={industry.label}
         title={segment.label}
-        description="Application-focused packaging guidance with recommended structures and formats."
+        description="Application-focused packaging guidance aligned to product sensitivity, handling, and shelf-life objectives."
       />
 
       <section className="mx-auto max-w-[1380px] px-5 pb-12 md:px-8 md:pb-16">
@@ -79,30 +79,6 @@ export default async function SegmentPage({ params }: SegmentPageProps) {
             </h2>
             <ul className="mt-4 space-y-2">
               {(detail?.packagingRequirements ?? []).slice(0, 4).map((item) => (
-                <li key={item} className="text-sm" style={{ color: v1.ink.body }}>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </article>
-          <article className="rounded-2xl p-6" style={{ background: v1.canvas, boxShadow: v1.shadow.soft }}>
-            <h2 className="text-[11px] font-bold uppercase tracking-[0.22em]" style={{ color: v1.green.primary }}>
-              Recommended Structures
-            </h2>
-            <ul className="mt-4 space-y-2">
-              {(detail?.typicalMaterialStructures ?? []).map((item) => (
-                <li key={item} className="text-sm" style={{ color: v1.ink.body }}>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </article>
-          <article className="rounded-2xl p-6" style={{ background: v1.canvas, boxShadow: v1.shadow.soft }}>
-            <h2 className="text-[11px] font-bold uppercase tracking-[0.22em]" style={{ color: v1.green.primary }}>
-              Packaging Formats
-            </h2>
-            <ul className="mt-4 space-y-2">
-              {(detail?.recommendedPackagingFormats ?? []).map((item) => (
                 <li key={item} className="text-sm" style={{ color: v1.ink.body }}>
                   {item}
                 </li>

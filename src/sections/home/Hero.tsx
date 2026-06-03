@@ -64,6 +64,8 @@ export default function Hero() {
           <div className="mt-8 flex flex-wrap items-center justify-start gap-4 md:mt-10">
             <Link
               href={brochureHref}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex rounded-full px-7 py-3 text-sm font-bold text-white transition-all hover:opacity-90 hover:shadow-lg"
               style={{
                 background: v1.green.primary,

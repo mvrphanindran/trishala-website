@@ -7,8 +7,6 @@ type IndustryDetailBlocksProps = {
 
 const blocks = [
   { key: "packagingRequirements", title: "Packaging Requirements" },
-  { key: "recommendedPackagingFormats", title: "Recommended Packaging Formats" },
-  { key: "typicalMaterialStructures", title: "Typical Material Structures" },
   { key: "benefits", title: "Benefits" },
   { key: "applications", title: "Applications" },
 ] as const;

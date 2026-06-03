@@ -1,10 +1,21 @@
+"use client";
+
 import AboutHashScroll from "@/components/about/AboutHashScroll";
 import PageIntro from "@/components/site/PageIntro";
+import { brochureHref } from "@/lib/site-navigation";
 import { v1 } from "@/lib/v1-tokens";
+import Link from "next/link";
 import { useMemo, useState } from "react";
-import Image from "next/image";
 
-const values = [
+const purposeCards = [
+  {
+    title: "Mission",
+    body: "To provide reliable, high-quality and innovative flexible packaging through operational excellence, responsible manufacturing and customer-focused service.",
+  },
+  {
+    title: "Vision",
+    body: "To become the most trusted flexible packaging partner by delivering packaging solutions that elevate brands and create lasting value.",
+  },
   {
     title: "Operational Excellence",
     body: "Every process is driven by precision, consistency, and manufacturing discipline to ensure dependable packaging performance.",
@@ -35,7 +46,7 @@ const timeline = [
     body: "Trishala Laminates was established with advanced printing and lamination capabilities for flexible packaging solutions.",
   },
   {
-    year: "2014–2018",
+    year: "2014-2018",
     title: "Capacity & Capability Expansion",
     body: "Expanded manufacturing infrastructure, introduced advanced pouching solutions, and strengthened multi-industry packaging capabilities.",
   },
@@ -51,29 +62,8 @@ const timeline = [
   },
 ] as const;
 
-const achievements = [
-  {
-    title: "20+ Years of Experience",
-    body: "Serving packaging requirements with operational expertise and manufacturing reliability.",
-  },
-  {
-    title: "50+ Experts",
-    body: "Skilled workforce supporting production, quality, and customer success.",
-  },
-  {
-    title: "10,000+ Metric Tons Annual Production",
-    body: "Scalable manufacturing capability supporting diverse packaging sectors.",
-  },
-  {
-    title: "Assured Quality",
-    body: "Continuous inspection, monitoring, and process control across every production stage.",
-  },
-] as const;
-
-const galleryImages: readonly { src: string; alt: string }[] = [];
-
 export default function AboutPageContent() {
-  const [activeIndex, setActiveIndex] = useState<number>(0);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const items = useMemo(() => timeline, []);
 
   return (
@@ -81,7 +71,7 @@ export default function AboutPageContent() {
       <AboutHashScroll />
       <PageIntro label="About Us" title="About Trishala" />
 
-      <section className="py-8 md:py-10 lg:py-12">
+      <section id="about-trishala" className="scroll-mt-[88px] py-8 md:py-10 lg:py-12">
         <div className="mx-auto max-w-[1380px] px-5 md:px-8">
           <div className="space-y-5">
             <p className="text-base leading-relaxed md:text-lg" style={{ color: v1.ink.body }}>
@@ -108,40 +98,10 @@ export default function AboutPageContent() {
             className="text-[clamp(1.5rem,3vw,2.25rem)] font-extrabold tracking-[-0.03em]"
             style={{ color: v1.ink.navy }}
           >
-            Our Values
-          </h2>
-          <div className="mt-7 grid grid-cols-1 gap-5 md:mt-8 md:grid-cols-2">
-            {values.map((value) => (
-              <article
-                key={value.title}
-                className="rounded-2xl p-7 md:p-8"
-                style={{ background: v1.canvas, boxShadow: v1.shadow.soft }}
-              >
-                <h3
-                  className="text-[11px] font-bold uppercase tracking-[0.24em]"
-                  style={{ color: v1.green.primary }}
-                >
-                  {value.title}
-                </h3>
-                <p className="mt-4 text-base leading-relaxed" style={{ color: v1.ink.body }}>
-                  {value.body}
-                </p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-8 md:py-10 lg:py-12">
-        <div className="mx-auto max-w-[1380px] px-5 md:px-8">
-          <h2
-            className="text-[clamp(1.5rem,3vw,2.25rem)] font-extrabold tracking-[-0.03em]"
-            style={{ color: v1.ink.navy }}
-          >
             Our Journey
           </h2>
 
-          <div className="mt-10 hidden lg:block" onMouseLeave={() => setActiveIndex(0)}>
+          <div className="mt-10 hidden lg:block" onMouseLeave={() => setActiveIndex(null)}>
             <div className="relative">
               <div
                 className="absolute left-0 right-0 top-1/2 h-px -translate-y-1/2"
@@ -152,6 +112,20 @@ export default function AboutPageContent() {
               <div className="grid grid-cols-5 items-center gap-6">
                 {items.map((step, index) => {
                   const isActive = index === activeIndex;
+                  const isFirst = index === 0;
+                  const isLast = index === items.length - 1;
+                  const tooltipPositionClass = isFirst
+                    ? "left-0"
+                    : isLast
+                      ? "right-0"
+                      : "left-1/2";
+                  const tooltipTransform = isActive
+                    ? isFirst || isLast
+                      ? "translateY(0)"
+                      : "translate(-50%,0)"
+                    : isFirst || isLast
+                      ? "translateY(-8px)"
+                      : "translate(-50%,-8px)";
                   return (
                     <div key={step.year} className="relative">
                       <button
@@ -190,12 +164,12 @@ export default function AboutPageContent() {
                       </button>
 
                       <div
-                        className="pointer-events-none absolute left-1/2 top-full mt-7 w-[min(340px,calc(100vw-2rem))] -translate-x-1/2 rounded-2xl p-6 transition-[opacity,transform] duration-300"
+                        className={`pointer-events-none absolute top-full mt-7 w-[min(340px,calc(100vw-2rem))] rounded-2xl p-6 transition-[opacity,transform] duration-300 ${tooltipPositionClass}`}
                         style={{
                           background: v1.canvas,
                           boxShadow: v1.shadow.soft,
                           opacity: isActive ? 1 : 0,
-                          transform: isActive ? "translate(-50%,0)" : "translate(-50%,-8px)",
+                          transform: tooltipTransform,
                         }}
                         aria-hidden={!isActive}
                       >
@@ -278,20 +252,23 @@ export default function AboutPageContent() {
             className="text-[clamp(1.5rem,3vw,2.25rem)] font-extrabold tracking-[-0.03em]"
             style={{ color: v1.ink.navy }}
           >
-            Achievements
+            Mission / Vision / Values
           </h2>
-          <div className="mt-7 grid grid-cols-1 gap-5 md:mt-8 md:grid-cols-2 lg:grid-cols-4">
-            {achievements.map((item) => (
+          <div className="mt-7 grid grid-cols-1 gap-5 md:mt-8 md:grid-cols-2">
+            {purposeCards.map((value) => (
               <article
-                key={item.title}
-                className="rounded-2xl p-6 md:p-7"
+                key={value.title}
+                className="rounded-2xl p-7 md:p-8"
                 style={{ background: v1.canvas, boxShadow: v1.shadow.soft }}
               >
-                <h3 className="text-lg font-extrabold leading-snug" style={{ color: v1.ink.navy }}>
-                  {item.title}
+                <h3
+                  className="text-[11px] font-bold uppercase tracking-[0.24em]"
+                  style={{ color: v1.green.primary }}
+                >
+                  {value.title}
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed" style={{ color: v1.ink.body }}>
-                  {item.body}
+                <p className="mt-4 text-base leading-relaxed" style={{ color: v1.ink.body }}>
+                  {value.body}
                 </p>
               </article>
             ))}
@@ -308,97 +285,28 @@ export default function AboutPageContent() {
             Brochure
           </h2>
           <div
-            className="mt-7 flex min-h-[220px] items-center justify-center rounded-2xl p-8 md:mt-8"
+            className="mt-7 flex flex-col items-start justify-center rounded-2xl p-8 md:mt-8"
             style={{ background: v1.canvas, boxShadow: v1.shadow.soft }}
           >
-            <p className="text-sm" style={{ color: v1.ink.muted }}>
-              Corporate brochure asset placeholder — PDF upload-ready area.
+            <p className="max-w-2xl text-base leading-relaxed" style={{ color: v1.ink.body }}>
+              View the Trishala Laminates company brochure for an overview of
+              capabilities, packaging formats, and manufacturing strengths.
             </p>
+            <Link
+              href={brochureHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-flex rounded-full px-7 py-3 text-sm font-bold text-white transition-all hover:opacity-90 hover:shadow-lg"
+              style={{
+                background: v1.green.primary,
+                boxShadow: v1.shadow.card,
+              }}
+            >
+              Company Brochure
+            </Link>
           </div>
-        </div>
-      </section>
-
-      <section className="py-8 md:py-10 lg:py-12">
-        <div className="mx-auto max-w-[1380px] px-5 md:px-8">
-          <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
-            <div>
-              <h2
-                className="text-[clamp(1.5rem,3vw,2.25rem)] font-extrabold tracking-[-0.03em]"
-                style={{ color: v1.ink.navy }}
-              >
-                Gallery
-              </h2>
-              <p className="mt-2 text-sm md:text-base" style={{ color: v1.ink.muted }}>
-                Inside Trishala Laminates
-              </p>
-            </div>
-          </div>
-
-          <div className="mt-7 grid grid-cols-1 gap-5 md:mt-8 md:grid-cols-2 lg:grid-cols-3">
-            {(galleryImages.length > 0 ? galleryImages : Array.from({ length: 6 })).map(
-              (item, index) => {
-                const src = typeof item === "object" ? item.src : undefined;
-                const alt = typeof item === "object" ? item.alt : "Gallery image placeholder";
-                const key = typeof item === "object" ? item.src : `placeholder-${index}`;
-
-                return (
-                  <div
-                    key={key}
-                    className="group relative aspect-[4/3] overflow-hidden rounded-2xl"
-                    style={{
-                      background: v1.canvas,
-                      border: `1px solid ${v1.silver.hairline}`,
-                      boxShadow: v1.shadow.soft,
-                    }}
-                  >
-                    {src ? (
-                      <Image
-                        src={src}
-                        alt={alt}
-                        fill
-                        sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-                        className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
-                      />
-                    ) : (
-                      <div className="absolute inset-0" />
-                    )}
-                    <div
-                      className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-                      style={{ boxShadow: "inset 0 0 0 1px rgba(0,0,0,0.03), 0 12px 35px rgba(15,23,42,0.12)" }}
-                      aria-hidden
-                    />
-                  </div>
-                );
-              },
-            )}
-          </div>
-        </div>
-      </section>
-
-      <section id="careers" className="scroll-mt-[88px] py-8 md:py-10 lg:py-12">
-        <div className="mx-auto max-w-[1380px] px-5 md:px-8">
-          <h2
-            className="text-[clamp(1.5rem,3vw,2.25rem)] font-extrabold tracking-[-0.03em]"
-            style={{ color: v1.ink.navy }}
-          >
-            Careers at Trishala
-          </h2>
-          <p className="mt-5 text-base leading-relaxed md:text-lg" style={{ color: v1.ink.body }}>
-            At Trishala Laminates, people are the foundation of our success. We
-            continuously seek passionate professionals who value operational
-            excellence, manufacturing innovation, teamwork, and long-term growth.
-            Whether on the production floor, in quality assurance, engineering, sales,
-            or administration, every individual contributes to building packaging
-            solutions trusted across industries.
-          </p>
-          <p className="mt-4 text-base leading-relaxed md:text-lg" style={{ color: v1.ink.body }}>
-            Join us in shaping the future of flexible packaging through commitment,
-            collaboration, and continuous learning.
-          </p>
         </div>
       </section>
     </>
   );
 }
-
-
