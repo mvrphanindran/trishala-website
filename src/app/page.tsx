@@ -1,18 +1,18 @@
 import PageShell from "@/components/site/PageShell";
+import CompanyHighlights from "@/sections/home/CompanyHighlights";
 import Hero from "@/sections/home/Hero";
-import HomeSlimFooter from "@/sections/home/HomeSlimFooter";
+import PackagingSolutionsCarousel from "@/sections/home/PackagingSolutionsCarousel";
 import IndustriesWeServe from "@/sections/home/IndustriesWeServe";
 import MaterialDiscipline from "@/sections/home/MaterialDiscipline";
-import OurPurpose from "@/sections/home/OurPurpose";
 
 export default function HomePage() {
   return (
     <PageShell>
       <Hero />
+      <CompanyHighlights />
+      <PackagingSolutionsCarousel />
       <MaterialDiscipline />
-      <OurPurpose />
       <IndustriesWeServe />
-      <HomeSlimFooter />
     </PageShell>
   );
 }

@@ -114,7 +114,6 @@ export function AboutUsMobileAccordion() {
 
 export default function AboutUsDropdown() {
   const [open, setOpen] = useState(false);
-  const [isDesktop, setIsDesktop] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
   const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -155,16 +154,6 @@ export default function AboutUsDropdown() {
     setOpen((value) => !value);
     clearCloseTimer();
   }, [clearCloseTimer]);
-
-  useEffect(() => {
-    const media = window.matchMedia("(min-width: 1024px)");
-
-    const sync = () => setIsDesktop(media.matches);
-    sync();
-    media.addEventListener("change", sync);
-
-    return () => media.removeEventListener("change", sync);
-  }, []);
 
   useEffect(() => {
     return () => clearCloseTimer();
