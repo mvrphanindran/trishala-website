@@ -1,11 +1,11 @@
-export type InfrastructureInfoCard = {
-  title: "Applications" | "Advantages" | "Capacity" | "Output";
-  items: readonly string[];
-};
-
 export type InfrastructureGalleryImage = {
   src: string;
   caption: string;
+};
+
+export type InfrastructureTechnicalDetail = {
+  label: string;
+  value: string;
 };
 
 export type InfrastructureSpec = {
@@ -22,7 +22,7 @@ export type InfrastructureCapability = {
   gallery?: readonly InfrastructureGalleryImage[];
   summary: string;
   spec: InfrastructureSpec;
-  cards: readonly InfrastructureInfoCard[];
+  details: readonly InfrastructureTechnicalDetail[];
 };
 
 export const infrastructureHero = {
@@ -38,11 +38,11 @@ export const infrastructureCapabilities: readonly InfrastructureCapability[] = [
     gallery: [
       {
         src: "/images/capabilities/rotogravure-2.png",
-        caption: "Rotogravure Printing Press – Production Line 1",
+        caption: "Rotogravure Printing Press - Production Line 1",
       },
       {
         src: "/images/capabilities/rotogravure-3.png",
-        caption: "Rotogravure Printing Press – Production Line 2",
+        caption: "Rotogravure Printing Press - Production Line 2",
       },
     ],
     summary:
@@ -53,30 +53,11 @@ export const infrastructureCapabilities: readonly InfrastructureCapability[] = [
       output: "Production-ready printed rolls",
       capability: "Up to 450 mtr/min",
     },
-    cards: [
-      {
-        title: "Capacity",
-        items: [
-          "Number of machines: 3",
-          "Machine configuration: 9 Ink, 9 Ink, 8 Ink",
-          "Printing capacity: up to 450 mtr/min",
-        ],
-      },
+    details: [
+      { label: "Number of Machines", value: "3" },
+      { label: "Machine Configuration", value: "9 Ink, 9 Ink, 8 Ink" },
+      { label: "Production Speed", value: "Up to 450 mtr/min" },
     ],
-  },
-  {
-    id: "combi-lamination",
-    title: "Combi Lamination",
-    image: "/images/capabilities/combi-lamination.png",
-    summary:
-      "A versatile industrial system designed to perform multiple types of lamination typically solventless and solvent-based.",
-    spec: {
-      application: "Multi-Layer Lamination",
-      processType: "Combi Lamination",
-      output: "Laminated roll stock",
-      capability: "Up to 300 mtrs/min",
-    },
-    cards: [],
   },
   {
     id: "solvent-lamination",
@@ -90,7 +71,7 @@ export const infrastructureCapabilities: readonly InfrastructureCapability[] = [
       output: "Bonded multi-layer webs",
       capability: "Up to 120 mtrs/min",
     },
-    cards: [],
+    details: [],
   },
   {
     id: "solventless-lamination",
@@ -104,62 +85,65 @@ export const infrastructureCapabilities: readonly InfrastructureCapability[] = [
       output: "Solvent-free laminated rolls",
       capability: "Up to 400 mtrs/min",
     },
-    cards: [],
+    details: [],
   },
   {
     id: "extrusion-lamination",
     title: "Extrusion Lamination",
+    image: "/images/capabilities/extrusion-lamination.jpg",
     summary:
       "Superior barrier and high-performance packaging with polymer lamination engineered for strength, consistency and protection.",
-    image: "/images/capabilities/extrusion-lamination.jpg",
     spec: {
       application: "Barrier & Industrial Packaging",
       processType: "Extrusion Lamination",
       output: "Extrusion laminated structures",
       capability: "Up to 300 mtrs/min",
     },
-    cards: [],
+    details: [],
+  },
+  {
+    id: "combi-lamination",
+    title: "Combi Lamination",
+    image: "/images/capabilities/combi-lamination.png",
+    summary:
+      "A versatile industrial system designed to perform multiple types of lamination typically solventless and solvent-based.",
+    spec: {
+      application: "Multi-Layer Lamination",
+      processType: "Combi Lamination",
+      output: "Laminated roll stock",
+      capability: "Up to 300 mtrs/min",
+    },
+    details: [],
   },
   {
     id: "pouching",
     title: "Pouching",
+    image: "/images/capabilities/pouching.jpg",
     summary:
       "Advanced pouching technology for precision, performance, and consistent sealing across flexible packaging formats.",
-    image: "/images/capabilities/pouching.jpg",
     spec: {
       application: "Flexible Pouch Conversion",
       processType: "Pouching",
       output: "Finished pouches",
       capability: "Up to 300 pouches/min",
     },
-    cards: [
-      {
-        title: "Capacity",
-        items: [
-          "Up to 300 pouches/min",
-          "Pouch width: 80–300 mm",
-          "Pouch length: 100–450 mm",
-        ],
-      },
+    details: [
+      { label: "Pouch Width", value: "80-300 mm" },
+      { label: "Pouch Length", value: "100-450 mm" },
     ],
   },
   {
     id: "blown-film-extrusion",
     title: "Polyethylene Blown Film Extrusion",
+    image: "/images/capabilities/blown-film.jpg",
     summary:
       "Precision blown film line delivering high quality films with excellent strength, consistency and clarity.",
-    image: "/images/capabilities/blown-film.jpg",
     spec: {
       application: "Extrusion Film",
       processType: "Blown Film Extrusion",
       output: "PE film rolls",
       capability: "Up to 250 kg/hr",
     },
-    cards: [
-      {
-        title: "Capacity",
-        items: ["Blown film line: up to 250 kg/hr"],
-      },
-    ],
+    details: [],
   },
 ] as const;

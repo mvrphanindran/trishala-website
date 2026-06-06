@@ -8,9 +8,11 @@ const infrastructureNavigation = [
   { label: "Rotogravure Printing", href: "/infrastructure#rotogravure" },
   { label: "Solvent Based Lamination", href: "/infrastructure#solvent-lamination" },
   { label: "Solvent Less Lamination", href: "/infrastructure#solventless-lamination" },
-  { label: "Slitting", href: "/infrastructure#slitting" },
+  { label: "Extrusion Lamination", href: "/infrastructure#extrusion-lamination" },
+  { label: "Combi Lamination", href: "/infrastructure#combi-lamination" },
   { label: "Pouching", href: "/infrastructure#pouching" },
-  { label: "Quality Inspection", href: "/quality#continuous-inspection" },
+  { label: "Polyethylene Blown Film Extrusion", href: "/infrastructure#blown-film-extrusion" },
+  { label: "Our Manufacturing Unit", href: "/infrastructure#manufacturing-unit" },
 ] as const;
 
 export const infrastructureHref = "/infrastructure" as const;

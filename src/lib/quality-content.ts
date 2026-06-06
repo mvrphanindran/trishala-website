@@ -1,126 +1,81 @@
-export type QualityGalleryImage = {
-  src: string;
-  alt: string;
-};
-
-export type QualitySectionContent = {
+export type QualityMachine = {
   id: string;
   title: string;
-  paragraphs: readonly string[];
-  listIntro?: string;
-  listItems: readonly string[];
-  closingParagraphs?: readonly string[];
-  image?: string;
-  gallery?: readonly QualityGalleryImage[];
+  image: string;
+  description: readonly string[];
 };
 
 export const qualityHero = {
-  label: "Quality",
-  title: "Quality Without Compromise",
+  title: "Quality Testing & Inspection Equipment",
   subtitle:
-    "Consistent quality, continuous monitoring and rigorous inspection systems ensure every packaging solution meets the highest standards of performance and reliability.",
+    "Rigorous testing, inspection, and validation systems ensure consistent performance, reliability, and quality across every stage of flexible packaging manufacturing.",
 } as const;
 
-export const qualitySections: readonly QualitySectionContent[] = [
+export const qualityMachines: readonly QualityMachine[] = [
   {
-    id: "quality-assurance",
-    title: "Quality Assurance",
-    paragraphs: [
-      "Quality is integrated into every stage of the manufacturing process at Trishala Laminates.",
-      "From raw material evaluation to final dispatch, every operation follows defined quality procedures to ensure consistency, reliability and product performance.",
-    ],
-    listIntro: "Our quality assurance framework focuses on:",
-    listItems: [
-      "Material consistency",
-      "Process discipline",
-      "Product integrity",
-      "Continuous improvement",
-      "Customer satisfaction",
-    ],
-    image: "/images/quality/material.jpg",
-  },
-  {
-    id: "quality-control",
-    title: "Quality Control",
-    paragraphs: [
-      "Our dedicated Quality Control team monitors critical production parameters throughout manufacturing to maintain product specifications and operational consistency.",
-      "Every production batch is evaluated against established quality benchmarks before approval.",
-    ],
-    listIntro: "Focus Areas:",
-    listItems: [
-      "Print quality",
-      "Registration accuracy",
-      "Lamination bond strength",
-      "Seal performance",
-      "Dimensional consistency",
-      "Visual appearance",
-    ],
-    image: "/images/quality/inspection.jpg",
-  },
-  {
-    id: "continuous-inspection",
-    title: "Continuous Inspection",
-    paragraphs: [
-      "Advanced inspection and monitoring systems are integrated throughout production to identify deviations before they impact product quality.",
-    ],
-    listIntro: "Our operators and quality specialists continuously monitor:",
-    listItems: [
-      "Printing registration",
-      "Colour consistency",
-      "Lamination quality",
-      "Surface defects",
-      "Reel condition",
-      "Conversion accuracy",
-    ],
-    closingParagraphs: [
-      "Through continuous monitoring and doctoring systems, defects are minimized and process stability is maintained throughout production.",
-    ],
-    gallery: [
-      {
-        src: "/images/quality/monitoring.jpg",
-        alt: "Continuous process monitoring on the production line",
-      },
-      {
-        src: "/images/quality/defect.jpg",
-        alt: "Defect detection and doctoring systems",
-      },
+    id: "doctoring-system",
+    title: "Doctoring System",
+    image: "/images/quality/doctoring-machine.png",
+    description: [
+      "Inspects printed films and laminates during high-speed production.",
+      "Uses synchronized stroboscopic lighting to create a stationary image effect.",
+      "Detects print defects, misregistration, and colour variations instantly.",
     ],
   },
   {
-    id: "qc-laboratory",
-    title: "Quality Control Laboratory",
-    paragraphs: [
-      "Our in-house Quality Control Laboratory is equipped with modern testing instruments and operated by skilled technicians dedicated to maintaining industry standards and driving continuous improvement.",
-      "Every stage of production is supported by data-driven testing and technical evaluation.",
+    id: "hot-air-oven",
+    title: "Hot Air Oven",
+    image: "/images/quality/hot-air-oven.png",
+    description: [
+      "Evaluates the thermal stability of flexible packaging films, laminates, and pouch materials.",
+      "Simulates elevated temperature conditions to assess material performance and durability.",
+      "Supports quality control by ensuring packaging integrity throughout storage and transportation.",
     ],
-    listIntro: "The laboratory supports:",
-    listItems: [
-      "Incoming material inspection",
-      "In-process testing",
-      "Finished product evaluation",
-      "Performance verification",
-      "Process validation",
-      "Quality improvement initiatives",
-    ],
-    image: "/images/quality/registration.jpg",
   },
   {
-    id: "reliability",
-    title: "Built On Reliability",
-    paragraphs: [
-      "Consistent quality performance has helped Trishala establish long-term relationships across diverse industries including FMCG, Agriculture, Personal Care, Household Products, Snacks, Spices and Pet Food.",
-      "Through disciplined manufacturing practices, experienced personnel and continuous improvement initiatives, Trishala continues to deliver packaging solutions that meet customer expectations for quality, consistency and reliability.",
+    id: "colour-matching-cabinet",
+    title: "Colour Matching Cabinet",
+    image: "/images/quality/colour-matching-cabinet.png",
+    description: [
+      "Ensures accurate colour evaluation of printed laminates, films, and flexible packaging pouches.",
+      "Simulates standardized lighting conditions to detect shade variation and print inconsistencies.",
+      "Supports reliable colour matching for superior print quality and brand consistency.",
     ],
-    listItems: [],
-    image: "/images/quality/reliability.jpg",
+  },
+  {
+    id: "coefficient-of-friction-tester",
+    title: "Coefficient of Friction Tester",
+    image: "/images/quality/coefficient-of-friction.png",
+    description: [
+      "Precision instrument for evaluating friction behavior of flexible packaging substrates.",
+      "Tests static and dynamic friction to predict real-world material performance.",
+      "Helps improve machinability, consistency, and overall packaging reliability.",
+    ],
+  },
+  {
+    id: "tensile-tester",
+    title: "Tensile Tester",
+    image: "/images/quality/tensile-tester.png",
+    description: [
+      "Precision testing for peel strength, bond integrity, and adhesive performance.",
+      "Delivers accurate, repeatable results for laminates, films, tapes, and labels.",
+      "Ensures quality compliance across packaging and flexible material industries.",
+    ],
+  },
+  {
+    id: "vacuum-leak-tester",
+    title: "Vacuum Leak Tester",
+    image: "/images/quality/vaccum-testing.png",
+    description: [
+      "Detects even the smallest leaks by creating a controlled vacuum environment.",
+      "Ensures packaging integrity, product safety, and contamination-free performance.",
+    ],
   },
 ] as const;
 
-export const qualityWorkflowSteps = [
-  "Raw Material Inspection",
-  "Production Monitoring",
-  "Registration Verification",
-  "Lamination Inspection",
-  "Final QC Approval",
-  "Dispatch",
-] as const;
+export const qualityLaboratory = {
+  title: "Advanced Quality Control Laboratory",
+  image: "/images/quality/QC-lab.png",
+  description:
+    "Equipped with modern testing instruments and precision inspection systems, our Quality Control Laboratory ensures consistent performance across every stage of flexible packaging production. Comprehensive testing of seal strength, adhesion, barrier properties, print quality, and material integrity enables us to maintain high standards of reliability, durability, and product excellence. Through rigorous monitoring and validation, we deliver packaging solutions that meet demanding industry requirements and customer expectations.",
+} as const;

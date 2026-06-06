@@ -1,9 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { useRef } from "react";
 import IndustriesShowcase from "@/components/industries/IndustriesShowcase";
-import { industriesHref } from "@/lib/site-navigation";
 import { v1 } from "@/lib/v1-tokens";
 
 export default function IndustriesWeServe() {
@@ -44,19 +42,6 @@ export default function IndustriesWeServe() {
           >
             →
           </button>
-        </div>
-
-        <div className="mt-5 flex justify-center md:mt-7">
-          <Link
-            href={industriesHref}
-            className="inline-flex rounded-full px-8 py-3 text-sm font-bold text-white transition-all hover:opacity-90 hover:shadow-lg"
-            style={{
-              background: v1.green.primary,
-              boxShadow: v1.shadow.card,
-            }}
-          >
-            More Industries
-          </Link>
         </div>
       </div>
     </section>

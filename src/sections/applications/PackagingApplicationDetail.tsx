@@ -27,31 +27,17 @@ function SpecCard({
   );
 }
 
-function ProductTag({ label }: { label: string }) {
-  return (
-    <span
-      className="inline-flex rounded-full px-4 py-2 text-sm font-medium"
-      style={{
-        background: "rgba(0, 177, 64, 0.06)",
-        color: v1.ink.navy,
-      }}
-    >
-      {label}
-    </span>
-  );
-}
-
 export default function PackagingApplicationDetail({ content }: PackagingApplicationDetailProps) {
   return (
     <div className="pb-14 md:pb-20">
       <section className="mx-auto max-w-[1380px] px-5 pt-8 md:px-8 md:pt-10">
         <div className="grid items-center gap-8 lg:grid-cols-[minmax(0,1.06fr)_minmax(0,0.94fr)] lg:gap-12">
-          <div className="relative aspect-[4/5] w-full">
+          <div className="relative mx-auto aspect-[4/5] w-full max-w-[420px] lg:max-w-[500px]">
             <Image
               src={content.application.image}
               alt={content.application.title}
               fill
-              sizes="(max-width: 1024px) 100vw, 52vw"
+              sizes="(max-width: 1024px) min(100vw, 420px), 500px"
               className="object-contain"
               priority
             />
@@ -71,22 +57,6 @@ export default function PackagingApplicationDetail({ content }: PackagingApplica
               {content.intro}
             </p>
           </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-[1380px] px-5 pt-8 md:px-8 md:pt-12">
-        <div className="max-w-3xl">
-          <p className="text-[11px] font-bold uppercase tracking-[0.32em]" style={{ color: v1.green.primary }}>
-            Related Products
-          </p>
-          <h2 className="mt-2 text-[clamp(1.45rem,2.8vw,2.05rem)] font-extrabold tracking-[-0.03em]" style={{ color: v1.ink.navy }}>
-            Related Products
-          </h2>
-        </div>
-        <div className="mt-6 flex flex-wrap gap-3">
-          {content.relatedProducts.map((item) => (
-            <ProductTag key={item} label={item} />
-          ))}
         </div>
       </section>
 

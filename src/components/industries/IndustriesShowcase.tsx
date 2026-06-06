@@ -18,7 +18,7 @@ export default function IndustriesShowcase({
 }: IndustriesShowcaseProps) {
   if (layout === "grid") {
     return (
-      <ul className="mx-auto flex max-w-[1180px] flex-col gap-12 px-5 pb-14 md:gap-16 md:px-8 md:pb-20">
+      <ul className="mx-auto grid max-w-[1180px] grid-cols-1 gap-7 px-5 pb-14 sm:grid-cols-2 md:px-8 md:pb-20 lg:grid-cols-3">
         {industriesCatalogue.map((industry) => {
           const imageSrc = getIndustryImage(industry.slug);
           if (!imageSrc) return null;
@@ -38,7 +38,7 @@ export default function IndustriesShowcase({
                     src={imageSrc}
                     alt={industry.label}
                     fill
-                    sizes="(max-width: 1024px) 100vw, 1180px"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="object-contain p-4 transition-transform duration-500 group-hover:scale-[1.015] md:p-6"
                   />
                 </div>

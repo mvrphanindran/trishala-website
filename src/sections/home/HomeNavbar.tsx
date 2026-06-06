@@ -8,7 +8,6 @@ import InfrastructureDropdown, { InfrastructureMobileAccordion } from "@/section
 import PackagingSolutionsMegaMenu, {
   PackagingSolutionsMobileAccordion,
 } from "@/sections/home/PackagingSolutionsMegaMenu";
-import { packagingSolutionsHref } from "@/lib/packaging-solutions-navigation";
 import { contactHref, qualityHref } from "@/lib/site-navigation";
 import { v1 } from "@/lib/v1-tokens";
 
@@ -98,14 +97,6 @@ export default function HomeNavbar() {
               <AboutUsMobileAccordion />
             </li>
             <li>
-              <Link
-                href={packagingSolutionsHref}
-                className="block py-2.5 text-[15px] font-medium transition-colors hover:text-[#00B140]"
-                style={{ color: v1.ink.navy }}
-                onClick={() => setMobileOpen(false)}
-              >
-                Packaging Solutions
-              </Link>
               <PackagingSolutionsMobileAccordion />
             </li>
             <li>

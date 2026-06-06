@@ -9,6 +9,8 @@ export type PackagingNavGroup = {
 };
 
 export const packagingSolutionsHref = "/packaging-solutions" as const;
+export const packagingFormatsHref = `${packagingSolutionsHref}#packaging-formats` as const;
+export const packagingApplicationsHref = `${packagingSolutionsHref}#packaging-applications` as const;
 
 function anchor(id: string): string {
   return `${packagingSolutionsHref}#${id}`;

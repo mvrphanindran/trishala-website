@@ -1,3 +1,4 @@
+import Image from "next/image";
 import InfrastructureCapabilitySection from "@/components/infrastructure/InfrastructureCapabilitySection";
 import PageShell from "@/components/site/PageShell";
 import TextureBackdrop from "@/components/site/TextureBackdrop";
@@ -20,7 +21,7 @@ export default function InfrastructurePage() {
           }}
         />
 
-        <header className="relative mx-auto max-w-[1380px] px-5 pb-16 pt-28 text-center md:px-8 md:pb-20 md:pt-32 lg:pb-24 lg:pt-36">
+        <header className="relative mx-auto max-w-[1380px] px-5 pb-10 pt-24 text-center md:px-8 md:pb-12 md:pt-28 lg:pb-14 lg:pt-32">
           <p
             className="mb-4 text-[11px] font-bold uppercase tracking-[0.32em]"
             style={{ color: v1.green.primary }}
@@ -43,17 +44,34 @@ export default function InfrastructurePage() {
       </section>
 
       <div className="mx-auto max-w-[1380px] px-5 md:px-8">
-        {infrastructureCapabilities.map((capability, index) => (
-          <div key={capability.id}>
+        <div className="space-y-4 md:space-y-6">
+          {infrastructureCapabilities.map((capability, index) => (
             <InfrastructureCapabilitySection
+              key={capability.id}
               capability={capability}
               index={index}
             />
-            {index < infrastructureCapabilities.length - 1 ? (
-              <div className="h-8 md:h-10" aria-hidden />
-            ) : null}
+          ))}
+        </div>
+
+        <section id="manufacturing-unit" className="pb-10 pt-8 md:pb-12 md:pt-10 lg:pb-16">
+          <h2
+            className="text-[clamp(1.6rem,3vw,2.3rem)] font-extrabold tracking-[-0.04em]"
+            style={{ color: v1.ink.navy }}
+          >
+            Our Manufacturing Unit
+          </h2>
+          <div className="relative mt-5 aspect-[21/9] w-full overflow-hidden md:mt-6">
+            <Image
+              src="/images/capabilities/factory.png"
+              alt="Trishala manufacturing unit"
+              fill
+              sizes="100vw"
+              className="object-cover"
+              priority
+            />
           </div>
-        ))}
+        </section>
       </div>
     </PageShell>
   );

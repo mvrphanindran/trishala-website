@@ -108,69 +108,71 @@ export default function PackagingSolutionsPageContent() {
       />
 
       <div className="mx-auto max-w-[1380px] px-5 pb-14 md:px-8 md:pb-16">
-        <section id="laminated-rolls" className="scroll-mt-[88px] py-5 md:py-7">
-          <h2
-            className="text-[clamp(1.5rem,3vw,2.25rem)] font-extrabold tracking-[-0.03em]"
-            style={{ color: v1.ink.navy }}
-          >
-            Rolls
-          </h2>
-          <div className="mt-5 grid grid-cols-1 items-center gap-6 lg:grid-cols-[1.1fr_1fr]">
-            <ProductImage src={rollsImage} alt="Rolls flexible packaging" />
-            <div>
-              <p className="text-base leading-relaxed md:text-lg" style={{ color: v1.ink.body }}>
-                High-quality printed flexible packaging rolls manufactured for
-                automated packaging applications across FMCG, food, agriculture,
-                household, and personal care industries. Multi-layer laminated
-                structures designed to provide barrier protection, seal integrity,
-                product freshness, and process consistency.
-              </p>
-              <p className="mt-4 text-[11px] font-bold uppercase tracking-[0.22em]" style={{ color: v1.green.primary }}>
-                Applications
-              </p>
-              <ul className="mt-2 grid grid-cols-1 gap-1 text-sm" style={{ color: v1.ink.body }}>
-                <li>Snacks</li>
-                <li>Spices</li>
-                <li>Tea &amp; Coffee</li>
-                <li>Agriculture</li>
-                <li>Household Products</li>
-                <li>Personal Care</li>
-                <li>Frozen Foods</li>
-                <li>Rice Packaging</li>
-                <li>Dry Fruits</li>
-                <li>Beverage Powders</li>
-                <li>FMCG Packaging</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        {pouchSections.map((section) => (
-          <section key={section.id} id={section.id} className="scroll-mt-[88px] py-5 md:py-7">
+        <div id="packaging-formats" className="scroll-mt-[88px]">
+          <section id="laminated-rolls" className="scroll-mt-[88px] py-5 md:py-7">
             <h2
               className="text-[clamp(1.5rem,3vw,2.25rem)] font-extrabold tracking-[-0.03em]"
               style={{ color: v1.ink.navy }}
             >
-              {section.title}
+              Rolls
             </h2>
             <div className="mt-5 grid grid-cols-1 items-center gap-6 lg:grid-cols-[1.1fr_1fr]">
-              <ProductImage src={section.image} alt={section.title} />
+              <ProductImage src={rollsImage} alt="Rolls flexible packaging" />
               <div>
                 <p className="text-base leading-relaxed md:text-lg" style={{ color: v1.ink.body }}>
-                  {section.description}
+                  High-quality printed flexible packaging rolls manufactured for
+                  automated packaging applications across FMCG, food, agriculture,
+                  household, and personal care industries. Multi-layer laminated
+                  structures designed to provide barrier protection, seal integrity,
+                  product freshness, and process consistency.
                 </p>
                 <p className="mt-4 text-[11px] font-bold uppercase tracking-[0.22em]" style={{ color: v1.green.primary }}>
                   Applications
                 </p>
                 <ul className="mt-2 grid grid-cols-1 gap-1 text-sm" style={{ color: v1.ink.body }}>
-                  {section.applications.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
+                  <li>Snacks</li>
+                  <li>Spices</li>
+                  <li>Tea &amp; Coffee</li>
+                  <li>Agriculture</li>
+                  <li>Household Products</li>
+                  <li>Personal Care</li>
+                  <li>Frozen Foods</li>
+                  <li>Rice Packaging</li>
+                  <li>Dry Fruits</li>
+                  <li>Beverage Powders</li>
+                  <li>FMCG Packaging</li>
                 </ul>
               </div>
             </div>
           </section>
-        ))}
+
+          {pouchSections.map((section) => (
+            <section key={section.id} id={section.id} className="scroll-mt-[88px] py-5 md:py-7">
+              <h2
+                className="text-[clamp(1.5rem,3vw,2.25rem)] font-extrabold tracking-[-0.03em]"
+                style={{ color: v1.ink.navy }}
+              >
+                {section.title}
+              </h2>
+              <div className="mt-5 grid grid-cols-1 items-center gap-6 lg:grid-cols-[1.1fr_1fr]">
+                <ProductImage src={section.image} alt={section.title} />
+                <div>
+                  <p className="text-base leading-relaxed md:text-lg" style={{ color: v1.ink.body }}>
+                    {section.description}
+                  </p>
+                  <p className="mt-4 text-[11px] font-bold uppercase tracking-[0.22em]" style={{ color: v1.green.primary }}>
+                    Applications
+                  </p>
+                  <ul className="mt-2 grid grid-cols-1 gap-1 text-sm" style={{ color: v1.ink.body }}>
+                    {section.applications.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </section>
+          ))}
+        </div>
 
         <PackagingApplicationsSection />
 

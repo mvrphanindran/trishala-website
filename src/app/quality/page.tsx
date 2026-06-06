@@ -1,9 +1,12 @@
-import QualitySection from "@/components/quality/QualitySection";
+import Image from "next/image";
+import QualityMachineSection from "@/components/quality/QualityMachineSection";
+import ResponsibleManufacturingSection from "@/components/quality/ResponsibleManufacturingSection";
 import PageShell from "@/components/site/PageShell";
 import TextureBackdrop from "@/components/site/TextureBackdrop";
 import {
   qualityHero,
-  qualitySections,
+  qualityLaboratory,
+  qualityMachines,
 } from "@/lib/quality-content";
 import { v1 } from "@/lib/v1-tokens";
 
@@ -20,21 +23,21 @@ export default function QualityPage() {
           }}
         />
 
-        <header className="relative mx-auto max-w-[1380px] px-5 pb-16 pt-28 text-center md:px-8 md:pb-20 md:pt-32 lg:pb-24 lg:pt-36">
+        <header className="relative mx-auto max-w-[1380px] px-5 pb-10 pt-24 md:px-8 md:pb-12 md:pt-28 lg:pb-14 lg:pt-32">
           <p
-            className="mb-4 text-[11px] font-bold uppercase tracking-[0.32em]"
+            className="text-[11px] font-bold uppercase tracking-[0.32em]"
             style={{ color: v1.green.primary }}
           >
-            {qualityHero.label}
+            Quality
           </p>
           <h1
-            className="mx-auto max-w-4xl text-[clamp(2rem,4.5vw,3.5rem)] font-extrabold leading-[1.02] tracking-[-0.04em]"
+            className="mt-4 max-w-4xl text-[clamp(2rem,4.2vw,3.4rem)] font-extrabold leading-[1.02] tracking-[-0.04em]"
             style={{ color: v1.ink.navy }}
           >
             {qualityHero.title}
           </h1>
           <p
-            className="mx-auto mt-6 max-w-3xl text-base leading-relaxed md:text-lg"
+            className="mt-5 max-w-3xl text-base leading-relaxed md:text-lg"
             style={{ color: v1.ink.body }}
           >
             {qualityHero.subtitle}
@@ -43,14 +46,63 @@ export default function QualityPage() {
       </section>
 
       <div className="mx-auto max-w-[1380px] px-5 md:px-8">
-        {qualitySections.map((section, index) => (
-          <div key={section.id}>
-            <QualitySection section={section} index={index} />
-            {index < qualitySections.length - 1 ? (
-              <div className="h-8 md:h-10" aria-hidden />
-            ) : null}
+        <div className="space-y-4 md:space-y-6">
+          {qualityMachines.map((machine, index) => (
+            <QualityMachineSection
+              key={machine.id}
+              machine={machine}
+              index={index}
+              emphasizeMedia={machine.id === "vacuum-leak-tester"}
+            />
+          ))}
+        </div>
+
+        <section className="py-5 md:py-7">
+          <div
+            className="max-w-4xl rounded-2xl px-5 py-5 md:px-6 md:py-6"
+            style={{ background: "linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%)" }}
+          >
+            <p
+              className="text-[11px] font-bold uppercase tracking-[0.32em]"
+              style={{ color: v1.green.primary }}
+            >
+              Additional Systems
+            </p>
+            <p
+              className="mt-3 text-base leading-relaxed md:text-lg"
+              style={{ color: v1.ink.body }}
+            >
+              Alongside the equipment shown above, Trishala operates additional quality control and inspection systems throughout the production process to support consistency, product integrity, and customer satisfaction.
+            </p>
           </div>
-        ))}
+        </section>
+
+        <section className="pb-8 pt-6 md:pb-10 md:pt-8 lg:pb-12">
+          <h2
+            className="text-[clamp(1.55rem,2.9vw,2.25rem)] font-extrabold tracking-[-0.04em]"
+            style={{ color: v1.ink.navy }}
+          >
+            {qualityLaboratory.title}
+          </h2>
+          <div className="relative mt-5 aspect-[21/9] w-full overflow-hidden bg-[#F8FAFC] md:mt-6">
+            <Image
+              src={qualityLaboratory.image}
+              alt={qualityLaboratory.title}
+              fill
+              sizes="100vw"
+              className="object-cover"
+              priority
+            />
+          </div>
+          <p
+            className="mt-5 max-w-4xl text-base leading-relaxed md:text-lg"
+            style={{ color: v1.ink.body }}
+          >
+            {qualityLaboratory.description}
+          </p>
+        </section>
+
+        <ResponsibleManufacturingSection />
       </div>
     </PageShell>
   );

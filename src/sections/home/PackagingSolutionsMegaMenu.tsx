@@ -3,14 +3,20 @@
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import {
+  packagingApplicationsHref,
+  packagingFormatsHref,
   packagingSolutionsHref,
-  packagingSolutionsNavigation,
 } from "@/lib/packaging-solutions-navigation";
 import MenuPreviewItem from "@/sections/home/MenuPreviewItem";
 import { v1 } from "@/lib/v1-tokens";
 
 const panelTransition =
   "transition-[opacity,transform] duration-[400ms] ease-[cubic-bezier(0.22,1,0.36,1)]";
+
+const simplePackagingLinks = [
+  { label: "Packaging Formats", href: packagingFormatsHref },
+  { label: "Packaging Applications", href: packagingApplicationsHref },
+] as const;
 
 export function PackagingSolutionsMobileAccordion() {
   const [expanded, setExpanded] = useState(false);
@@ -65,29 +71,19 @@ export function PackagingSolutionsMobileAccordion() {
           className="ml-3 mt-1 border-l pl-3"
           style={{ borderColor: v1.silver.hairline }}
         >
-          {packagingSolutionsNavigation.map((group) => (
-            <div key={group.label} className="mb-4 last:mb-0">
-              <p
-                className="text-[10px] font-bold uppercase tracking-[0.22em]"
-                style={{ color: v1.green.primary }}
-              >
-                {group.label}
-              </p>
-              <ul className="mt-2 space-y-1">
-                {group.items.map((item) => (
-                  <li key={item.href}>
-                    <MenuPreviewItem
-                      href={item.href}
-                      className="py-2 text-sm font-medium"
-                      onClick={close}
-                    >
-                      {item.label}
-                    </MenuPreviewItem>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          <ul className="space-y-1">
+            {simplePackagingLinks.map((item) => (
+              <li key={item.href}>
+                <MenuPreviewItem
+                  href={item.href}
+                  className="py-2 text-sm font-medium"
+                  onClick={close}
+                >
+                  {item.label}
+                </MenuPreviewItem>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </div>
@@ -95,52 +91,17 @@ export function PackagingSolutionsMobileAccordion() {
 }
 
 function CompactSolutionsList() {
-  const rolls = packagingSolutionsNavigation.find((group) => group.label === "Rolls");
-  const pouches = packagingSolutionsNavigation.find(
-    (group) => group.label === "Pouches",
-  );
-
   return (
-    <div className="w-[340px] rounded-xl p-4" style={{ background: v1.canvas, boxShadow: v1.shadow.nav }}>
-      {rolls ? (
-        <div>
-          <p
-            className="text-[11px] font-bold uppercase tracking-[0.22em]"
-            style={{ color: v1.green.primary }}
-          >
-            Rolls
-          </p>
-          <ul className="mt-2 space-y-1">
-            {rolls.items.map((item) => (
-              <li key={item.href}>
-                <MenuPreviewItem href={item.href} className="py-2 text-sm font-medium">
-                  {item.label}
-                </MenuPreviewItem>
-              </li>
-            ))}
-          </ul>
-        </div>
-      ) : null}
-
-      {pouches ? (
-        <div className="mt-4">
-          <p
-            className="text-[11px] font-bold uppercase tracking-[0.22em]"
-            style={{ color: v1.green.primary }}
-          >
-            Pouches
-          </p>
-          <ul className="mt-2 space-y-1">
-            {pouches.items.map((item) => (
-              <li key={item.href}>
-                <MenuPreviewItem href={item.href} className="py-2 text-sm font-medium">
-                  {item.label}
-                </MenuPreviewItem>
-              </li>
-            ))}
-          </ul>
-        </div>
-      ) : null}
+    <div className="w-[260px] rounded-xl p-4" style={{ background: v1.canvas, boxShadow: v1.shadow.nav }}>
+      <ul className="space-y-1">
+        {simplePackagingLinks.map((item) => (
+          <li key={item.href}>
+            <MenuPreviewItem href={item.href} className="py-2 text-sm font-medium">
+              {item.label}
+            </MenuPreviewItem>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
