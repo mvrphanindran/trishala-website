@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import Image from "next/image";
 import { useRef } from "react";
 import { packagingSolutionSections } from "@/lib/packaging-solutions-content";
@@ -8,6 +9,7 @@ import { v1 } from "@/lib/v1-tokens";
 const carouselItems = packagingSolutionSections.map((section) => ({
   label: section.group === "rolls" ? "Laminated Rolls" : section.title,
   image: section.image ?? "",
+  href: `/packaging-solutions#${section.id}`,
 }));
 
 export default function PackagingSolutionsCarousel() {
@@ -40,8 +42,8 @@ export default function PackagingSolutionsCarousel() {
             type="button"
             aria-label="Scroll packaging solutions left"
             onClick={() => scrollByCards("left")}
-            className="absolute left-0 top-1/2 z-10 inline-flex h-9 w-9 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border bg-white/95 transition-colors hover:border-[#00B140] hover:text-[#00B140] md:h-10 md:w-10"
-            style={{ borderColor: v1.silver.hairline, color: v1.ink.navy }}
+            className="absolute left-0 top-1/2 z-10 inline-flex h-9 w-9 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 transition-colors hover:text-[#00B140] md:h-10 md:w-10"
+            style={{ color: v1.ink.navy }}
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
               <path d="M14.5 6l-6 6 6 6" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
@@ -59,7 +61,7 @@ export default function PackagingSolutionsCarousel() {
                 className="group shrink-0 snap-start"
                 style={{ scrollSnapAlign: "start" }}
               >
-                <div className="w-[min(58vw,210px)] md:w-[200px] lg:w-[220px]">
+                <Link href={item.href} className="block w-[min(58vw,210px)] md:w-[200px] lg:w-[220px]">
                   <div className="flex flex-col items-center">
                     <div className="relative h-[180px] w-full md:h-[195px] lg:h-[210px]">
                       <Image
@@ -74,7 +76,7 @@ export default function PackagingSolutionsCarousel() {
                       {item.label}
                     </h3>
                   </div>
-                </div>
+                </Link>
               </article>
             ))}
           </div>
@@ -83,8 +85,8 @@ export default function PackagingSolutionsCarousel() {
             type="button"
             aria-label="Scroll packaging solutions right"
             onClick={() => scrollByCards("right")}
-            className="absolute right-0 top-1/2 z-10 inline-flex h-9 w-9 translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border bg-white/95 transition-colors hover:border-[#00B140] hover:text-[#00B140] md:h-10 md:w-10"
-            style={{ borderColor: v1.silver.hairline, color: v1.ink.navy }}
+            className="absolute right-0 top-1/2 z-10 inline-flex h-9 w-9 translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 transition-colors hover:text-[#00B140] md:h-10 md:w-10"
+            style={{ color: v1.ink.navy }}
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
               <path d="M9.5 6l6 6-6 6" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />

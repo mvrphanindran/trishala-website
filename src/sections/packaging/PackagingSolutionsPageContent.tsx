@@ -1,14 +1,13 @@
-"use client";
-
 import AnchorHashScroll from "@/components/site/AnchorHashScroll";
 import IndustriesShowcase from "@/components/industries/IndustriesShowcase";
 import PageIntro from "@/components/site/PageIntro";
 import { v1 } from "@/lib/v1-tokens";
 import Image from "next/image";
+import PackagingApplicationsSection from "@/sections/packaging/PackagingApplicationsSection";
 
 const pouchSections = [
   {
-    id: "center-seal",
+    id: "center-seal-pouches",
     title: "Center Seal Pouch",
     image: "/images/products/center-seal-pouch.png",
     description:
@@ -16,7 +15,7 @@ const pouchSections = [
     applications: ["Snacks", "Spices", "Agriculture inputs"],
   },
   {
-    id: "three-side-seal",
+    id: "three-side-seal-pouches",
     title: "Three Side Seal Pouch",
     image: "/images/products/three-side-seal-pouch.png",
     description:
@@ -24,7 +23,7 @@ const pouchSections = [
     applications: ["Spices", "Premixes", "Personal care sachets"],
   },
   {
-    id: "standup-pouch",
+    id: "stand-up-pouches",
     title: "Stand Up Pouch",
     image: "/images/products/stand-up-pouch.png",
     description:
@@ -32,7 +31,7 @@ const pouchSections = [
     applications: ["Dry fruits", "Tea & coffee", "Household refills"],
   },
   {
-    id: "zipper",
+    id: "zipper-pouches",
     title: "Zipper Pouch",
     image: "/images/products/zipper-pouch.png",
     description:
@@ -40,7 +39,7 @@ const pouchSections = [
     applications: ["Dry fruits", "Pet treats", "Nutritional mixes"],
   },
   {
-    id: "gusset",
+    id: "gusset-pouches",
     title: "Gusset Pouch",
     image: "/images/products/Gusset-Pouch.png",
     description:
@@ -48,7 +47,7 @@ const pouchSections = [
     applications: ["Rice", "Pet food", "Agriculture products"],
   },
   {
-    id: "spouted-pouch",
+    id: "spouted-pouches",
     title: "Spouted Pouch",
     image: "/images/products/spout-pouch.png",
     description:
@@ -56,7 +55,7 @@ const pouchSections = [
     applications: ["Household products", "Personal care", "Liquid and semi-liquid products"],
   },
   {
-    id: "handled",
+    id: "handled-pouches",
     title: "Handled Pouch",
     image: "/images/products/handled-pouch.png",
     description:
@@ -64,7 +63,7 @@ const pouchSections = [
     applications: ["Bulk household packs", "Pet food", "Family-size packs"],
   },
   {
-    id: "3d-pouch",
+    id: "3d-pouches",
     title: "3D Pouch",
     image: "/images/products/3d-pouch.png",
     description:
@@ -172,6 +171,8 @@ export default function PackagingSolutionsPageContent() {
             </div>
           </section>
         ))}
+
+        <PackagingApplicationsSection />
 
         <section className="py-7 md:py-9">
           <div className="rounded-2xl p-6 md:p-8" style={{ background: v1.canvas, boxShadow: v1.shadow.soft }}>

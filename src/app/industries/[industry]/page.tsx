@@ -9,7 +9,6 @@ import { getIndustryImage } from "@/lib/industry-images";
 import {
   getIndustryBySlug,
   industriesNavigation,
-  segmentHref,
 } from "@/lib/industries-navigation";
 import { contactHref } from "@/lib/site-navigation";
 import { v1 } from "@/lib/v1-tokens";
@@ -110,9 +109,8 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
         <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
           {industry.segments.map((segment) => (
             <li key={segment.slug}>
-              <Link
-                href={segmentHref(industry.slug, segment.slug)}
-                className="flex min-h-[108px] items-center rounded-2xl px-6 py-6 text-lg font-bold transition-colors hover:text-[#00B140]"
+              <div
+                className="flex min-h-[108px] items-center rounded-2xl px-6 py-6 text-lg font-bold"
                 style={{
                   color: v1.ink.navy,
                   background: v1.canvas,
@@ -120,7 +118,7 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
                 }}
               >
                 {segment.label}
-              </Link>
+              </div>
             </li>
           ))}
         </ul>

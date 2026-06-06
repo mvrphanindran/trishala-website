@@ -9,7 +9,7 @@ export type PackagingSolutionSection = {
 
 export const packagingSolutionSections: readonly PackagingSolutionSection[] = [
   {
-    id: "printed-laminated-rolls",
+    id: "laminated-rolls",
     title: "Rolls",
     image: "/images/products/printed-laminate-roll.png",
     group: "rolls",
@@ -23,7 +23,7 @@ export const packagingSolutionSections: readonly PackagingSolutionSection[] = [
     ],
   },
   {
-    id: "center-seal",
+    id: "center-seal-pouches",
     title: "Center Seal Pouch",
     image: "/images/products/center-seal-pouch.png",
     group: "pouches",
@@ -32,7 +32,7 @@ export const packagingSolutionSections: readonly PackagingSolutionSection[] = [
     applications: ["Snacks", "Spices", "Household powders", "Agri inputs"],
   },
   {
-    id: "three-side-seal",
+    id: "three-side-seal-pouches",
     title: "Three Side Seal Pouch",
     image: "/images/products/three-side-seal-pouch.png",
     group: "pouches",
@@ -41,7 +41,7 @@ export const packagingSolutionSections: readonly PackagingSolutionSection[] = [
     applications: ["Condiments", "Powders", "Personal care", "Trial packs"],
   },
   {
-    id: "zipper",
+    id: "zipper-pouches",
     title: "Zipper Pouch",
     image: "/images/products/zipper-pouch.png",
     group: "pouches",
@@ -50,7 +50,7 @@ export const packagingSolutionSections: readonly PackagingSolutionSection[] = [
     applications: ["Dry fruits", "Pet treats", "Premium snacks", "Nutraceuticals"],
   },
   {
-    id: "standup-pouch",
+    id: "stand-up-pouches",
     title: "Stand Up Pouch",
     image: "/images/products/stand-up-pouch.png",
     group: "pouches",
@@ -59,7 +59,7 @@ export const packagingSolutionSections: readonly PackagingSolutionSection[] = [
     applications: ["Spices", "Dry fruits", "Tea and coffee", "Detergent refills"],
   },
   {
-    id: "gusset",
+    id: "gusset-pouches",
     title: "Gusset Pouch",
     image: "/images/products/Gusset-Pouch.png",
     group: "pouches",
@@ -68,7 +68,7 @@ export const packagingSolutionSections: readonly PackagingSolutionSection[] = [
     applications: ["Rice", "Pet food", "Pulse and grain packs", "Agri products"],
   },
   {
-    id: "spouted-pouch",
+    id: "spouted-pouches",
     title: "Spouted Pouch",
     image: "/images/products/spout-pouch.png",
     group: "pouches",
@@ -77,7 +77,7 @@ export const packagingSolutionSections: readonly PackagingSolutionSection[] = [
     applications: ["Household products", "Personal care refills", "Pet nutrition", "Dry ingredients"],
   },
   {
-    id: "handled",
+    id: "handled-pouches",
     title: "Handled Pouch",
     image: "/images/products/handled-pouch.png",
     group: "pouches",
@@ -86,7 +86,7 @@ export const packagingSolutionSections: readonly PackagingSolutionSection[] = [
     applications: ["Family-size snacks", "Bulk dry food", "Cleaning products", "Pet food"],
   },
   {
-    id: "3d-pouch",
+    id: "3d-pouches",
     title: "3D Pouch",
     image: "/images/products/3d-pouch.png",
     group: "pouches",

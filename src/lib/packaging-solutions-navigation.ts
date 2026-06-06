@@ -27,14 +27,14 @@ export const packagingSolutionsNavigation: readonly PackagingNavGroup[] = [
   {
     label: "Pouches",
     items: [
-      { label: "Center Seal Pouch", href: anchor("center-seal") },
-      { label: "Three Side Seal Pouch", href: anchor("three-side-seal") },
-      { label: "Zipper Pouch", href: anchor("zipper") },
-      { label: "Stand Up Pouch", href: anchor("standup-pouch") },
-      { label: "Gusset Pouch", href: anchor("gusset") },
-      { label: "Spouted Pouch", href: anchor("spouted-pouch") },
-      { label: "Handled Pouch", href: anchor("handled") },
-      { label: "3D Pouch", href: anchor("3d-pouch") },
+      { label: "Center Seal Pouch", href: anchor("center-seal-pouches") },
+      { label: "Three Side Seal Pouch", href: anchor("three-side-seal-pouches") },
+      { label: "Zipper Pouch", href: anchor("zipper-pouches") },
+      { label: "Stand Up Pouch", href: anchor("stand-up-pouches") },
+      { label: "Gusset Pouch", href: anchor("gusset-pouches") },
+      { label: "Spouted Pouch", href: anchor("spouted-pouches") },
+      { label: "Handled Pouch", href: anchor("handled-pouches") },
+      { label: "3D Pouch", href: anchor("3d-pouches") },
     ],
   },
 ] as const;

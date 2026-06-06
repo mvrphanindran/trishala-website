@@ -1,31 +1,21 @@
 import Image from "next/image";
-import Link from "next/link";
 import {
   getIndustryImage,
   industriesCatalogue,
 } from "@/lib/industry-images";
-import {
-  industryHref,
-  industrySectionHref,
-} from "@/lib/industries-navigation";
 import { v1 } from "@/lib/v1-tokens";
 
 type IndustriesShowcaseProps = {
   layout?: "rail" | "grid";
   showLabels?: boolean;
-  useAnchors?: boolean;
   railRef?: React.RefObject<HTMLDivElement | null>;
 };
 
 export default function IndustriesShowcase({
   layout = "rail",
   showLabels = true,
-  useAnchors = false,
   railRef,
 }: IndustriesShowcaseProps) {
-  const hrefFor = (slug: string) =>
-    useAnchors ? industrySectionHref(slug) : industryHref(slug);
-
   if (layout === "grid") {
     return (
       <ul className="mx-auto flex max-w-[1180px] flex-col gap-12 px-5 pb-14 md:gap-16 md:px-8 md:pb-20">
@@ -35,7 +25,7 @@ export default function IndustriesShowcase({
 
           return (
             <li key={industry.slug} id={industry.slug} className="scroll-mt-[88px]">
-              <Link href={hrefFor(industry.slug)} className="group flex flex-col">
+              <div className="group flex flex-col">
                 <div
                   className="relative aspect-[16/9] w-full overflow-hidden"
                   style={{
@@ -60,7 +50,7 @@ export default function IndustriesShowcase({
                     {industry.label}
                   </h2>
                 ) : null}
-              </Link>
+              </div>
             </li>
           );
         })}
@@ -79,13 +69,12 @@ export default function IndustriesShowcase({
         if (!imageSrc) return null;
 
         return (
-          <Link
+          <div
             key={industry.slug}
-            href={hrefFor(industry.slug)}
             className="group shrink-0 snap-start"
             style={{ scrollSnapAlign: "start" }}
           >
-            <article className="flex w-[min(72vw,280px)] flex-col md:w-[260px] lg:w-[280px]">
+            <div className="flex w-[min(72vw,280px)] flex-col md:w-[260px] lg:w-[280px]">
               <div className="relative aspect-[4/5] w-full overflow-hidden">
                 <Image
                   src={imageSrc}
@@ -103,8 +92,8 @@ export default function IndustriesShowcase({
                   {industry.label}
                 </h2>
               ) : null}
-            </article>
-          </Link>
+            </div>
+          </div>
         );
       })}
     </div>

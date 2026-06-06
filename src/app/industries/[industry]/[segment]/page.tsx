@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import IndustryVisual from "@/components/industries/IndustryVisual";
 import PageIntro from "@/components/site/PageIntro";
@@ -8,7 +7,6 @@ import { getIndustryImage } from "@/lib/industry-images";
 import {
   getSegmentBySlug,
   industriesNavigation,
-  industryHref,
 } from "@/lib/industries-navigation";
 import { v1 } from "@/lib/v1-tokens";
 
@@ -56,13 +54,9 @@ export default async function SegmentPage({ params }: SegmentPageProps) {
           />
         ) : null}
 
-        <Link
-          href={industryHref(industry.slug)}
-          className="text-sm font-bold uppercase tracking-[0.12em] transition-colors hover:text-[#00B140]"
-          style={{ color: v1.green.primary }}
-        >
-          ← Back to {industry.label}
-        </Link>
+        <p className="text-sm font-bold uppercase tracking-[0.12em]" style={{ color: v1.green.primary }}>
+          {industry.label}
+        </p>
         <p
           className="mt-6 max-w-3xl text-base leading-relaxed md:text-lg"
           style={{ color: v1.ink.body }}
