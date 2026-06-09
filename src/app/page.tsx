@@ -10,9 +10,9 @@ export default function HomePage() {
     <PageShell>
       <Hero />
       <CompanyHighlights />
-      <PackagingSolutionsCarousel />
       <MaterialDiscipline />
       <IndustriesWeServe />
+      <PackagingSolutionsCarousel />
     </PageShell>
   );
 }

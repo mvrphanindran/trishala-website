@@ -14,11 +14,20 @@ function SpecCard({
   items: readonly string[];
 }) {
   return (
-    <article className="rounded-2xl bg-white p-6 md:p-7" style={{ boxShadow: v1.shadow.soft }}>
-      <h3 className="text-[11px] font-bold uppercase tracking-[0.22em]" style={{ color: v1.green.primary }}>
+    <article
+      className="rounded-2xl bg-white p-6 md:p-7"
+      style={{ boxShadow: v1.shadow.soft }}
+    >
+      <h3
+        className="text-[11px] font-bold uppercase tracking-[0.22em]"
+        style={{ color: v1.green.primary }}
+      >
         {title}
       </h3>
-      <ul className="mt-4 space-y-2.5 text-sm leading-snug md:text-[15px]" style={{ color: v1.ink.body }}>
+      <ul
+        className="mt-4 space-y-2.5 text-sm leading-snug md:text-[15px]"
+        style={{ color: v1.ink.body }}
+      >
         {items.map((item) => (
           <li key={item}>{item}</li>
         ))}
@@ -27,7 +36,9 @@ function SpecCard({
   );
 }
 
-export default function PackagingApplicationDetail({ content }: PackagingApplicationDetailProps) {
+export default function PackagingApplicationDetail({
+  content,
+}: PackagingApplicationDetailProps) {
   return (
     <div className="pb-14 md:pb-20">
       <section className="mx-auto max-w-[1380px] px-5 pt-8 md:px-8 md:pt-10">
@@ -44,7 +55,10 @@ export default function PackagingApplicationDetail({ content }: PackagingApplica
           </div>
 
           <div>
-            <p className="text-[11px] font-bold uppercase tracking-[0.32em]" style={{ color: v1.green.primary }}>
+            <p
+              className="text-[11px] font-bold uppercase tracking-[0.32em]"
+              style={{ color: v1.green.primary }}
+            >
               Packaging Application
             </p>
             <h1
@@ -53,7 +67,10 @@ export default function PackagingApplicationDetail({ content }: PackagingApplica
             >
               {content.heroTitle}
             </h1>
-            <p className="mt-4 max-w-2xl text-base leading-relaxed md:text-lg" style={{ color: v1.ink.body }}>
+            <p
+              className="mt-4 max-w-2xl text-base leading-relaxed md:text-lg"
+              style={{ color: v1.ink.body }}
+            >
               {content.intro}
             </p>
           </div>
@@ -61,10 +78,25 @@ export default function PackagingApplicationDetail({ content }: PackagingApplica
       </section>
 
       <section className="mx-auto max-w-[1380px] px-5 pt-10 md:px-8 md:pt-14">
-        <div className="grid gap-5 md:grid-cols-3">
-          <SpecCard title="Packaging Requirements" items={content.packagingRequirements} />
-          <SpecCard title="Recommended Materials" items={content.recommendedMaterials} />
-          <SpecCard title="Typical Layer Structure" items={content.layerStructures} />
+        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          <SpecCard
+            title="Packaging Requirements"
+            items={content.packagingRequirements}
+          />
+          <SpecCard
+            title="Recommended Materials"
+            items={content.recommendedMaterials}
+          />
+          <SpecCard
+            title="Typical Layer Construction"
+            items={content.layerStructures}
+          />
+          {content.suitableFormats.length ? (
+            <SpecCard
+              title="Suitable Packaging Formats"
+              items={content.suitableFormats}
+            />
+          ) : null}
         </div>
       </section>
 
@@ -72,10 +104,15 @@ export default function PackagingApplicationDetail({ content }: PackagingApplica
         <div className="mx-auto max-w-[1380px] px-5 md:px-8">
           <div
             className="grid gap-6 rounded-[28px] px-6 py-7 md:px-8 md:py-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start"
-            style={{ background: "linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%)" }}
+            style={{
+              background: "linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%)",
+            }}
           >
             <div>
-              <p className="text-[11px] font-bold uppercase tracking-[0.32em]" style={{ color: v1.green.primary }}>
+              <p
+                className="text-[11px] font-bold uppercase tracking-[0.32em]"
+                style={{ color: v1.green.primary }}
+              >
                 Why Trishala For This Application?
               </p>
               <h2
@@ -84,7 +121,10 @@ export default function PackagingApplicationDetail({ content }: PackagingApplica
               >
                 {content.whyTitle}
               </h2>
-              <p className="mt-4 max-w-xl text-base leading-relaxed md:text-lg" style={{ color: v1.ink.body }}>
+              <p
+                className="mt-4 max-w-xl text-base leading-relaxed md:text-lg"
+                style={{ color: v1.ink.body }}
+              >
                 {content.whyIntro}
               </p>
             </div>
@@ -92,10 +132,16 @@ export default function PackagingApplicationDetail({ content }: PackagingApplica
             <div className="grid gap-5 md:grid-cols-3">
               {content.whyPoints.map((point, index) => (
                 <div key={point} className="min-w-0">
-                  <p className="text-[11px] font-bold uppercase tracking-[0.22em]" style={{ color: v1.green.primary }}>
+                  <p
+                    className="text-[11px] font-bold uppercase tracking-[0.22em]"
+                    style={{ color: v1.green.primary }}
+                  >
                     {String(index + 1).padStart(2, "0")}
                   </p>
-                  <p className="mt-2 text-sm leading-relaxed md:text-[15px]" style={{ color: v1.ink.body }}>
+                  <p
+                    className="mt-2 text-sm leading-relaxed md:text-[15px]"
+                    style={{ color: v1.ink.body }}
+                  >
                     {point}
                   </p>
                 </div>

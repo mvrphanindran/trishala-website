@@ -22,7 +22,7 @@ export default function ResponsibleManufacturingSection() {
       <div className="grid items-center gap-6 lg:grid-cols-[0.96fr_1.04fr] lg:gap-10">
         <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#F8FAFC] md:aspect-[16/10]">
           <Image
-            src="/images/capabilities/factory.png"
+            src="/images/capabilities/factory-v2.png"
             alt="Trishala manufacturing unit"
             fill
             sizes="(max-width: 1024px) 100vw, 42vw"
@@ -43,17 +43,33 @@ export default function ResponsibleManufacturingSection() {
           >
             Responsible Manufacturing
           </h2>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed md:text-lg" style={{ color: v1.ink.body }}>
-            At Trishala Laminates, sustainability begins with responsible manufacturing. Through process optimization, efficient material utilization, production monitoring, and waste reduction initiatives, we continuously improve operational performance while supporting environmentally conscious manufacturing practices. Our commitment to quality, efficiency, and continuous improvement enables us to deliver reliable flexible packaging solutions while maintaining responsible production standards.
+          <p
+            className="mt-4 max-w-2xl text-base leading-relaxed md:text-lg"
+            style={{ color: v1.ink.body }}
+          >
+            At Trishala Laminates, sustainability begins with responsible
+            manufacturing. Through process optimization, efficient material
+            utilization, production monitoring, and waste reduction initiatives,
+            we continuously improve operational performance while supporting
+            environmentally conscious manufacturing practices. Our commitment to
+            quality, efficiency, and continuous improvement enables us to
+            deliver reliable flexible packaging solutions while maintaining
+            responsible production standards.
           </p>
 
           <div className="mt-6 grid gap-4 md:grid-cols-3 md:gap-5">
             {highlights.map((item) => (
               <div key={item.title} className="min-w-0">
-                <p className="text-[11px] font-bold uppercase tracking-[0.24em]" style={{ color: v1.green.primary }}>
+                <p
+                  className="text-[11px] font-bold uppercase tracking-[0.24em]"
+                  style={{ color: v1.green.primary }}
+                >
                   {item.title}
                 </p>
-                <p className="mt-2 text-sm leading-relaxed md:text-[15px]" style={{ color: v1.ink.body }}>
+                <p
+                  className="mt-2 text-sm leading-relaxed md:text-[15px]"
+                  style={{ color: v1.ink.body }}
+                >
                   {item.body}
                 </p>
               </div>

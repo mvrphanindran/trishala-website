@@ -8,7 +8,28 @@ export type PackagingApplicationItem = {
   filename: string;
 };
 
-const galleryDir = path.join(process.cwd(), "public", "images", "packaging-solutions", "gallery");
+const galleryDir = path.join(
+  process.cwd(),
+  "public",
+  "images",
+  "packaging-solutions",
+  "gallery",
+);
+
+const applicationMetadataOverrides: Record<
+  string,
+  { slug?: string; title?: string }
+> = {
+  "handwash.png": {
+    slug: "hand-wash",
+    title: "Hand Wash",
+  },
+  "pista.png": {
+    slug: "pistachios",
+    title: "Pistachios",
+  },
+};
+
 const packagingApplicationItemsCache = loadPackagingApplicationItems();
 
 function slugify(input: string): string {
@@ -36,17 +57,20 @@ function toPublicImagePath(filename: string): string {
 
 function loadPackagingApplicationItems(): readonly PackagingApplicationItem[] {
   const files = readdirSync(galleryDir, { withFileTypes: true })
-    .filter((entry) => entry.isFile() && entry.name.toLowerCase().endsWith(".png"))
+    .filter(
+      (entry) => entry.isFile() && entry.name.toLowerCase().endsWith(".png"),
+    )
     .map((entry) => entry.name)
     .sort((a, b) => a.localeCompare(b, undefined, { sensitivity: "base" }));
 
   return files.map((filename) => {
     const baseName = filename.replace(/\.png$/i, "");
+    const overrides = applicationMetadataOverrides[filename] ?? {};
 
     return {
-      slug: slugify(baseName),
+      slug: overrides.slug ?? slugify(baseName),
       filename,
-      title: toTitleCase(baseName),
+      title: overrides.title ?? toTitleCase(baseName),
       image: toPublicImagePath(filename),
     };
   });
@@ -56,6 +80,8 @@ export function getPackagingApplicationItems(): readonly PackagingApplicationIte
   return packagingApplicationItemsCache;
 }
 
-export function getPackagingApplicationBySlug(slug: string): PackagingApplicationItem | undefined {
+export function getPackagingApplicationBySlug(
+  slug: string,
+): PackagingApplicationItem | undefined {
   return packagingApplicationItemsCache.find((item) => item.slug === slug);
 }

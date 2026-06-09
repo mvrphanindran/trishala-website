@@ -2,11 +2,7 @@
 
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
-import {
-  packagingApplicationsHref,
-  packagingFormatsHref,
-  packagingSolutionsHref,
-} from "@/lib/packaging-solutions-navigation";
+import { packagingSolutionsHref } from "@/lib/packaging-solutions-navigation";
 import MenuPreviewItem from "@/sections/home/MenuPreviewItem";
 import { v1 } from "@/lib/v1-tokens";
 
@@ -14,8 +10,10 @@ const panelTransition =
   "transition-[opacity,transform] duration-[400ms] ease-[cubic-bezier(0.22,1,0.36,1)]";
 
 const simplePackagingLinks = [
-  { label: "Packaging Formats", href: packagingFormatsHref },
-  { label: "Packaging Applications", href: packagingApplicationsHref },
+  {
+    label: "Industries We Serve",
+    href: "/packaging-solutions#industries-we-serve",
+  },
 ] as const;
 
 export function PackagingSolutionsMobileAccordion() {
@@ -31,14 +29,16 @@ export function PackagingSolutionsMobileAccordion() {
           style={{ color: v1.ink.navy }}
           onClick={close}
         >
-          Packaging Solutions
+          Solutions
         </Link>
         <button
           type="button"
           className="flex h-10 w-10 shrink-0 items-center justify-center"
           style={{ color: expanded ? v1.green.primary : v1.ink.navy }}
           aria-expanded={expanded}
-          aria-label={expanded ? "Collapse Packaging Solutions menu" : "Expand Packaging Solutions menu"}
+          aria-label={
+            expanded ? "Collapse Solutions menu" : "Expand Solutions menu"
+          }
           onClick={() => setExpanded((value) => !value)}
         >
           <svg
@@ -92,11 +92,17 @@ export function PackagingSolutionsMobileAccordion() {
 
 function CompactSolutionsList() {
   return (
-    <div className="w-[260px] rounded-xl p-4" style={{ background: v1.canvas, boxShadow: v1.shadow.nav }}>
+    <div
+      className="w-[260px] rounded-xl p-4"
+      style={{ background: v1.canvas, boxShadow: v1.shadow.nav }}
+    >
       <ul className="space-y-1">
         {simplePackagingLinks.map((item) => (
           <li key={item.href}>
-            <MenuPreviewItem href={item.href} className="py-2 text-sm font-medium">
+            <MenuPreviewItem
+              href={item.href}
+              className="py-2 text-sm font-medium"
+            >
               {item.label}
             </MenuPreviewItem>
           </li>
@@ -147,7 +153,7 @@ export default function PackagingSolutionsMegaMenu() {
           style={{ color: open ? v1.green.primary : v1.ink.navy }}
           onClick={close}
         >
-          Packaging Solutions
+          Solutions
         </Link>
         <button
           type="button"
@@ -155,7 +161,7 @@ export default function PackagingSolutionsMegaMenu() {
           style={{ color: open ? v1.green.primary : v1.ink.navy }}
           aria-expanded={open}
           aria-haspopup="true"
-          aria-label="Toggle Packaging Solutions menu"
+          aria-label="Toggle Solutions menu"
           onClick={() => setOpen((value) => !value)}
         >
           <svg

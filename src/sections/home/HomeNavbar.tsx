@@ -3,8 +3,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import AboutUsDropdown, { AboutUsMobileAccordion } from "@/sections/home/AboutUsDropdown";
-import InfrastructureDropdown, { InfrastructureMobileAccordion } from "@/sections/home/InfrastructureDropdown";
+import AboutUsDropdown, {
+  AboutUsMobileAccordion,
+} from "@/sections/home/AboutUsDropdown";
+import InfrastructureDropdown, {
+  InfrastructureMobileAccordion,
+} from "@/sections/home/InfrastructureDropdown";
 import PackagingSolutionsMegaMenu, {
   PackagingSolutionsMobileAccordion,
 } from "@/sections/home/PackagingSolutionsMegaMenu";
@@ -39,7 +43,17 @@ export default function HomeNavbar() {
           />
         </Link>
 
-        <nav className="hidden items-center justify-center gap-6 lg:flex xl:gap-8" aria-label="Primary">
+        <nav
+          className="hidden items-center justify-center gap-8 lg:flex xl:gap-10"
+          aria-label="Primary"
+        >
+          <Link
+            href="/"
+            className="py-2 text-[15px] font-medium tracking-tight transition-colors hover:text-[#00B140]"
+            style={{ color: v1.ink.navy }}
+          >
+            Home
+          </Link>
           <AboutUsDropdown />
           <PackagingSolutionsMegaMenu />
           <InfrastructureDropdown />
@@ -77,7 +91,11 @@ export default function HomeNavbar() {
               strokeWidth="1.75"
               aria-hidden
             >
-              {mobileOpen ? <path d="M6 6l12 12M18 6L6 18" /> : <path d="M4 8h16M4 16h16" />}
+              {mobileOpen ? (
+                <path d="M6 6l12 12M18 6L6 18" />
+              ) : (
+                <path d="M4 8h16M4 16h16" />
+              )}
             </svg>
           </button>
         </div>
@@ -92,7 +110,17 @@ export default function HomeNavbar() {
           }}
           aria-label="Mobile"
         >
-          <ul className="space-y-1">
+          <ul className="space-y-2">
+            <li>
+              <Link
+                href="/"
+                className="block py-2.5 text-[15px] font-medium transition-colors hover:text-[#00B140]"
+                style={{ color: v1.ink.navy }}
+                onClick={() => setMobileOpen(false)}
+              >
+                Home
+              </Link>
+            </li>
             <li>
               <AboutUsMobileAccordion />
             </li>
@@ -123,7 +151,10 @@ export default function HomeNavbar() {
               </Link>
             </li>
             <li className="pt-2">
-              <span className="block py-2 text-xs" style={{ color: v1.ink.muted }}>
+              <span
+                className="block py-2 text-xs"
+                style={{ color: v1.ink.muted }}
+              >
                 Trishala Laminates
               </span>
             </li>

@@ -54,7 +54,10 @@ export default function InfrastructurePage() {
           ))}
         </div>
 
-        <section id="manufacturing-unit" className="pb-10 pt-8 md:pb-12 md:pt-10 lg:pb-16">
+        <section
+          id="manufacturing-unit"
+          className="pb-10 pt-8 md:pb-12 md:pt-10 lg:pb-16"
+        >
           <h2
             className="text-[clamp(1.6rem,3vw,2.3rem)] font-extrabold tracking-[-0.04em]"
             style={{ color: v1.ink.navy }}
@@ -63,7 +66,7 @@ export default function InfrastructurePage() {
           </h2>
           <div className="relative mt-5 aspect-[21/9] w-full overflow-hidden md:mt-6">
             <Image
-              src="/images/capabilities/factory.png"
+              src="/images/capabilities/factory-v2.png"
               alt="Trishala manufacturing unit"
               fill
               sizes="100vw"

@@ -1,12 +1,11 @@
 import Image from "next/image";
-import {
-  getIndustryImage,
-  industriesCatalogue,
-} from "@/lib/industry-images";
+import Link from "next/link";
+import { getIndustryImage, industriesCatalogue } from "@/lib/industry-images";
 import { v1 } from "@/lib/v1-tokens";
+import { industryHref } from "@/lib/industries-navigation";
 
 type IndustriesShowcaseProps = {
-  layout?: "rail" | "grid";
+  layout?: "rail" | "grid" | "gallery" | "list";
   showLabels?: boolean;
   railRef?: React.RefObject<HTMLDivElement | null>;
 };
@@ -24,33 +23,93 @@ export default function IndustriesShowcase({
           if (!imageSrc) return null;
 
           return (
-            <li key={industry.slug} id={industry.slug} className="scroll-mt-[88px]">
-              <div className="group flex flex-col">
-                <div
-                  className="relative aspect-[16/9] w-full overflow-hidden"
-                  style={{
-                    background: v1.canvas,
-                    border: `1px solid ${v1.silver.hairline}`,
-                    boxShadow: v1.shadow.soft,
-                  }}
-                >
+            <li
+              key={industry.slug}
+              id={industry.slug}
+              className="scroll-mt-[88px]"
+            >
+              <Link href={industryHref(industry.slug)} className="group block">
+                <div className="flex flex-col">
+                  <div
+                    className="relative aspect-[4/3] w-full overflow-hidden"
+                    style={{
+                      background: v1.canvas,
+                      border: `1px solid ${v1.silver.hairline}`,
+                      boxShadow: v1.shadow.soft,
+                    }}
+                  >
+                    <Image
+                      src={imageSrc}
+                      alt={industry.label}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-contain p-4 transition-transform duration-500 group-hover:scale-[1.015] md:p-6"
+                    />
+                  </div>
+                  {showLabels ? (
+                    <h2
+                      className="mt-5 text-center text-xl font-extrabold tracking-tight transition-colors group-hover:text-[#00B140] md:mt-6 md:text-2xl"
+                      style={{ color: v1.ink.navy }}
+                    >
+                      {industry.label}
+                    </h2>
+                  ) : null}
+                </div>
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+    );
+  }
+
+  if (layout === "gallery") {
+    return (
+      <ul className="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:grid-cols-3">
+        {industriesCatalogue.map((industry) => {
+          const imageSrc = getIndustryImage(industry.slug);
+          if (!imageSrc) return null;
+
+          return (
+            <li key={industry.slug}>
+              <Link href={industryHref(industry.slug)} className="group block">
+                <div className="relative aspect-[16/11] w-full overflow-hidden">
                   <Image
                     src={imageSrc}
                     alt={industry.label}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-contain p-4 transition-transform duration-500 group-hover:scale-[1.015] md:p-6"
+                    className="object-contain transition-transform duration-500 ease-out group-hover:scale-[1.03]"
                   />
                 </div>
-                {showLabels ? (
-                  <h2
-                    className="mt-5 text-center text-xl font-extrabold tracking-tight transition-colors group-hover:text-[#00B140] md:mt-6 md:text-2xl"
-                    style={{ color: v1.ink.navy }}
-                  >
-                    {industry.label}
-                  </h2>
-                ) : null}
-              </div>
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+    );
+  }
+
+  if (layout === "list") {
+    return (
+      <ul className="mx-auto max-w-[900px] space-y-4 md:space-y-5">
+        {industriesCatalogue.map((industry) => {
+          const imageSrc = getIndustryImage(industry.slug);
+          if (!imageSrc) return null;
+
+          return (
+            <li key={industry.slug}>
+              <Link href={industryHref(industry.slug)} className="group block">
+                <div className="mx-auto relative aspect-[16/9] w-full max-w-[680px] overflow-hidden">
+                  <Image
+                    src={imageSrc}
+                    alt={industry.label}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 680px"
+                    className="object-contain transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+                  />
+                </div>
+              </Link>
             </li>
           );
         })}
@@ -74,25 +133,27 @@ export default function IndustriesShowcase({
             className="group shrink-0 snap-start"
             style={{ scrollSnapAlign: "start" }}
           >
-            <div className="flex w-[min(72vw,280px)] flex-col md:w-[260px] lg:w-[280px]">
-              <div className="relative aspect-[4/5] w-full overflow-hidden">
-                <Image
-                  src={imageSrc}
-                  alt={industry.label}
-                  fill
-                  sizes="280px"
-                  className="object-contain p-3 transition-transform duration-300 group-hover:scale-[1.02]"
-                />
+            <Link href={industryHref(industry.slug)} className="block">
+              <div className="flex w-[min(72vw,280px)] flex-col md:w-[260px] lg:w-[280px]">
+                <div className="relative aspect-[4/3] w-full overflow-hidden">
+                  <Image
+                    src={imageSrc}
+                    alt={industry.label}
+                    fill
+                    sizes="280px"
+                    className="object-contain p-3 transition-transform duration-300 group-hover:scale-[1.02]"
+                  />
+                </div>
+                {showLabels ? (
+                  <h2
+                    className="mt-4 text-base font-extrabold tracking-tight transition-colors group-hover:text-[#00B140] md:text-lg"
+                    style={{ color: v1.ink.navy }}
+                  >
+                    {industry.label}
+                  </h2>
+                ) : null}
               </div>
-              {showLabels ? (
-                <h2
-                  className="mt-4 text-base font-extrabold tracking-tight transition-colors group-hover:text-[#00B140] md:text-lg"
-                  style={{ color: v1.ink.navy }}
-                >
-                  {industry.label}
-                </h2>
-              ) : null}
-            </div>
+            </Link>
           </div>
         );
       })}

@@ -9,8 +9,8 @@ export type PackagingNavGroup = {
 };
 
 export const packagingSolutionsHref = "/packaging-solutions" as const;
-export const packagingFormatsHref = `${packagingSolutionsHref}#packaging-formats` as const;
-export const packagingApplicationsHref = `${packagingSolutionsHref}#packaging-applications` as const;
+export const packagingApplicationsHref =
+  `${packagingSolutionsHref}#packaging-applications` as const;
 
 function anchor(id: string): string {
   return `${packagingSolutionsHref}#${id}`;
@@ -30,7 +30,10 @@ export const packagingSolutionsNavigation: readonly PackagingNavGroup[] = [
     label: "Pouches",
     items: [
       { label: "Center Seal Pouch", href: anchor("center-seal-pouches") },
-      { label: "Three Side Seal Pouch", href: anchor("three-side-seal-pouches") },
+      {
+        label: "Three Side Seal Pouch",
+        href: anchor("three-side-seal-pouches"),
+      },
       { label: "Zipper Pouch", href: anchor("zipper-pouches") },
       { label: "Stand Up Pouch", href: anchor("stand-up-pouches") },
       { label: "Gusset Pouch", href: anchor("gusset-pouches") },
