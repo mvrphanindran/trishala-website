@@ -5,12 +5,15 @@ type InfrastructureSpecStripProps = {
   spec: InfrastructureSpec;
 };
 
-const fields = [
+const fields: ReadonlyArray<{
+  key: keyof InfrastructureSpec;
+  label: string;
+}> = [
   { key: "application", label: "Application" },
-  { key: "processType", label: "Process Type" },
+  { key: "maximumFilmWidth", label: "Maximum Film Width" },
   { key: "output", label: "Output" },
   { key: "capability", label: "Operating Capability" },
-] as const;
+];
 
 export default function InfrastructureSpecStrip({
   spec,
