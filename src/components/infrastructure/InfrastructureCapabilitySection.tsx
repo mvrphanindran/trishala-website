@@ -19,11 +19,10 @@ function getLeadImage(capability: InfrastructureCapability) {
 function TechnicalPanel({ capability }: { capability: InfrastructureCapability }) {
   const rows = [
     { label: "Application", value: capability.spec.application },
-    { label: "Process Type", value: capability.spec.processType },
+    { label: "Maximum Film Width", value: capability.spec.maximumFilmWidth },
     { label: "Output Capacity", value: capability.spec.capability },
     ...capability.details,
   ];
-
   return (
     <aside className="pl-0 md:pl-2">
       <p className="text-[10px] font-bold uppercase tracking-[0.28em]" style={{ color: v1.green.primary }}>

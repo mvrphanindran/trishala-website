@@ -10,7 +10,7 @@ export type InfrastructureTechnicalDetail = {
 
 export type InfrastructureSpec = {
   application: string;
-  processType: string;
+  maximumFilmWidth: string;
   output: string;
   capability: string;
 };
@@ -48,11 +48,12 @@ export const infrastructureCapabilities: readonly InfrastructureCapability[] = [
     summary:
       "High-performance rotogravure printing for vibrant, consistent and accurate output across flexible packaging substrates.",
     spec: {
-      application: "Flexible Packaging Printing",
-      processType: "Rotogravure",
-      output: "Production-ready printed rolls",
-      capability: "Up to 450 mtr/min",
-    },
+  application: "Flexible Packaging Printing",
+  maximumFilmWidth: "1300 mm",
+  output: "Production-ready printed rolls",
+  capability: "Up to 450 mtr/min",
+},
+    
     details: [
       { label: "Number of Machines", value: "3" },
       { label: "Machine Configuration", value: "9 Ink, 9 Ink, 8 Ink" },
@@ -66,11 +67,11 @@ export const infrastructureCapabilities: readonly InfrastructureCapability[] = [
     summary:
       "Strong and consistent bonding for high-performance laminate structures built for demanding packaging applications.",
     spec: {
-      application: "High-Performance Laminates",
-      processType: "Solvent Based Lamination",
-      output: "Bonded multi-layer webs",
-      capability: "Up to 120 mtrs/min",
-    },
+  application: "High-Performance Laminates",
+  maximumFilmWidth: "1300 mm",
+  output: "Bonded multi-layer films",
+  capability: "Up to 120 mtrs/min",
+},
     details: [],
   },
   {
@@ -80,11 +81,11 @@ export const infrastructureCapabilities: readonly InfrastructureCapability[] = [
     summary:
       "Strong and reliable lamination with excellent bonding across a wide range of films for modern flexible packaging.",
     spec: {
-      application: "Food-Safe & General Laminates",
-      processType: "Solventless Lamination",
-      output: "Solvent-free laminated rolls",
-      capability: "Up to 400 mtrs/min",
-    },
+  application: "Food-Safe & General Laminates",
+  maximumFilmWidth: "1300 mm",
+  output: "Solvent-free laminated rolls",
+  capability: "Up to 400 mtrs/min",
+},
     details: [],
   },
   {
@@ -94,11 +95,11 @@ export const infrastructureCapabilities: readonly InfrastructureCapability[] = [
     summary:
       "Superior barrier and high-performance packaging with polymer lamination engineered for strength, consistency and protection.",
     spec: {
-      application: "Barrier & Industrial Packaging",
-      processType: "Extrusion Lamination",
-      output: "Extrusion laminated structures",
-      capability: "Up to 300 mtrs/min",
-    },
+  application: "Barrier & Industrial Packaging",
+  maximumFilmWidth: "1300 mm",
+  output: "Extrusion laminated structures",
+  capability: "Up to 300 mtrs/min",
+},
     details: [],
   },
   {
@@ -108,11 +109,11 @@ export const infrastructureCapabilities: readonly InfrastructureCapability[] = [
     summary:
       "A versatile industrial system designed to perform multiple types of lamination typically solventless and solvent-based.",
     spec: {
-      application: "Multi-Layer Lamination",
-      processType: "Combi Lamination",
-      output: "Laminated roll stock",
-      capability: "Up to 300 mtrs/min",
-    },
+  application: "Multi-Layer Lamination",
+  maximumFilmWidth: "1300 mm",
+  output: "Laminated roll stock",
+  capability: "Up to 300 mtrs/min",
+},
     details: [],
   },
   {
@@ -121,12 +122,13 @@ export const infrastructureCapabilities: readonly InfrastructureCapability[] = [
     image: "/images/capabilities/pouching.jpg",
     summary:
       "Advanced pouching technology for precision, performance, and consistent sealing across flexible packaging formats.",
-    spec: {
-      application: "Flexible Pouch Conversion",
-      processType: "Pouching",
-      output: "Finished pouches",
-      capability: "Up to 300 pouches/min",
-    },
+   spec: {
+  application: "Flexible Pouch Conversion",
+  maximumFilmWidth: "600 mm",
+  output:
+    "Stand-Up Pouches, Pillow Pouches, Center Seal Pouches, Zipper Pouches, Gusset Pouches, Spout Pouches",
+  capability: "Up to 300 pouches/min",
+},
     details: [
       { label: "Pouch Width", value: "80-300 mm" },
       { label: "Pouch Length", value: "100-450 mm" },
@@ -139,11 +141,14 @@ export const infrastructureCapabilities: readonly InfrastructureCapability[] = [
     summary:
       "Precision blown film line delivering high quality films with excellent strength, consistency and clarity.",
     spec: {
-      application: "Extrusion Film",
-      processType: "Blown Film Extrusion",
-      output: "PE film rolls",
-      capability: "Up to 250 kg/hr",
-    },
-    details: [],
+  application: "Extrusion Film",
+  maximumFilmWidth: "1600 mm",
+  output: "PE Film Rolls",
+  capability: "Up to 250 kg/hr",
+},
+    details: [
+  { label: "Daily Maximum Capacity", value: "6 MT / Day" },
+  { label: "Film Thickness Range", value: "25–200 Microns" },
+],
   },
 ] as const;
