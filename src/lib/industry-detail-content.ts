@@ -33,7 +33,7 @@ export const industryDetailContent: Record<string, IndustryDetail> = {
       "Extended product freshness",
       "Operational packaging consistency",
     ],
-    applications: ["Food & Beverages", "Daily essentials", "Home care", "Personal hygiene"],
+    applications: ["Food & Beverages", "Daily essentials", "Home care", "Personal hygiene", "Handwash", "Chocolates"],
     industrySpecificChallenges: [
       "Frequent SKU changes with tight lead times",
       "High-speed packing line compatibility",
@@ -194,38 +194,6 @@ export const industryDetailContent: Record<string, IndustryDetail> = {
     whyTrishala:
       "Trishala delivers premium-ready barrier pouches for dry fruit categories with a focus on freshness and presentation.",
     contactCta: "Get dry fruits packaging recommendations",
-  },
-  "personal-care": {
-    overview:
-      "Flexible packaging solutions for refill packs, sachets, and liquid products requiring attractive presentation and sealing reliability.",
-    packagingRequirements: [
-      "Chemical compatibility with formulations",
-      "Leak-proof sealing",
-      "Consistent graphics and colour reproduction",
-      "Flexible pack-size options",
-    ],
-    recommendedPackagingFormats: [
-      "Three Side Seal",
-      "Stand Up Pouch",
-      "Spouted Pouch",
-      "Printed Rolls",
-    ],
-    typicalMaterialStructures: ["PET/PE", "PET/MET PET/PE"],
-    benefits: [
-      "Leak-safe performance",
-      "Premium visual presentation",
-      "Efficient conversion and filling",
-      "Adaptability across SKUs",
-    ],
-    applications: ["Hair care", "Skin care", "Body care", "Travel packs"],
-    industrySpecificChallenges: [
-      "Leak prevention for liquid formulations",
-      "Brand finish consistency across SKUs",
-      "Wide assortment and size variation",
-    ],
-    whyTrishala:
-      "Trishala aligns visual quality, seal reliability, and converting consistency for personal care packaging lines.",
-    contactCta: "Discuss personal care packaging formats",
   },
   "household-and-cleaning": {
     overview:

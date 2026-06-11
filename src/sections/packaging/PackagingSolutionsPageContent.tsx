@@ -1,6 +1,15 @@
 import IndustriesShowcase from "@/components/industries/IndustriesShowcase";
 import { v1 } from "@/lib/v1-tokens";
 
+const whyTrishalaCards = [
+  "Advanced manufacturing infrastructure",
+  "Consistent print quality",
+  "Multi-layer flexible packaging expertise",
+  "Reliable production capacity",
+  "Timely delivery",
+  "Long-term customer partnerships",
+] as const;
+
 export default function PackagingSolutionsPageContent() {
   return (
     <>
@@ -43,7 +52,43 @@ export default function PackagingSolutionsPageContent() {
             </h2>
           </div>
 
-          <IndustriesShowcase layout="list" />
+          <IndustriesShowcase layout="premium-gallery" showLabels={false} />
+        </div>
+      </section>
+
+      <section className="py-10 md:py-14">
+        <div className="mx-auto max-w-[1380px] px-5 md:px-8">
+          <p
+            className="text-[11px] font-bold uppercase tracking-[0.32em]"
+            style={{ color: v1.green.primary }}
+          >
+            Why Trishala
+          </p>
+          <h2
+            className="mt-2 text-[clamp(1.45rem,2.8vw,2.05rem)] font-extrabold tracking-[-0.03em]"
+            style={{ color: v1.ink.navy }}
+          >
+            Why Trishala
+          </h2>
+          <div className="mt-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+            {whyTrishalaCards.map((point) => (
+              <article
+                key={point}
+                className="rounded-2xl p-4 md:p-5"
+                style={{
+                  background: "linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%)",
+                  boxShadow: v1.shadow.soft,
+                }}
+              >
+                <p
+                  className="text-sm leading-relaxed md:text-[15px]"
+                  style={{ color: v1.ink.body }}
+                >
+                  {point}
+                </p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
     </>

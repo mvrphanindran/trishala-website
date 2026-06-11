@@ -13,16 +13,6 @@ export const qualityHero = {
 
 export const qualityMachines: readonly QualityMachine[] = [
   {
-    id: "doctoring-system",
-    title: "Doctoring System",
-    image: "/images/quality/doctoring-machine.png",
-    description: [
-      "Inspects printed films and laminates during high-speed production.",
-      "Uses synchronized stroboscopic lighting to create a stationary image effect.",
-      "Detects print defects, misregistration, and colour variations instantly.",
-    ],
-  },
-  {
     id: "hot-air-oven",
     title: "Hot Air Oven",
     image: "/images/quality/hot-air-oven.png",
@@ -69,6 +59,16 @@ export const qualityMachines: readonly QualityMachine[] = [
     description: [
       "Detects even the smallest leaks by creating a controlled vacuum environment.",
       "Ensures packaging integrity, product safety, and contamination-free performance.",
+    ],
+  },
+  {
+    id: "doctoring-system",
+    title: "Doctoring System",
+    image: "/images/quality/doctoring-machine.png",
+    description: [
+      "Inspects printed films and laminates during high-speed production.",
+      "Uses synchronized stroboscopic lighting to create a stationary image effect.",
+      "Detects print defects, misregistration, and colour variations instantly.",
     ],
   },
 ] as const;

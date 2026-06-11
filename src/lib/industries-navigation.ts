@@ -27,8 +27,9 @@ export const industriesNavigation: readonly IndustryCategory[] = [
     slug: "fmcg",
     segments: [
       segment("Food & Beverages"),
-      segment("Personal Care"),
       segment("Household & Cleaning Products"),
+      segment("Handwash"),
+      segment("Chocolates"),
     ],
   },
   {
@@ -91,11 +92,7 @@ export const industriesNavigation: readonly IndustryCategory[] = [
       segment("Mixed Nuts"),
     ],
   },
-  {
-    label: "Personal Care",
-    slug: "personal-care",
-    segments: [segment("Hair Care"), segment("Skin & Body Care")],
-  },
+
   {
     label: "Household & Cleaning",
     slug: "household-and-cleaning",

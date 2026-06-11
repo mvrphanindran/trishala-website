@@ -6,7 +6,6 @@ export const industryCardImages = {
   snacks: "/images/industries/snack-packaging.png",
   "spices-and-seasonings": "/images/industries/spices-packaging.png",
   "household-and-cleaning": "/images/industries/household-cleaning.png",
-  "personal-care": "/images/industries/personal-care.png",
   "dry-fruits-and-nuts": "/images/industries/dryfruits.png",
   "tea-and-coffee": "/images/industries/coffee.png",
 } as const;
@@ -25,7 +24,6 @@ export const industriesCatalogue = [
   { slug: "spices-and-seasonings", label: "Spices & Seasonings" },
   { slug: "tea-and-coffee", label: "Tea & Coffee" },
   { slug: "dry-fruits-and-nuts", label: "Dry Fruits & Nuts" },
-  { slug: "personal-care", label: "Personal Care" },
   {
     slug: "household-and-cleaning",
     label: "Household & Cleaning Products",

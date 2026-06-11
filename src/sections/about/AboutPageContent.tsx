@@ -5,6 +5,7 @@ import PageIntro from "@/components/site/PageIntro";
 import { brochureHref } from "@/lib/site-navigation";
 import { v1 } from "@/lib/v1-tokens";
 import Link from "next/link";
+import Image from "next/image";
 import { useMemo, useState } from "react";
 
 const purposeCards = [
@@ -23,14 +24,6 @@ const purposeCards = [
   {
     title: "Customer Commitment",
     body: "Long-term relationships are built through responsiveness, reliability, and solution-oriented partnerships.",
-  },
-  {
-    title: "Continuous Improvement",
-    body: "Technology upgrades, process refinement, and workforce development remain central to our growth journey.",
-  },
-  {
-    title: "Quality Without Compromise",
-    body: "Every packaging structure is monitored and evaluated to meet performance expectations and industry standards.",
   },
 ] as const;
 
@@ -246,15 +239,9 @@ export default function AboutPageContent() {
         </div>
       </section>
 
-      <section className="py-8 md:py-10 lg:py-12">
+      <section className="pt-4 pb-8 md:pt-5 md:pb-10 lg:pt-6 lg:pb-12">
         <div className="mx-auto max-w-[1380px] px-5 md:px-8">
-          <h2
-            className="text-[clamp(1.5rem,3vw,2.25rem)] font-extrabold tracking-[-0.03em]"
-            style={{ color: v1.ink.navy }}
-          >
-            Mission / Vision / Values
-          </h2>
-          <div className="mt-7 grid grid-cols-1 gap-5 md:mt-8 md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
             {purposeCards.map((value) => (
               <article
                 key={value.title}
@@ -262,12 +249,12 @@ export default function AboutPageContent() {
                 style={{ background: v1.canvas, boxShadow: v1.shadow.soft }}
               >
                 <h3
-                  className="text-[11px] font-bold uppercase tracking-[0.24em]"
+                  className="text-[clamp(0.95rem,1.3vw,1.05rem)] font-bold uppercase tracking-[0.14em]"
                   style={{ color: v1.green.primary }}
                 >
                   {value.title}
                 </h3>
-                <p className="mt-4 text-base leading-relaxed" style={{ color: v1.ink.body }}>
+                <p className="mt-3 text-[16px] leading-relaxed md:text-[17px] lg:text-[18px]" style={{ color: v1.ink.body }}>
                   {value.body}
                 </p>
               </article>
@@ -304,6 +291,20 @@ export default function AboutPageContent() {
             >
               Company Brochure
             </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-8 md:py-10 lg:py-12">
+        <div className="mx-auto max-w-[1380px] px-5 md:px-8">
+          <div className="relative aspect-[21/9] w-full overflow-hidden">
+            <Image
+              src="/images/capabilities/factory.png"
+              alt="Trishala Laminates Factory"
+              fill
+              sizes="100vw"
+              className="object-cover"
+            />
           </div>
         </div>
       </section>

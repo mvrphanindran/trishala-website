@@ -5,7 +5,7 @@ import { v1 } from "@/lib/v1-tokens";
 import { industryHref } from "@/lib/industries-navigation";
 
 type IndustriesShowcaseProps = {
-  layout?: "rail" | "grid" | "gallery" | "list";
+  layout?: "rail" | "grid" | "gallery" | "list" | "premium-gallery";
   showLabels?: boolean;
   railRef?: React.RefObject<HTMLDivElement | null>;
 };
@@ -15,6 +15,34 @@ export default function IndustriesShowcase({
   showLabels = true,
   railRef,
 }: IndustriesShowcaseProps) {
+  if (layout === "premium-gallery") {
+    return (
+      <ul className="mx-auto flex max-w-[1160px] flex-col gap-4 py-1 md:gap-5 lg:gap-6">
+        {industriesCatalogue.map((industry) => {
+          const imageSrc = getIndustryImage(industry.slug);
+          if (!imageSrc) return null;
+
+          return (
+            <li key={industry.slug}>
+              <Link href={industryHref(industry.slug)} className="group block">
+                <div className="rounded-[24px] bg-white px-4 py-4 md:px-5 md:py-5 lg:px-6 lg:py-6">
+                  <div className="relative h-[180px] w-full md:h-[220px] lg:h-[250px]">
+                    <Image
+                      src={imageSrc}
+                      alt={industry.label}
+                      fill
+                      sizes="(max-width: 1200px) 100vw, 1160px"
+                      className="object-contain transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                    />
+                  </div>
+                </div>
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+    );
+  }
   if (layout === "grid") {
     return (
       <ul className="mx-auto grid max-w-[1180px] grid-cols-1 gap-7 px-5 pb-14 sm:grid-cols-2 md:px-8 md:pb-20 lg:grid-cols-3">

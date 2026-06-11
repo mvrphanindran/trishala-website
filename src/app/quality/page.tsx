@@ -95,7 +95,7 @@ export default function QualityPage() {
             />
           </div>
           <p
-            className="mt-5 max-w-4xl text-base leading-relaxed md:text-lg"
+            className="mt-4 max-w-[1100px] text-base leading-relaxed md:text-lg"
             style={{ color: v1.ink.body }}
           >
             {qualityLaboratory.description}

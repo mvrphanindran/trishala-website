@@ -22,6 +22,11 @@ const industryApplicationItems: Record<
       image: getImage("biscuits-and-confectioneries"),
     },
     {
+      title: "Chocolate Packaging",
+      href: "/applications/chocolates",
+      image: getImage("chocolates"),
+    },
+    {
       title: "Cooking Oils",
       href: "/applications/cooking-oils",
       image: getImage("cooking-oils"),
@@ -30,6 +35,11 @@ const industryApplicationItems: Record<
       title: "Detergents",
       href: "/applications/detergents",
       image: getImage("detergents"),
+    },
+    {
+      title: "Handwash Packaging",
+      href: "/applications/handwash",
+      image: getImage("handwash"),
     },
     {
       title: "Instant Foods",
@@ -166,13 +176,7 @@ const industryApplicationItems: Record<
       image: getImage("detergents"),
     },
   ],
-  "personal-care": [
-    {
-      title: "Hand Wash",
-      href: "/applications/hand-wash",
-      image: getImage("hand-wash"),
-    },
-  ],
+  "personal-care": [],
   "pet-food": [
     {
       title: "Pet Food Packaging",

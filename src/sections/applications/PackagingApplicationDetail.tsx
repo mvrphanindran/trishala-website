@@ -15,7 +15,7 @@ function SpecCard({
 }) {
   return (
     <article
-      className="rounded-2xl bg-white p-6 md:p-7"
+      className="h-fit rounded-2xl bg-white p-4 md:p-5"
       style={{ boxShadow: v1.shadow.soft }}
     >
       <h3
@@ -78,76 +78,19 @@ export default function PackagingApplicationDetail({
       </section>
 
       <section className="mx-auto max-w-[1380px] px-5 pt-10 md:px-8 md:pt-14">
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+        <div className="grid items-start gap-5 md:grid-cols-2 xl:grid-cols-3">
           <SpecCard
-            title="Packaging Requirements"
-            items={content.packagingRequirements}
+            title="Packaging Benefits"
+            items={content.packagingBenefits}
           />
           <SpecCard
-            title="Recommended Materials"
-            items={content.recommendedMaterials}
-          />
-          <SpecCard
-            title="Typical Layer Construction"
+            title="Typical Material Structures"
             items={content.layerStructures}
           />
-          {content.suitableFormats.length ? (
-            <SpecCard
-              title="Suitable Packaging Formats"
-              items={content.suitableFormats}
-            />
-          ) : null}
-        </div>
-      </section>
-
-      <section className="py-10 md:py-14">
-        <div className="mx-auto max-w-[1380px] px-5 md:px-8">
-          <div
-            className="grid gap-6 rounded-[28px] px-6 py-7 md:px-8 md:py-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start"
-            style={{
-              background: "linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%)",
-            }}
-          >
-            <div>
-              <p
-                className="text-[11px] font-bold uppercase tracking-[0.32em]"
-                style={{ color: v1.green.primary }}
-              >
-                Why Trishala For This Application?
-              </p>
-              <h2
-                className="mt-2 text-[clamp(1.45rem,2.8vw,2.05rem)] font-extrabold tracking-[-0.03em]"
-                style={{ color: v1.ink.navy }}
-              >
-                {content.whyTitle}
-              </h2>
-              <p
-                className="mt-4 max-w-xl text-base leading-relaxed md:text-lg"
-                style={{ color: v1.ink.body }}
-              >
-                {content.whyIntro}
-              </p>
-            </div>
-
-            <div className="grid gap-5 md:grid-cols-3">
-              {content.whyPoints.map((point, index) => (
-                <div key={point} className="min-w-0">
-                  <p
-                    className="text-[11px] font-bold uppercase tracking-[0.22em]"
-                    style={{ color: v1.green.primary }}
-                  >
-                    {String(index + 1).padStart(2, "0")}
-                  </p>
-                  <p
-                    className="mt-2 text-sm leading-relaxed md:text-[15px]"
-                    style={{ color: v1.ink.body }}
-                  >
-                    {point}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
+          <SpecCard
+            title="Suitable Packaging Formats"
+            items={content.suitableFormats}
+          />
         </div>
       </section>
     </div>

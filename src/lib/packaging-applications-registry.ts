@@ -20,9 +20,13 @@ const applicationMetadataOverrides: Record<
   string,
   { slug?: string; title?: string }
 > = {
+  "chocolates.png": {
+    slug: "chocolates",
+    title: "Chocolate",
+  },
   "handwash.png": {
-    slug: "hand-wash",
-    title: "Hand Wash",
+    slug: "handwash",
+    title: "Handwash",
   },
   "pista.png": {
     slug: "pistachios",
