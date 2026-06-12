@@ -73,7 +73,7 @@ export default function HomeNavbar() {
             className="py-2 text-[15px] font-medium tracking-tight transition-colors hover:text-[#00B140]"
             style={{ color: v1.ink.navy }}
           >
-            Sustainable Practices
+            Sustainability
           </Link>
           <Link
             href={contactHref}
@@ -158,7 +158,7 @@ export default function HomeNavbar() {
                 style={{ color: v1.ink.navy }}
                 onClick={() => setMobileOpen(false)}
               >
-                Sustainable Practices
+                Sustainability
               </Link>
             </li>
             <li>
