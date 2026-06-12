@@ -12,7 +12,11 @@ import InfrastructureDropdown, {
 import PackagingSolutionsMegaMenu, {
   PackagingSolutionsMobileAccordion,
 } from "@/sections/home/PackagingSolutionsMegaMenu";
-import { contactHref, qualityHref } from "@/lib/site-navigation";
+import {
+  contactHref,
+  qualityHref,
+  sustainablePracticesHref,
+} from "@/lib/site-navigation";
 import { v1 } from "@/lib/v1-tokens";
 
 export default function HomeNavbar() {
@@ -63,6 +67,13 @@ export default function HomeNavbar() {
             style={{ color: v1.ink.navy }}
           >
             Quality
+          </Link>
+          <Link
+            href={sustainablePracticesHref}
+            className="py-2 text-[15px] font-medium tracking-tight transition-colors hover:text-[#00B140]"
+            style={{ color: v1.ink.navy }}
+          >
+            Sustainable Practices
           </Link>
           <Link
             href={contactHref}
@@ -138,6 +149,16 @@ export default function HomeNavbar() {
                 onClick={() => setMobileOpen(false)}
               >
                 Quality
+              </Link>
+            </li>
+            <li>
+              <Link
+                href={sustainablePracticesHref}
+                className="block py-2.5 text-[15px] font-medium transition-colors hover:text-[#00B140]"
+                style={{ color: v1.ink.navy }}
+                onClick={() => setMobileOpen(false)}
+              >
+                Sustainable Practices
               </Link>
             </li>
             <li>

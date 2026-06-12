@@ -17,7 +17,7 @@ export default function IndustriesShowcase({
 }: IndustriesShowcaseProps) {
   if (layout === "premium-gallery") {
     return (
-      <ul className="mx-auto flex max-w-[1160px] flex-col gap-4 py-1 md:gap-5 lg:gap-6">
+      <ul className="mx-auto grid max-w-[1360px] grid-cols-1 gap-5 md:grid-cols-2 md:gap-6">
         {industriesCatalogue.map((industry) => {
           const imageSrc = getIndustryImage(industry.slug);
           if (!imageSrc) return null;
@@ -25,16 +25,14 @@ export default function IndustriesShowcase({
           return (
             <li key={industry.slug}>
               <Link href={industryHref(industry.slug)} className="group block">
-                <div className="rounded-[24px] bg-white px-4 py-4 md:px-5 md:py-5 lg:px-6 lg:py-6">
-                  <div className="relative h-[180px] w-full md:h-[220px] lg:h-[250px]">
-                    <Image
-                      src={imageSrc}
-                      alt={industry.label}
-                      fill
-                      sizes="(max-width: 1200px) 100vw, 1160px"
-                      className="object-contain transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                    />
-                  </div>
+                <div className="relative aspect-[16/9] w-full">
+                  <Image
+                    src={imageSrc}
+                    alt={industry.label}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1440px) 50vw, 680px"
+                    className="object-contain transition-transform duration-500 ease-out group-hover:scale-[1.01]"
+                  />
                 </div>
               </Link>
             </li>

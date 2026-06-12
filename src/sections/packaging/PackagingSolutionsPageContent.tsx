@@ -35,9 +35,9 @@ export default function PackagingSolutionsPageContent() {
         </p>
       </section>
 
-      <section id="industries-we-serve" className="py-6 md:py-8 lg:py-10">
+      <section id="industries-we-serve" className="bg-white py-8 md:py-10 lg:py-12">
         <div className="mx-auto max-w-[1380px] px-5 md:px-8">
-          <div className="mb-5 md:mb-7">
+          <div className="mb-6 md:mb-7">
             <p
               className="text-[11px] font-bold uppercase tracking-[0.32em]"
               style={{ color: v1.green.primary }}

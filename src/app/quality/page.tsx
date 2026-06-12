@@ -1,6 +1,5 @@
 import Image from "next/image";
 import QualityMachineSection from "@/components/quality/QualityMachineSection";
-import ResponsibleManufacturingSection from "@/components/quality/ResponsibleManufacturingSection";
 import PageShell from "@/components/site/PageShell";
 import TextureBackdrop from "@/components/site/TextureBackdrop";
 import {
@@ -77,7 +76,7 @@ export default function QualityPage() {
           </div>
         </section>
 
-        <section className="pb-8 pt-6 md:pb-10 md:pt-8 lg:pb-12">
+        <section className="pb-12 pt-6 md:pb-16 md:pt-8 lg:pb-20">
           <h2
             className="text-[clamp(1.55rem,2.9vw,2.25rem)] font-extrabold tracking-[-0.04em]"
             style={{ color: v1.ink.navy }}
@@ -101,8 +100,6 @@ export default function QualityPage() {
             {qualityLaboratory.description}
           </p>
         </section>
-
-        <ResponsibleManufacturingSection />
       </div>
     </PageShell>
   );
