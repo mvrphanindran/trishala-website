@@ -62,4 +62,4 @@ export const v1Image = {
 } as const;
 
 export const siteFont =
-  "var(--font-geist-sans), system-ui, sans-serif" as const;
+  "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" as const;

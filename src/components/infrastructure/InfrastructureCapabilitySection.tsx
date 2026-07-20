@@ -20,7 +20,7 @@ function TechnicalPanel({ capability }: { capability: InfrastructureCapability }
   const rows = [
     { label: "Application", value: capability.spec.application },
     { label: "Maximum Film Width", value: capability.spec.maximumFilmWidth },
-    { label: "Output Capacity", value: capability.spec.capability },
+    { label: "Production Capacity", value: capability.spec.capability },
     ...capability.details,
   ];
   return (
