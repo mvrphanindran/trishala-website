@@ -1,6 +1,11 @@
+import Link from "next/link";
 import { v1 } from "@/lib/v1-tokens";
 
-export default function SaveContactSection() {
+type SaveContactSectionProps = {
+  slug: string;
+};
+
+export default function SaveContactSection({ slug }: SaveContactSectionProps) {
   return (
     <section className="py-8 md:py-10 lg:py-12">
       <div className="max-w-4xl">
@@ -11,13 +16,13 @@ export default function SaveContactSection() {
           <p className="text-base leading-relaxed" style={{ color: v1.ink.body }}>
             Save this contact to your phone for quick access to the Trishala Laminates team.
           </p>
-          <button
-            type="button"
+          <Link
+            href={`/card/${slug}/save`}
             className="inline-flex w-fit rounded-full px-6 py-3 text-sm font-bold text-white"
             style={{ background: v1.ink.navy }}
           >
             Save Contact
-          </button>
+          </Link>
         </div>
       </div>
     </section>

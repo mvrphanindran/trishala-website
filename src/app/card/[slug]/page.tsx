@@ -56,7 +56,7 @@ export default async function CardPage({ params }: CardPageProps) {
           <QuickActions employee={employee} />
           <AboutCompany />
           <BrochureSection />
-          <SaveContactSection />
+          <SaveContactSection slug={employee.slug} />
           <EnquirySection />
         </div>
 
