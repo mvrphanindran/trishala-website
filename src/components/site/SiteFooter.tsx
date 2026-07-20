@@ -3,6 +3,8 @@ import Link from "next/link";
 import { v1 } from "@/lib/v1-tokens";
 
 const manufacturingAddress = ["Tuniki Bollaram,", "Telangana 502279"] as const;
+const officialPhone = "+91 9391002657";
+const officialEmail = "naman@trishalalaminates.in";
 
 export default function SiteFooter() {
   return (
@@ -46,9 +48,15 @@ export default function SiteFooter() {
               />
             </Link>
 
-            <p className="text-[9px] leading-tight text-[#6B7585] md:text-right">
-              © Trishala Laminates. All Rights Reserved.
-            </p>
+            <div className="text-[9px] leading-tight text-[#6B7585] md:text-right">
+              <Link href={`tel:${officialPhone.replace(/[^+\d]/g, "")}`} className="block hover:text-[#00B140]">
+                {officialPhone}
+              </Link>
+              <Link href={`mailto:${officialEmail}`} className="block hover:text-[#00B140]">
+                {officialEmail}
+              </Link>
+              <p>© Trishala Laminates. All Rights Reserved.</p>
+            </div>
           </div>
         </div>
 

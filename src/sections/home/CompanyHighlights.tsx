@@ -4,7 +4,7 @@ const highlights = [
     label: "Years of Experience",
   },
   {
-    value: "1000+",
+    value: "800+",
     label: "Metric Tons Monthly Production",
   },
   {

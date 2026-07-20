@@ -16,8 +16,9 @@ export default function ContactPage() {
       <section className="mx-auto max-w-[640px] px-5 pb-32 md:px-8 md:pb-40">
         <form
           className="space-y-8"
-          action="#"
+          action="mailto:naman@trishalalaminates.in"
           method="post"
+          encType="text/plain"
         >
           {[
             { id: "name", label: "Name", type: "text" },
@@ -83,11 +84,11 @@ export default function ContactPage() {
         >
           Prefer email?{" "}
           <Link
-            href="mailto:info@trishalalaminates.com"
+            href="mailto:naman@trishalalaminates.in"
             className="font-semibold hover:text-[#00B140]"
             style={{ color: v1.ink.navy }}
           >
-            info@trishalalaminates.com
+            naman@trishalalaminates.in
           </Link>
         </p>
       </section>
