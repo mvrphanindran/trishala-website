@@ -18,6 +18,15 @@ export default function SiteFooter() {
             <address className="mt-0.5 not-italic">
               Plot No. 16/A, IDA Nacharam Road No. 9, IDA Nacharam, Hyderabad, Telangana 500076
             </address>
+
+            <div className="mt-2 space-y-0.5">
+              <Link href={`tel:${officialPhone.replace(/[^+\d]/g, "")}`} className="block hover:text-[#00B140]">
+                {officialPhone}
+              </Link>
+              <Link href={`mailto:${officialEmail}`} className="block hover:text-[#00B140]">
+                {officialEmail}
+              </Link>
+            </div>
           </div>
 
           <div className="min-w-0 text-[10px] leading-snug text-[#3D4A5C] md:text-[11px] md:text-center">
@@ -48,15 +57,9 @@ export default function SiteFooter() {
               />
             </Link>
 
-            <div className="text-[9px] leading-tight text-[#6B7585] md:text-right">
-              <Link href={`tel:${officialPhone.replace(/[^+\d]/g, "")}`} className="block hover:text-[#00B140]">
-                {officialPhone}
-              </Link>
-              <Link href={`mailto:${officialEmail}`} className="block hover:text-[#00B140]">
-                {officialEmail}
-              </Link>
-              <p>© Trishala Laminates. All Rights Reserved.</p>
-            </div>
+            <p className="text-[9px] leading-tight text-[#6B7585] md:text-right">
+              © Trishala Laminates. All Rights Reserved.
+            </p>
           </div>
         </div>
 
