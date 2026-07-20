@@ -4,7 +4,6 @@ import TextureBackdrop from "@/components/site/TextureBackdrop";
 import EmployeeHero from "@/components/digital-card/EmployeeHero";
 import QuickActions from "@/components/digital-card/QuickActions";
 import AboutCompany from "@/components/digital-card/AboutCompany";
-import CapabilityGrid from "@/components/digital-card/CapabilityGrid";
 import BrochureSection from "@/components/digital-card/BrochureSection";
 import SaveContactSection from "@/components/digital-card/SaveContactSection";
 import EnquirySection from "@/components/digital-card/EnquirySection";
@@ -56,7 +55,6 @@ export default async function CardPage({ params }: CardPageProps) {
           <EmployeeHero employee={employee} />
           <QuickActions employee={employee} />
           <AboutCompany />
-          <CapabilityGrid />
           <BrochureSection />
           <SaveContactSection />
           <EnquirySection />

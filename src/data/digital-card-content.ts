@@ -8,34 +8,6 @@ export const companyDescription = [
   "With a strong manufacturing foundation, modern infrastructure, and a commitment to continuous improvement, Trishala serves brands across FMCG, agriculture, snacks, spices, tea & coffee, personal care, household products, pet food, and specialty packaging segments.",
 ] as const;
 
-export const companyCapabilities = [
-  {
-    title: "Rotogravure Printing",
-    description:
-      "High-performance printing for vibrant, consistent output across flexible packaging substrates.",
-  },
-  {
-    title: "Lamination",
-    description:
-      "Solvent-based, solventless, and combi lamination for strong and reliable bonded structures.",
-  },
-  {
-    title: "Flexible Packaging",
-    description:
-      "Printed rolls and film structures engineered for dependable automated packing performance.",
-  },
-  {
-    title: "Pouches",
-    description:
-      "Conversion solutions for stand-up, zipper, spout, gusset, and center seal pouch formats.",
-  },
-  {
-    title: "Rollstock",
-    description:
-      "Production-ready printed rolls designed for sealing integrity, shelf appeal, and process consistency.",
-  },
-] as const;
-
 export const corporateOfficeAddress = [
   "Plot No. 16/A, IDA Nacharam Road No. 9,",
   "IDA Nacharam, Hyderabad, Telangana 500076",
