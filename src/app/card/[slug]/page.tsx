@@ -57,7 +57,7 @@ export default async function CardPage({ params }: CardPageProps) {
           <AboutCompany />
           <BrochureSection />
           <SaveContactSection slug={employee.slug} />
-          <EnquirySection />
+          <EnquirySection employee={employee} />
         </div>
 
         <CardFooter />
