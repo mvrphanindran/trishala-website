@@ -32,7 +32,7 @@ export default function HomeNavbar() {
         boxShadow: v1.shadow.soft,
       }}
     >
-      <div className="mx-auto grid h-[72px] max-w-[1600px] grid-cols-[minmax(140px,1fr)_auto_minmax(140px,1fr)] items-center gap-4 px-6 lg:h-[80px] lg:px-10">
+      <div className="mx-auto flex h-[72px] max-w-[1600px] items-center justify-between gap-4 px-6 lg:grid lg:grid-cols-[minmax(140px,1fr)_auto_minmax(140px,1fr)] lg:h-[80px] lg:px-10">
         <Link
           href="/"
           className="relative block h-[52px] w-[11.75rem] justify-self-start lg:h-14 lg:w-[13.25rem]"
@@ -84,7 +84,7 @@ export default function HomeNavbar() {
           </Link>
         </nav>
 
-        <div className="flex items-center justify-self-end gap-3">
+        <div className="flex items-center justify-self-end gap-3 lg:justify-self-end">
           <button
             type="button"
             className="flex h-10 w-10 items-center justify-center lg:hidden"
@@ -103,9 +103,9 @@ export default function HomeNavbar() {
               aria-hidden
             >
               {mobileOpen ? (
-                <path d="M6 6l12 12M18 6L6 18" />
+                <path d="M6 14l6-6 6 6" strokeLinecap="round" strokeLinejoin="round" />
               ) : (
-                <path d="M4 8h16M4 16h16" />
+                <path d="M6 10l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
               )}
             </svg>
           </button>

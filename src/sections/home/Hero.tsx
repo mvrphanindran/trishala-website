@@ -9,7 +9,7 @@ export default function Hero() {
   return (
     <section className="relative overflow-hidden">
       <div
-        className="pointer-events-none absolute inset-0"
+        className="pointer-events-none absolute inset-0 hidden md:block"
         style={{
           backgroundImage: `url(${HERO_BG})`,
           backgroundRepeat: "no-repeat",
@@ -22,7 +22,7 @@ export default function Hero() {
       />
 
       <div
-        className="pointer-events-none absolute inset-0"
+        className="pointer-events-none absolute inset-0 hidden md:block"
         style={{
           background:
             "linear-gradient(180deg, rgba(255,255,255,0.26) 0%, rgba(255,255,255,0.16) 35%, rgba(255,255,255,0.30) 100%)",
@@ -31,7 +31,7 @@ export default function Hero() {
       />
 
       <div
-        className="pointer-events-none absolute inset-0"
+        className="pointer-events-none absolute inset-0 hidden md:block"
         style={{
           background:
             "radial-gradient(ellipse 72% 54% at 50% 42%, rgba(255,255,255,0.10) 0%, transparent 72%)",
