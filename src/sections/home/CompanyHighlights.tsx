@@ -8,15 +8,11 @@ const highlights = [
     label: "Metric Tons Monthly Production",
   },
   {
-    value: "\u20B9250 Cr+",
-    label: "Annual Turnover",
-  },
-  {
     value: "250+",
     label: "Experienced & Skilled Workforce",
   },
   {
-    value: "75,000+",
+    value: "1,00,000+",
     label: "Sq Ft Production Facility",
   },
 ] as const;

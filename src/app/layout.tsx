@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import PointerGlow from "@/components/site/PointerGlow";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -113,6 +114,8 @@ export default function RootLayout({
         }}
       >
         {children}
+
+        <PointerGlow />
 
         <GoogleAnalytics gaId="G-SEZSH6GY71" />
       </body>

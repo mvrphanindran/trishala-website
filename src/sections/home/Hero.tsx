@@ -2,45 +2,13 @@ import Link from "next/link";
 import { brochureHref } from "@/lib/site-navigation";
 import { packagingSolutionsHref } from "@/lib/packaging-solutions-navigation";
 import { v1 } from "@/lib/v1-tokens";
-
-const HERO_BG = "/images/hero/hero-background.png";
+import HeroMotion from "./HeroMotion";
 
 export default function Hero() {
   return (
     <section className="relative overflow-hidden">
-      <div
-        className="pointer-events-none absolute inset-0 hidden md:block"
-        style={{
-          backgroundImage: `url(${HERO_BG})`,
-          backgroundRepeat: "no-repeat",
-          // Preserve the image aspect ratio and avoid zoom/crop behavior.
-          backgroundSize: "min(72vw, 980px) auto",
-          // Shift artwork further right while keeping it fully visible.
-          backgroundPosition: "right 2% center",
-        }}
-        aria-hidden
-      />
-
-      <div
-        className="pointer-events-none absolute inset-0 hidden md:block"
-        style={{
-          background:
-            "linear-gradient(180deg, rgba(255,255,255,0.26) 0%, rgba(255,255,255,0.16) 35%, rgba(255,255,255,0.30) 100%)",
-        }}
-        aria-hidden
-      />
-
-      <div
-        className="pointer-events-none absolute inset-0 hidden md:block"
-        style={{
-          background:
-            "radial-gradient(ellipse 72% 54% at 50% 42%, rgba(255,255,255,0.10) 0%, transparent 72%)",
-        }}
-        aria-hidden
-      />
-
-      <div className="relative z-10 px-5 py-14 md:px-8 md:py-16 lg:py-20">
-        <div className="md:ml-[8%] md:w-[480px] lg:w-[520px]">
+      <div className="relative z-10 mx-auto grid max-w-[1380px] items-center gap-8 px-5 py-14 md:grid-cols-2 md:gap-6 md:px-8 md:py-16 lg:grid-cols-[minmax(0,500px)_minmax(0,1fr)] lg:gap-8 lg:py-16 xl:grid-cols-[minmax(0,540px)_minmax(0,1fr)] xl:gap-16">
+        <div className="lg:pl-[6%]">
           <h1
             className="max-w-[38rem] text-left text-[clamp(2.25rem,5vw,4.75rem)] font-extrabold leading-[0.98] tracking-[-0.04em]"
             style={{ color: v1.ink.navy }}
@@ -86,6 +54,10 @@ export default function Hero() {
               Explore Solutions
             </Link>
           </div>
+        </div>
+
+        <div className="mx-auto w-full max-w-[560px] md:max-w-none">
+          <HeroMotion />
         </div>
       </div>
     </section>
