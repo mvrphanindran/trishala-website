@@ -27,3 +27,45 @@ body {
   color: var(--foreground);
   overflow-x: hidden;
 }
+
+/* Video player sliders (About page film) — green fill up to --fill */
+.trishala-range {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 18px;
+  background: transparent;
+  cursor: pointer;
+  touch-action: none;
+}
+.trishala-range::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(to right, #00b140 var(--fill, 0%), rgba(255, 255, 255, 0.35) var(--fill, 0%));
+}
+.trishala-range::-moz-range-track {
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(to right, #00b140 var(--fill, 0%), rgba(255, 255, 255, 0.35) var(--fill, 0%));
+}
+.trishala-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  margin-top: -5px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+.trishala-range::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border: 0;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+.trishala-range:focus-visible {
+  outline: 2px solid rgba(0, 177, 64, 0.7);
+  outline-offset: 2px;
+  border-radius: 4px;
+}

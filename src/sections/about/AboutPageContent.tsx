@@ -1,11 +1,11 @@
 "use client";
 
 import AboutHashScroll from "@/components/about/AboutHashScroll";
+import AboutVideo from "@/components/about/AboutVideo";
 import PageIntro from "@/components/site/PageIntro";
 import { brochureHref } from "@/lib/site-navigation";
 import { v1 } from "@/lib/v1-tokens";
 import Link from "next/link";
-import Image from "next/image";
 import { useMemo, useState } from "react";
 
 const purposeCards = [
@@ -295,19 +295,7 @@ export default function AboutPageContent() {
         </div>
       </section>
 
-      <section className="py-8 md:py-10 lg:py-12">
-        <div className="mx-auto max-w-[1380px] px-5 md:px-8">
-          <div className="relative aspect-[21/9] w-full overflow-hidden">
-            <Image
-              src="/images/capabilities/factory.png"
-              alt="Trishala Laminates Factory"
-              fill
-              sizes="100vw"
-              className="object-cover"
-            />
-          </div>
-        </div>
-      </section>
+      <AboutVideo />
     </>
   );
 }
