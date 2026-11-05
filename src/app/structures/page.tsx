@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageIntro from "@/components/site/PageIntro";
 import PageShell from "@/components/site/PageShell";
 import { laminateStructures } from "@/lib/catalog";
@@ -35,6 +37,14 @@ function StructureVisual({ layers }: { layers: readonly string[] }) {
     </div>
   );
 }
+
+export const metadata: Metadata = pageMetadata({
+  title: "Laminate Structures: Multilayer Packaging Films",
+  description:
+    "Multilayer laminate structures such as PET/PE, BOPP/PE, PET/MET PET/PE and PET/ALU foil/PE, chosen for moisture, oxygen and light barrier in packaging.",
+  path: "/structures",
+  keywords: ["multilayer laminates", "laminate structures", "PET PE laminate", "BOPP laminate", "aluminium foil laminate", "barrier films"],
+});
 
 export default function StructuresPage() {
   return (

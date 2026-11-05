@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import InfrastructureCapabilitySection from "@/components/infrastructure/InfrastructureCapabilitySection";
 import PageShell from "@/components/site/PageShell";
@@ -7,6 +9,14 @@ import {
   infrastructureHero,
 } from "@/lib/infrastructure-content";
 import { v1 } from "@/lib/v1-tokens";
+
+export const metadata: Metadata = pageMetadata({
+  title: "Infrastructure: Printing, Lamination, Pouching & Extrusion",
+  description:
+    "In-house rotogravure printing, solvent-based, solventless, extrusion and combi lamination, pouch making and PE blown film extrusion at our Telangana plant.",
+  path: "/infrastructure",
+  keywords: ["rotogravure printing", "lamination machine", "extrusion lamination", "PE blown film extrusion", "pouch making machine"],
+});
 
 export default function InfrastructurePage() {
   return (

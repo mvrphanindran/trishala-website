@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import QualityMachineSection from "@/components/quality/QualityMachineSection";
 import PageShell from "@/components/site/PageShell";
@@ -8,6 +10,14 @@ import {
   qualityMachines,
 } from "@/lib/quality-content";
 import { v1 } from "@/lib/v1-tokens";
+
+export const metadata: Metadata = pageMetadata({
+  title: "Quality Testing & Inspection Laboratory",
+  description:
+    "Our in-house quality lab tests flexible laminates and pouches with tensile, coefficient of friction, vacuum leak and colour matching equipment for consistent output.",
+  path: "/quality",
+  keywords: ["packaging quality testing", "laminate testing", "pouch leak testing"],
+});
 
 export default function QualityPage() {
   return (

@@ -1,44 +1,40 @@
-import { MetadataRoute } from 'next'
+import type { MetadataRoute } from "next";
+import { industriesNavigation } from "@/lib/industries-navigation";
+import { getPackagingApplicationItems } from "@/lib/packaging-applications-registry";
+import { SITE_URL } from "@/lib/seo";
 
+/** Every public page, so search engines and AI crawlers can find them all. */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://www.trishalalaminates.in'
+  const lastModified = new Date();
+  const page = (
+    path: string,
+    priority: number,
+    changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"] = "monthly",
+    images?: string[],
+  ): MetadataRoute.Sitemap[number] => ({
+    url: path === "/" ? SITE_URL : `${SITE_URL}${path}`,
+    lastModified,
+    changeFrequency,
+    priority,
+    ...(images ? { images: images.map((src) => `${SITE_URL}${src}`) } : {}),
+  });
 
   return [
-    {
-      url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/about`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/packaging-solutions`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/infrastructure`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/quality`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/contact`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-  ]
+    page("/", 1, "weekly"),
+    page("/packaging-solutions", 0.9, "weekly"),
+    page("/about", 0.9),
+    page("/industries", 0.9),
+    page("/infrastructure", 0.8),
+    page("/quality", 0.8),
+    page("/structures", 0.7),
+    page("/sustainable-practices", 0.6),
+    page("/contact", 0.8),
+    ...getPackagingApplicationItems().map((item) =>
+      page(`/applications/${item.slug}`, 0.8, "monthly", [item.image]),
+    ),
+    ...industriesNavigation.map((industry) => page(`/industries/${industry.slug}`, 0.8)),
+    ...industriesNavigation.flatMap((industry) =>
+      industry.segments.map((segment) => page(`/industries/${industry.slug}/${segment.slug}`, 0.6)),
+    ),
+  ];
 }

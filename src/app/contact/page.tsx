@@ -1,7 +1,16 @@
+import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import PageIntro from "@/components/site/PageIntro";
 import PageShell from "@/components/site/PageShell";
 import { v1 } from "@/lib/v1-tokens";
+
+export const metadata: Metadata = pageMetadata({
+  title: "Contact Us: Request a Packaging Quote",
+  description:
+    "Ask Trishala Laminates for a quote on printed laminate rolls and pouches. Call +91 93910 02657 or email naman@trishalalaminates.in. Office in Hyderabad, India.",
+  path: "/contact",
+});
 
 export default function ContactPage() {
   return (

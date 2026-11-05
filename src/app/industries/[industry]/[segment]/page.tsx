@@ -1,4 +1,7 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import JsonLd from "@/components/site/JsonLd";
+import { breadcrumbJsonLd, listText, pageMetadata } from "@/lib/seo";
 import IndustryVisual from "@/components/industries/IndustryVisual";
 import PageIntro from "@/components/site/PageIntro";
 import PageShell from "@/components/site/PageShell";
@@ -23,6 +26,26 @@ export function generateStaticParams() {
   );
 }
 
+export async function generateMetadata({ params }: SegmentPageProps): Promise<Metadata> {
+  const { industry: industrySlug, segment: segmentSlug } = await params;
+  const match = getSegmentBySlug(industrySlug, segmentSlug);
+  if (!match) return {};
+  const { industry, segment } = match;
+  const detail = getIndustryDetail(industry.slug);
+  const formats = detail ? listText(detail.recommendedPackagingFormats) : "laminate rolls and pouches";
+  const structures = detail ? ` in ${listText(detail.typicalMaterialStructures)} laminates` : "";
+  return pageMetadata({
+    title: `${segment.label} Packaging | ${industry.label}`,
+    description: `Flexible packaging for ${segment.label.toLowerCase()}: ${formats}${structures}, made by Trishala Laminates in Hyderabad, India.`,
+    path: `/industries/${industry.slug}/${segment.slug}`,
+    keywords: [
+      `${segment.label.toLowerCase()} packaging`,
+      `${segment.label.toLowerCase()} pouches`,
+      `${industry.label.toLowerCase()} packaging`,
+    ],
+  });
+}
+
 export default async function SegmentPage({ params }: SegmentPageProps) {
   const { industry: industrySlug, segment: segmentSlug } = await params;
   const match = getSegmentBySlug(industrySlug, segmentSlug);
@@ -37,6 +60,14 @@ export default async function SegmentPage({ params }: SegmentPageProps) {
 
   return (
     <PageShell warm>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          ["Home", "/"],
+          ["Industries", "/industries"],
+          [industry.label, `/industries/${industry.slug}`],
+          [segment.label, `/industries/${industry.slug}/${segment.slug}`],
+        ])}
+      />
       <PageIntro
         label={industry.label}
         title={segment.label}

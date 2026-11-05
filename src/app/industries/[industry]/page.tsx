@@ -1,8 +1,13 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import IndustryVisual from "@/components/industries/IndustryVisual";
+import JsonLd from "@/components/site/JsonLd";
+import PageIntro from "@/components/site/PageIntro";
 import PageShell from "@/components/site/PageShell";
+import { getIndustryDetail } from "@/lib/industry-detail-content";
+import { breadcrumbJsonLd, listText, pageMetadata, serviceJsonLd, snippet } from "@/lib/seo";
 import { getIndustryApplicationItems } from "@/lib/industry-application-links";
 import { getIndustryImage } from "@/lib/industry-images";
 import {
@@ -65,6 +70,27 @@ function ApplicationGallery({ industrySlug }: { industrySlug: string }) {
   );
 }
 
+export async function generateMetadata({ params }: IndustryPageProps): Promise<Metadata> {
+  const { industry: slug } = await params;
+  const industry = getIndustryBySlug(slug);
+  if (!industry) return {};
+  const detail = getIndustryDetail(slug);
+  return pageMetadata({
+    title: `${industry.label} Packaging Solutions`,
+    description: snippet(
+      detail?.overview ??
+        `Flexible packaging for ${industry.label}: ${listText(industry.segments.map((s) => s.label), 4)}.`,
+    ),
+    path: `/industries/${slug}`,
+    image: getIndustryImage(slug) ?? undefined,
+    keywords: [
+      `${industry.label.toLowerCase()} packaging`,
+      ...industry.segments.map((s) => `${s.label.toLowerCase()} packaging`),
+      ...(detail?.recommendedPackagingFormats ?? []).map((f) => f.toLowerCase()),
+    ],
+  });
+}
+
 export default async function IndustryPage({ params }: IndustryPageProps) {
   const { industry: industrySlug } = await params;
   const industry = getIndustryBySlug(industrySlug);
@@ -74,9 +100,24 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
   }
 
   const imageSrc = getIndustryImage(industry.slug);
+  const detail = getIndustryDetail(industry.slug);
+  const path = `/industries/${industry.slug}`;
 
   return (
     <PageShell warm>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          ["Home", "/"],
+          ["Industries", "/industries"],
+          [industry.label, path],
+        ])}
+      />
+      {detail ? (
+        <JsonLd
+          data={serviceJsonLd({ name: `${industry.label} packaging`, description: detail.overview, path })}
+        />
+      ) : null}
+      <PageIntro label="Industries" title={`${industry.label} Packaging`} description={detail?.overview} />
       <section className="mx-auto max-w-[1380px] px-5 pt-10 pb-10 md:px-8 md:pt-12 md:pb-12">
         {imageSrc ? (
           <IndustryVisual

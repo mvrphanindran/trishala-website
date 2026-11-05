@@ -130,10 +130,10 @@ const industryApplicationItems: Record<
     },
   ],
   "tea-and-coffee": [
-    { title: "Tea", href: "/applications/tea", image: getImage("tea-powder") },
+    { title: "Tea", href: "/applications/tea-powder", image: getImage("tea-powder") },
     {
       title: "Coffee",
-      href: "/applications/coffee",
+      href: "/applications/coffee-powder",
       image: getImage("coffee-powder"),
     },
   ],
@@ -180,7 +180,7 @@ const industryApplicationItems: Record<
   "pet-food": [
     {
       title: "Pet Food Packaging",
-      href: "/applications/pet-food-packaging",
+      href: "/applications/pet-food",
       image: getImage("pet-food"),
     },
   ],

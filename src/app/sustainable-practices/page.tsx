@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import ResponsibleManufacturingSection from "@/components/quality/ResponsibleManufacturingSection";
 import PageShell from "@/components/site/PageShell";
 import PageIntro from "@/components/site/PageIntro";
@@ -45,11 +46,12 @@ const longTermCommitmentPoints = [
   },
 ] as const;
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Sustainable Practices",
   description:
-    "Responsible manufacturing and sustainable operational practices supporting efficient flexible packaging production.",
-};
+    "Responsible flexible packaging manufacturing: process consistency, material optimisation, efficient resource use and continuous improvement at Trishala Laminates.",
+  path: "/sustainable-practices",
+});
 
 export default function SustainablePracticesPage() {
   return (
