@@ -1,0 +1,32 @@
+.wrap {
+  white-space: nowrap;
+}
+
+/* Once measured: paint the "i" only below the gap, hiding its own dot. */
+.letter[data-ready="true"] {
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(to bottom, transparent var(--cut), currentColor var(--cut));
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* Zero-size box sitting on the baseline, right after the letter. */
+.anchor {
+  position: relative;
+  display: inline-block;
+  width: 0;
+  height: 0;
+  vertical-align: baseline;
+}
+
+.wrap .dot {
+  display: none;
+  left: calc(var(--cx) - var(--size) / 2);
+  bottom: var(--bottom);
+  width: var(--size);
+  height: var(--size);
+}
+
+.letter[data-ready="true"] + .anchor .dot {
+  display: block;
+}

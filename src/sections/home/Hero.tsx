@@ -2,6 +2,7 @@ import Link from "next/link";
 import { brochureHref } from "@/lib/site-navigation";
 import { packagingSolutionsHref } from "@/lib/packaging-solutions-navigation";
 import { v1 } from "@/lib/v1-tokens";
+import DroppingI from "@/components/site/DroppingI";
 import HeroMotion from "./HeroMotion";
 
 export default function Hero() {
@@ -13,7 +14,7 @@ export default function Hero() {
             className="max-w-[38rem] text-left text-[clamp(2.25rem,5vw,4.75rem)] font-extrabold leading-[0.98] tracking-[-0.04em]"
             style={{ color: v1.ink.navy }}
           >
-            This Time,
+            Th<DroppingI delay={0.6} />s T<DroppingI delay={0.85} />me,
             <br />
             Judge A Book
             <br />

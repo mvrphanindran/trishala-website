@@ -1,0 +1,110 @@
+/* Falling green dot with a splash. Timeline (after --delay):
+   fall 0–0.48s, impact at 0.48s, settled by 1.15s. */
+.slot {
+  position: absolute;
+  display: block;
+  pointer-events: none;
+}
+
+.dot {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #7dc900;
+  transform-origin: 50% 100%;
+}
+
+.ring,
+.drop {
+  display: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .dot {
+    animation: dotDrop 1.15s var(--delay, 0.3s) both;
+  }
+
+  .ring {
+    display: block;
+    position: absolute;
+    left: -60%;
+    right: -60%;
+    bottom: -18%;
+    height: 50%;
+    border: max(1px, 0.06em) solid #7dc900;
+    border-radius: 50%;
+    opacity: 0;
+    animation: ringOut 0.7s calc(var(--delay, 0.3s) + 0.48s) cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .drop {
+    display: block;
+    position: absolute;
+    left: 31%;
+    bottom: 0;
+    width: 38%;
+    height: 38%;
+    border-radius: 50%;
+    background: #7dc900;
+    opacity: 0;
+    animation: dropFly 0.6s calc(var(--delay, 0.3s) + 0.48s) cubic-bezier(0.2, 0.7, 0.4, 1) both;
+  }
+}
+
+@keyframes dotDrop {
+  0% {
+    transform: translateY(var(--fall, -80px)) scale(0.88, 1.18);
+    animation-timing-function: cubic-bezier(0.55, 0, 1, 0.45); /* gravity */
+  }
+  42% {
+    transform: translateY(0) scale(0.88, 1.18);
+    animation-timing-function: ease-out;
+  }
+  50% {
+    transform: translateY(0) scale(1.5, 0.55); /* splat */
+    animation-timing-function: ease-out;
+  }
+  62% {
+    transform: translateY(-60%) scale(0.92, 1.1);
+    animation-timing-function: ease-in;
+  }
+  74% {
+    transform: translateY(0) scale(1.14, 0.86);
+    animation-timing-function: ease-out;
+  }
+  86% {
+    transform: translateY(0) scale(0.97, 1.03);
+  }
+  100% {
+    transform: none;
+  }
+}
+
+@keyframes ringOut {
+  0% {
+    transform: scale(0.4);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+@keyframes dropFly {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  50% {
+    transform: translate(calc(var(--dx) * 0.6), var(--dy)) scale(0.85);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--dx), calc(var(--dy) * -0.15)) scale(0.35);
+    opacity: 0;
+  }
+}

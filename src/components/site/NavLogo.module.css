@@ -1,0 +1,38 @@
+/* Layer positions: percentages of the original 1360 × 436 logo artwork. */
+.logo {
+  position: relative;
+  height: 100%;
+  aspect-ratio: 1360 / 436;
+}
+
+.mark {
+  position: absolute;
+  /* square centred on the pinwheel hub (212, 213), 432px across */
+  left: -0.294%;
+  top: -0.688%;
+  width: 31.765%;
+  height: 99.083%;
+  transform-origin: 50% 50%;
+  will-change: transform;
+}
+
+.wordmark {
+  position: absolute;
+  left: 35.147%;
+  top: 18.119%;
+  width: 63.309%;
+  height: 67.661%;
+}
+
+.mark img,
+.wordmark img {
+  user-select: none;
+}
+
+/* The dot of the "i": centre (767.6, 99.1), 42px across (animation in DotDrop) */
+.dotSlot {
+  left: 54.897%;
+  top: 17.913%;
+  width: 3.088%;
+  height: 9.633%;
+}

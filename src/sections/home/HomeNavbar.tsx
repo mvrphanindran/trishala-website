@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
+import NavLogo from "@/components/site/NavLogo";
 import { useState } from "react";
 import AboutUsDropdown, {
   AboutUsMobileAccordion,
@@ -35,16 +35,10 @@ export default function HomeNavbar() {
       <div className="mx-auto flex h-[72px] max-w-[1600px] items-center justify-between gap-4 px-6 lg:grid lg:grid-cols-[minmax(140px,1fr)_auto_minmax(140px,1fr)] lg:h-[80px] lg:px-10">
         <Link
           href="/"
+          aria-label="Trishala Laminates home"
           className="relative block h-[52px] w-[11.75rem] justify-self-start lg:h-14 lg:w-[13.25rem]"
         >
-          <Image
-            src="/images/logo/trishala-logo-v2.png"
-            alt="Trishala Laminates"
-            fill
-            sizes="(max-width: 1024px) 188px, 212px"
-            className="object-contain object-left"
-            priority
-          />
+          <NavLogo />
         </Link>
 
         <nav
