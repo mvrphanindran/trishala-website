@@ -220,8 +220,12 @@ export function siteJsonLd() {
             "Rotogravure printing",
             "Solvent-based, solventless and extrusion lamination",
           ].map((name) => ({
+            // Named offers, deliberately without a nested "@type": "Product":
+            // Google requires a price, reviews or a rating on every Product,
+            // and Trishala's packaging is made to order and quoted per job.
             "@type": "Offer",
-            itemOffered: { "@type": "Product", name, brand: { "@id": ORG_ID } },
+            name,
+            offeredBy: { "@id": ORG_ID },
           })),
         },
       },
