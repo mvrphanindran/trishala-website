@@ -24,6 +24,7 @@ export default function ContactPage() {
 
       <section className="mx-auto max-w-[640px] px-5 pb-32 md:px-8 md:pb-40">
         <form
+          id="contact-page-form"
           className="space-y-8"
           action="mailto:naman@trishalalaminates.in"
           method="post"

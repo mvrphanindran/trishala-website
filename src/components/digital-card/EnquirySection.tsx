@@ -69,7 +69,7 @@ export default function EnquirySection({ employee }: EnquirySectionProps) {
           Send An Enquiry
         </h2>
 
-        <form onSubmit={handleSubmit} className="mt-5 space-y-5 rounded-2xl bg-white p-6" style={{ boxShadow: v1.shadow.soft }}>
+        <form id="digital-card-enquiry" onSubmit={handleSubmit} className="mt-5 space-y-5 rounded-2xl bg-white p-6" style={{ boxShadow: v1.shadow.soft }}>
           <div className="grid gap-4 md:grid-cols-2">
             {fields.map((field) => (
               <div key={field.id}>

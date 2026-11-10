@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import ContactTracking from "@/components/site/ContactTracking";
 import JsonLd from "@/components/site/JsonLd";
 import PointerGlow from "@/components/site/PointerGlow";
 import { OG_IMAGE, SITE_DESCRIPTION, SITE_NAME, SITE_URL, siteJsonLd, siteKeywords } from "@/lib/seo";
@@ -74,6 +75,8 @@ export default function RootLayout({
         {children}
 
         <PointerGlow />
+
+        <ContactTracking />
 
         <GoogleAnalytics gaId="G-SEZSH6GY71" />
       </body>
