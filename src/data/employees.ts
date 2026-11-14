@@ -24,6 +24,22 @@ export const employees: readonly Employee[] = [
     email: "pavan@trishalalaminates.in",
     photo: "/employees/pavan-surana.jpg",
   },
+  {
+    slug: "mvr-phanindran",
+    name: "M.V.R. Phanindran",
+    designation: "Marketing Executive",
+    phone: "+91 81797 77175",
+    email: "phani.trishala@gmail.com",
+    photo: "/employees/mvr-phanindran.jpg",
+  },
+  {
+    slug: "p-akhila",
+    name: "P. Akhila",
+    designation: "Marketing Executive",
+    phone: "+91 89199 38534",
+    email: "akhila.trishala@gmail.com",
+    photo: "/employees/p-akhila.jpg",
+  },
 ] as const;
 
 export function getEmployeeBySlug(slug: string) {
